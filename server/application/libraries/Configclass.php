@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Configclass {
 
     // AppID(小程序ID)
-    public $wxAppID = 'wx432a86107ed3814a';
+    public $wxAppID = 'wx6516385261fa963a';
 
     // AppSecret(小程序密钥) 
-    public $wxAPPSecret = '24d2f33bf8bebfdbe4ae9f9966f27ccc';
+    public $wxAPPSecret = 'dc9823245780a506e679a121bb535e0b';
 
     // 微信支付商户号
     public $mch_id = '1502775551';
@@ -23,12 +23,12 @@ class Configclass {
         [
             'id'          => 'X',
             'right_name'  => '职位管理',
-            'right_route' => '/pages/Admin/Authority/updatePower/index'
+            'right_route' => '/pages/Admin/...'
         ],
         [
             'id'          => 'A',
             'right_name'  => '管理列表',
-            'right_route' => '/pages/Admin/Management/updateManage/index'
+            'right_route' => '/pages/Admin/...'
         ]
     ];
 

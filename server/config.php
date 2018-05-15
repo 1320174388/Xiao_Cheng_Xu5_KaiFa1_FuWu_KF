@@ -7,7 +7,7 @@ $config = [
     'rootPath' => '',
 
     // 微信小程序 AppID
-    'appId' => 'wx432a86107ed3814a',
+    'appId' => 'wx6516385261fa963a',
 
     // 微信小程序 AppSecret
     'appSecret' => '',
@@ -25,7 +25,7 @@ $config = [
         'port' => 3306,
         'user' => 'root',
         'db'   => 'cAuth',
-        'pass' => 'DLwrfpq7',
+        'pass' => 'wx6516385261fa963a',
         'char' => 'utf8mb4'
     ],
 
