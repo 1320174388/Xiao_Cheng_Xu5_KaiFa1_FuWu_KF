@@ -6,7 +6,7 @@
         <!--轮播图  -->
         <swiper class='swiper_wrapper' autoplay='true' indicator-dots='true' indicator-color="rgba(181,181,181,1)" indicator-active-color='rgba(232,116,143,1)' interval='3000' circular='true'>
             <!--轮播图单个容器  -->
-            <swiper-item wx:for="{{swiper_imgUrl}}">
+            <swiper-item wx:for="{{swiper_imgUrl}}" wx:key="index">
                 <!--图片  -->
                 <image src='{{item}}' class='slide-image'></image>
             </swiper-item>
@@ -15,7 +15,7 @@
     <!--icon图标容器  -->
     <view class='icon_container'>
       <!--单个icon图标容器  -->
-      <view class='icon' wx:for="{{icon}}">
+      <view class='icon' wx:for="{{icon}}" wx:key="index">
         <!--icon图标的图片  -->
         <image src='{{item.imgUrl}}' class='icon_img'></image>
         <!--icon图标的文字  -->
