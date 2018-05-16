@@ -27,20 +27,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "展示页面",
-					"pathName": "pages/product/product",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "预约样式",
-					"pathName": "pages/Subscribe3/Subscribe3",
-					"query": ""
-				}
-			]
+			"list": []
 		}
 	}
 }
