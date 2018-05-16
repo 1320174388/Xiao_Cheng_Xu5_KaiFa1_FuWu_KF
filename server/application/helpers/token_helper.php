@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 function token() {
-    $number = mt_rand(1000,9999);
+    $number = mt_rand(10000,99999);
     $date = date(time());
     $newStr = token_string_name();
     return md5($number.$newStr.$date);
