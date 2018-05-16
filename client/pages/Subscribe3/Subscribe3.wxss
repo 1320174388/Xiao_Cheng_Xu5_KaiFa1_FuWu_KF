@@ -1,0 +1,38 @@
+/* pages/Subscribe3/Subscribe3.wxss */
+
+page {
+  background-color: #fff0f5;
+}
+
+.two {
+  position: fixed;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*垂直居中*/
+  justify-content: center; /*水平居中*/
+}
+
+.yu_wc {
+   margin : 40px 0px 0px 0px;
+  width: 100%;
+  background-color: #e8748f;
+  color: white;
+  border: 2px solid;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+.ys {
+  margin:50px 0px 0px 0px;
+width:300px;
+height:25px;
+border:1px solid #cccccc;
+background-color:white;
+border-radius:25px;
+font-size:15px;
+display:block;
+padding:5px 10px;
+
+}
