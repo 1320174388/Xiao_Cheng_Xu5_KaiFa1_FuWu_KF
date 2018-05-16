@@ -4,7 +4,6 @@
     <list default="true" id="90cd9bda-d596-40aa-bc5b-59b5959e6c72" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" afterPath="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" />
-      <change beforePath="$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php" afterPath="$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,13 +30,13 @@
       <file leaf-file-name="My_Service_Config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2761">
-              <caret line="145" column="30" lean-forward="true" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
+            <state relative-caret-position="506">
+              <caret line="145" column="30" lean-forward="false" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
               <folding>
-                <marker date="1526478310883" expanded="true" signature="504:552" ph="insert into $... " />
-                <marker date="1526478310883" expanded="true" signature="710:747" ph="delete from $... " />
-                <marker date="1526478310883" expanded="true" signature="972:993" ph="select ${{$f... " />
-                <marker date="1526478310883" expanded="true" signature="1325:1356" ph="insert into $... " />
+                <marker date="1526486132038" expanded="true" signature="504:552" ph="insert into $... " />
+                <marker date="1526486132038" expanded="true" signature="710:747" ph="delete from $... " />
+                <marker date="1526486132038" expanded="true" signature="972:993" ph="select ${{$f... " />
+                <marker date="1526486132038" expanded="true" signature="1325:1356" ph="insert into $... " />
               </folding>
             </state>
           </provider>
@@ -46,8 +45,8 @@
       <file leaf-file-name="Set_Service_Config.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-442">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="100" column="27" lean-forward="true" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -114,7 +113,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,6 +204,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -247,16 +246,17 @@
       <workItem from="1526369161188" duration="2354000" />
       <workItem from="1526450138516" duration="18856000" />
       <workItem from="1526474430626" duration="5277000" />
+      <workItem from="1526492623979" duration="2584000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28457000" />
+    <option name="totallyTimeSpent" value="31041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647504" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -298,6 +298,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3770">
+          <caret line="145" column="30" lean-forward="true" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
+          <folding>
+            <marker date="1526486132038" expanded="true" signature="504:552" ph="insert into $... " />
+            <marker date="1526486132038" expanded="true" signature="710:747" ph="delete from $... " />
+            <marker date="1526486132038" expanded="true" signature="972:993" ph="select ${{$f... " />
+            <marker date="1526486132038" expanded="true" signature="1325:1356" ph="insert into $... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="962">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/application/core/MY_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2002">
@@ -311,10 +340,10 @@
         <state relative-caret-position="1794">
           <caret line="69" column="59" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
           <folding>
-            <marker date="1526478310883" expanded="true" signature="504:552" ph="insert into $... " />
-            <marker date="1526478310883" expanded="true" signature="710:747" ph="delete from $... " />
-            <marker date="1526478310883" expanded="true" signature="972:993" ph="select ${{$f... " />
-            <marker date="1526478310883" expanded="true" signature="1325:1356" ph="insert into $... " />
+            <marker date="1526486132038" expanded="true" signature="504:552" ph="insert into $... " />
+            <marker date="1526486132038" expanded="true" signature="710:747" ph="delete from $... " />
+            <marker date="1526486132038" expanded="true" signature="972:993" ph="select ${{$f... " />
+            <marker date="1526486132038" expanded="true" signature="1325:1356" ph="insert into $... " />
           </folding>
         </state>
       </provider>
@@ -453,21 +482,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2761">
-          <caret line="145" column="30" lean-forward="true" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
+        <state relative-caret-position="506">
+          <caret line="145" column="30" lean-forward="false" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
           <folding>
-            <marker date="1526478310883" expanded="true" signature="504:552" ph="insert into $... " />
-            <marker date="1526478310883" expanded="true" signature="710:747" ph="delete from $... " />
-            <marker date="1526478310883" expanded="true" signature="972:993" ph="select ${{$f... " />
-            <marker date="1526478310883" expanded="true" signature="1325:1356" ph="insert into $... " />
+            <marker date="1526486132038" expanded="true" signature="504:552" ph="insert into $... " />
+            <marker date="1526486132038" expanded="true" signature="710:747" ph="delete from $... " />
+            <marker date="1526486132038" expanded="true" signature="972:993" ph="select ${{$f... " />
+            <marker date="1526486132038" expanded="true" signature="1325:1356" ph="insert into $... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="100" column="27" lean-forward="true" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="27" />
           <folding />
         </state>
       </provider>
