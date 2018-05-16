@@ -2,55 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90cd9bda-d596-40aa-bc5b-59b5959e6c72" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/app.js" afterPath="$PROJECT_DIR$/client/app.js" />
-      <change beforePath="$PROJECT_DIR$/client/config.js" afterPath="$PROJECT_DIR$/client/config.js" />
-      <change beforePath="$PROJECT_DIR$/server/application/helpers/token_helper.php" afterPath="$PROJECT_DIR$/server/application/helpers/token_helper.php" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/foods/default.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/foods/default_table.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/cai1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/cai2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/dfood.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/demo.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/demo_fontclass.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/demo_symbol.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/demo_unicode.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/iconfont.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/iconfont.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/iconfont.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/iconfont.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/iconfont.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/download/font_y1gb065bhiau4n29/iconfont.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/home.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/home1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/iconfont.wxss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/mana.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/manage (1).png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/manage (2).png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/map.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/menu.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/my.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/my1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/order.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/order1 (2).png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/order1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/pic.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/setfood.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/time.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/uppic.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/地址 (2).png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/扫码.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/时间.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/icon/管理.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/shops/default.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/shops/default_table.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/shops/desk.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/server/uploads/table_number_img/default.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" afterPath="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" />
+      <change beforePath="$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php" afterPath="$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,44 +17,37 @@
     <pharConfigPath>$PROJECT_DIR$/server/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="MY_Controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/application/core/MY_Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="416">
               <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="My_Service_Config.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="My_Service_Config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="69" column="59" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+            <state relative-caret-position="2761">
+              <caret line="145" column="30" lean-forward="true" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
               <folding>
-                <marker date="1526471593469" expanded="true" signature="532:580" ph="insert into $... " />
-                <marker date="1526471593469" expanded="true" signature="532:736" ph="insert into $... " />
-                <marker date="1526471593469" expanded="true" signature="593:659" ph="/** * 名称: de... " />
-                <marker date="1526471593469" expanded="true" signature="738:750" ph="delete from $... " />
-                <marker date="1526471593469" expanded="true" signature="738:775" ph="delete from $... " />
-                <marker date="1526471593469" expanded="true" signature="738:785" ph="delete from $... " />
-                <marker date="1526471593469" expanded="true" signature="744:750" ph="select ${{$f... " />
-                <marker date="1526471593469" expanded="true" signature="1000:1020" ph="select {} fr... " />
-                <marker date="1526471593469" expanded="true" signature="1000:1021" ph="select ${{$f... " />
-                <marker date="1526471593469" expanded="true" signature="1000:1039" ph="select ${{$f... " />
-                <marker date="1526471593469" expanded="true" signature="1353:1384" ph="insert into $... " />
+                <marker date="1526478310883" expanded="true" signature="504:552" ph="insert into $... " />
+                <marker date="1526478310883" expanded="true" signature="710:747" ph="delete from $... " />
+                <marker date="1526478310883" expanded="true" signature="972:993" ph="select ${{$f... " />
+                <marker date="1526478310883" expanded="true" signature="1325:1356" ph="insert into $... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Set_Service_Config.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Set_Service_Config.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="-442">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,8 +72,8 @@
         <option value="$PROJECT_DIR$/server/application/libraries/Configclass.php" />
         <option value="$PROJECT_DIR$/server/application/models/admin/My_Service_Config.php" />
         <option value="$PROJECT_DIR$/server/application/helpers/token_helper.php" />
-        <option value="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" />
         <option value="$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php" />
+        <option value="$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php" />
       </list>
     </option>
   </component>
@@ -166,6 +113,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,8 +206,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,16 +246,17 @@
       <workItem from="1526361232965" duration="1970000" />
       <workItem from="1526369161188" duration="2354000" />
       <workItem from="1526450138516" duration="18856000" />
+      <workItem from="1526474430626" duration="5277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23180000" />
+    <option name="totallyTimeSpent" value="28457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -316,10 +264,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -329,6 +276,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +290,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/server/application/core/MY_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2002">
+          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1794">
+          <caret line="69" column="59" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+          <folding>
+            <marker date="1526478310883" expanded="true" signature="504:552" ph="insert into $... " />
+            <marker date="1526478310883" expanded="true" signature="710:747" ph="delete from $... " />
+            <marker date="1526478310883" expanded="true" signature="972:993" ph="select ${{$f... " />
+            <marker date="1526478310883" expanded="true" signature="1325:1356" ph="insert into $... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/application/models/home/Food_list.php" />
     <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/home/FoodClass.php" />
     <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/home/PlaceOrder.php" />
@@ -369,7 +346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -384,7 +360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -392,7 +367,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -400,7 +374,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -408,7 +381,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -416,7 +388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="182" column="38" lean-forward="false" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -424,7 +395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -432,7 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="91" column="47" lean-forward="false" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -464,7 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -472,43 +440,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/application/core/MY_Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="416">
           <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/application/models/Config/My_Service_Config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="69" column="59" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+        <state relative-caret-position="2761">
+          <caret line="145" column="30" lean-forward="true" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
           <folding>
-            <marker date="1526471593469" expanded="true" signature="532:580" ph="insert into $... " />
-            <marker date="1526471593469" expanded="true" signature="532:736" ph="insert into $... " />
-            <marker date="1526471593469" expanded="true" signature="593:659" ph="/** * 名称: de... " />
-            <marker date="1526471593469" expanded="true" signature="738:750" ph="delete from $... " />
-            <marker date="1526471593469" expanded="true" signature="738:775" ph="delete from $... " />
-            <marker date="1526471593469" expanded="true" signature="738:785" ph="delete from $... " />
-            <marker date="1526471593469" expanded="true" signature="744:750" ph="select ${{$f... " />
-            <marker date="1526471593469" expanded="true" signature="1000:1020" ph="select {} fr... " />
-            <marker date="1526471593469" expanded="true" signature="1000:1021" ph="select ${{$f... " />
-            <marker date="1526471593469" expanded="true" signature="1000:1039" ph="select ${{$f... " />
-            <marker date="1526471593469" expanded="true" signature="1353:1384" ph="insert into $... " />
+            <marker date="1526478310883" expanded="true" signature="504:552" ph="insert into $... " />
+            <marker date="1526478310883" expanded="true" signature="710:747" ph="delete from $... " />
+            <marker date="1526478310883" expanded="true" signature="972:993" ph="select ${{$f... " />
+            <marker date="1526478310883" expanded="true" signature="1325:1356" ph="insert into $... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/application/controllers/v1/admin/Set_Service_Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

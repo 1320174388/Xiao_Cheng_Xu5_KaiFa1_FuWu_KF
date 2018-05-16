@@ -8,11 +8,8 @@
 class Set_Service_Config extends LoginController
 {
 
-    /**
-     * 名称: __construct()
-     * 功能: 加载父类构造函数、加载本类控制器需要使用类库文件、加载Model模型类
-     */
-       public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Config/My_Service_Config');
         $this->load->helper('token');
@@ -30,7 +27,7 @@ class Set_Service_Config extends LoginController
     {
         $the_first_map = $this->input->post('the_first_map');
 
-        if($the_first_map){
+        if($the_first_map == 1){
             $this->My_Service_Config->delete_service_config('config_type = \'sowing_map\'');
             deldir('./uploads/sowingmap');
         }
@@ -76,9 +73,9 @@ class Set_Service_Config extends LoginController
 
         $product_data_Arr = $this->product_data_Arr($product_key_Arr);
 
-        $res = $this->My_Service_Config->insert_service_config($product_data_Arr);
+        $this->My_Service_Config->delete_service_config('config_type = \'product_key\'');
 
-        return $this->json($res);
+        $res = $this->My_Service_Config->insert_service_config($product_data_Arr);
 
         if($res){
             return return_response( 0, '添加成功');

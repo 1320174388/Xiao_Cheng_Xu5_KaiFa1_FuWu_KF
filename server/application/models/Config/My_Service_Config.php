@@ -25,8 +25,6 @@ class My_Service_Config extends CI_Model
     {
         $query_sql = $this->insert_data_arr($values);
 
-        return $query_sql;
-
         return $this->CI->db->query($query_sql);
     }
 
@@ -67,11 +65,11 @@ class My_Service_Config extends CI_Model
     {
         $query_sql = "insert into {$this->tableName}(";
 
-        $query_sql .= $this->insert_data_arr_key1($values);
+        $query_sql .= $this->insert_data_arr_key($values);
 
         $query_sql .= ') values(';
 
-        $query_sql .= $this->insert_data_arr_values1($values);
+        $query_sql .= $this->insert_data_arr_values($values);
 
         $query_sql .= ')';
 
@@ -79,11 +77,11 @@ class My_Service_Config extends CI_Model
     }
 
     /**
-     * 名称: insert_data_arr_key1()
+     * 名称: insert_data_arr_key()
      * 功能: 处理数组信息的字段名
      * 参数: array()
      */
-    private function insert_data_arr_key1($values)
+    private function insert_data_arr_key($values,$num = 0)
     {
         $query_sql = '';
         foreach($values as $k=>$v)
@@ -91,66 +89,67 @@ class My_Service_Config extends CI_Model
             if(is_array($v)){
                 foreach($v as $key=>$value)
                 {
-                    $query_sql .= $this->insert_data_arr_key2($key);
+                    if($num == 1){
+                        $query_sql .= ','.$key;
+                    } else {
+                        $query_sql .= $key;
+                        $num++;
+                    }
                 }
                 return $query_sql;
             }else{
-                $query_sql .= $this->insert_data_arr_key2($v);
+                if($num == 1){
+                    $query_sql .= ','.$k;
+                } else {
+                    $query_sql .= $k;
+                    $num++;
+                }
             }
         }
         return $query_sql;
     }
 
     /**
-     * 名称: insert_data_arr_key2()
-     * 功能: 处理数组信息的字段名
-     */
-    private function insert_data_arr_key2($key,$num = 0)
-    {
-        $query_sql = '';
-        if($num == 1){
-            $query_sql .= ','.$key;
-        } else {
-            $query_sql .= $key;
-            $num++;
-        }
-        return $query_sql;
-    }
-
-    /**
-     * 名称: insert_data_arr_values1()
+     * 名称: insert_data_arr_values()
      * 功能: 处理数组信息的数据
      */
-    public function insert_data_arr_values1($values)
+    public function insert_data_arr_values($values,$num = 0,$number = 1)
     {
         $query_sql = '';
 
         foreach($values as $k=>$v)
         {
             if(is_array($v)){
-                foreach($v as $key=>$value) {
-                    $query_sql .= $this->insert_data_arr_values2($value);
+                if($num >= 2){
+                    $query_sql .= '),(';
+                    foreach($v as $key=>$value) {
+                        if($number == $num){
+                            $query_sql .= ','.'\''.$value.'\'';
+                        } else {
+                            $query_sql .= '\''.$value.'\'';
+                            $number++;
+                        }
+                    }
+                    $num++;
+                } else {
+                    foreach($v as $key=>$value) {
+                        if($num == 1){
+                            $query_sql .= ','.'\''.$value.'\'';
+                        } else {
+                            $query_sql .= '\''.$value.'\'';
+                            $num++;
+                        }
+                    }
+                    $num++;
                 }
-                $query_sql .= '),(';
             }else{
-                $query_sql .= $this->insert_data_arr_values2($v);
+                if($num == 1){
+                    $query_sql .= ','.'\''.$v.'\'';
+                } else {
+                    $query_sql .= '\''.$v.'\'';
+                    $num++;
+                }
             }
-        }
-        return $query_sql;
-    }
-
-    /**
-     * 名称: insert_data_arr_values2()
-     * 功能: 处理数组信息的数据
-     */
-    private function insert_data_arr_values2($value,$num = 0)
-    {
-        $query_sql = '';
-        if($num == 1){
-            $query_sql .= ','.'\''.$value.'\'';
-        } else {
-            $query_sql .= '\''.$value.'\'';
-            $num++;
         }
         return $query_sql;
     }
