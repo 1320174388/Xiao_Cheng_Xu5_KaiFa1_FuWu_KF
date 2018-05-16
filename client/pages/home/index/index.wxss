@@ -1,0 +1,184 @@
+/* pages/home/index/index.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #f3f3f3;
+}
+.swiper_wrapper{
+  width: 750rpx;
+  height: 367rpx;
+}
+.slide-image{
+  width: 100%;
+}
+.icon_container{
+  display: flex;
+  justify-content:space-around;
+  padding-top: 40rpx;
+  padding-bottom: 30rpx;
+  margin-bottom: 28rpx;
+  background: #ffffff;
+}
+.icon{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.icon_img{
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 15rpx;
+}
+.icon_text{
+  font-size: 25rpx;
+  color: #888888;
+}
+.Qiye_video_container{
+  
+  margin-bottom: 23rpx;
+  background: #f3f3f3;
+}
+.Qiye_video_title{
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  font-size: 36rpx;
+  padding: 15rpx 0;
+}
+.hong{
+  width: 7rpx;
+  height: 45rpx;
+  background: #E8748F;
+  margin-right: 32rpx;
+}
+.qiye_shipin{
+  width: 100%;
+  height: 425rpx;
+}
+.Aimeili_container{
+  background: #ffffff;
+}
+.Aimeili_title{
+  background-repeat: no-repeat;
+  background-size: 431rpx 48rpx;
+  background-position: 50% 50%;
+  width: 750rpx;
+  height: 134rpx;
+}
+.Chinese{
+  font-size: 36rpx;
+  width: 256rpx;
+  text-align: center;
+  margin-left: 190rpx;
+  padding-top: 20rpx;
+}
+.English{
+  margin-left: 290rpx;
+  font-size: 28rpx;
+  color: #9b9b9b;
+  width: 294rpx;
+  text-align: center;
+}
+.tuwen_content{
+  display: flex;
+  flex-grow: 1;
+  padding: 0 44rpx;
+}
+.Aimeili_img{
+  width: 280rpx;
+  height: 240rpx;
+}
+.text_container{
+  width: 380rpx;
+  text-align: center;
+  padding-top: 80rpx;
+}
+.btn_container{
+  width: 100%;
+  padding-top: 30rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 28rpx;
+}
+.liaojie{
+  width: 220rpx;
+  height: 44rpx;
+  border-radius: 0;
+  font-size: 26rpx;
+  line-height: 34rpx;
+}
+.tupian_container{
+  padding: 0 44rpx 30rpx;
+  margin-bottom: 28rpx;
+}
+.konggu{
+  width: 100%;
+  height: 420rpx;
+}
+.Meili_container{
+  background: #ffffff;
+  margin-bottom: 28rpx;
+}
+.Meili_tuwen_container{
+  padding: 15rpx 60rpx 0 43rpx;
+}
+.Meili_tuwen_shang{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40rpx;
+  border-bottom: solid #9b9b9b 1px;
+}
+.Meili_tupian{
+  width: 236rpx;
+  height: 340rpx;
+
+}
+.Meili_text{
+  width: 392rpx;
+  padding: 20rpx 0 0 24rpx;
+}
+.Meili_text_up{
+  font-size: 32rpx;
+  color: #303030;
+}
+.Meili_text_down{
+  font-size: 28rpx;
+  color: #9b9b9b;
+}
+.Meili_tuwen_xia{
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 30rpx;
+}
+.rexian_dizhi_container{
+  background: #ffffff;
+  margin-bottom: 28rpx;
+}
+.rexian_container{
+  height: 114rpx;
+  padding: 0 146rpx 0 24rpx;
+  font-size: 28rpx;
+  color: #303030;
+  line-height: 114rpx;
+  display: flex;
+  border-bottom: solid #9b9b9b 1px;
+}
+.rexian_phone_img{
+  width: 35rpx;
+  height: 39rpx;
+  margin-top: 40rpx;
+  margin-right: 17rpx;
+}
+.dizhi_address_img{
+  width: 42rpx;
+  height: 41rpx;
+  margin-top: 16rpx;
+  margin-right: 17rpx;
+}
+.dizhi_container{
+  border: none;
+  line-height: 40rpx;
+  height: 100rpx;
+  padding-top: 20rpx;
+}
