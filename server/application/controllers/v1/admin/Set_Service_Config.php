@@ -126,6 +126,78 @@ class Set_Service_Config extends LoginController
     }
 
     /**
+     * 名称: Del_Config_Notice_Image()
+     * 参数: notice_index 发送当前要删除图片的 config_index 标识
+     */
+    public function Del_Config_Notice_Image()
+    {
+        $notice_index = $this->input->post('notice_index');
+
+        if(!$notice_index){
+            return return_response( 2, '没有发送图片标识');
+        }
+
+        $res = $this->My_Service_Config->delete_service_config("config_index = '{$notice_index}'");
+
+        if($res){
+            return return_response( 0, '删除成功');
+        }else{
+            return return_response( 3, '删除失败');
+        }
+
+    }
+
+    /**
+     * 名称: Set_Config_Config_Details()
+     * 参数: config_phone 电话号码
+     * 参数: config_address 地址
+     */
+    public function Set_Config_Config_Details()
+    {
+        $config_phone = $this->input->post('config_phone');
+
+        if(!$config_phone){
+            return return_response( 2, '请输入电话号码');
+        }
+
+        if(!is_numeric($config_phone)){
+            return return_response( 3, '请正确输入电话号码');
+        }
+
+        $config_address = $this->input->post('config_address');
+
+        if(!$config_address){
+            return return_response( 4, '请输入地址');
+        }
+
+        $this->My_Service_Config->delete_service_config('config_type = \'config_details\'');
+
+        $res = $this->My_Service_Config->insert_service_config([
+            [
+                'config_index'   => token(),
+                'config_name'    => 'config_phone',
+                'config_type'    => 'config_details',
+                'config_content' => $config_phone,
+                'config_infos'   => '电话号码'
+            ],
+            [
+                'config_index'   => token(),
+                'config_name'    => 'config_address',
+                'config_type'    => 'config_details',
+                'config_content' => $config_address,
+                'config_infos'   => '公司地址'
+            ]
+        ]);
+
+        if($res){
+            return return_response( 0, '设置成功');
+        }else{
+            return return_response( 5, '设置失败');
+        }
+
+    }
+
+    /**
      * 名称: product_data_Arr()
      * 功能: 处理推荐位信息数据格式
      */
