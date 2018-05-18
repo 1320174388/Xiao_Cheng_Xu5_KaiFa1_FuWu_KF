@@ -21,15 +21,15 @@ Page({
         },{
           imgUrl: "../image/images-index/ZhanShi_icon.png",
           text: "展示",
-          url:"pages/home/product-show/product-show"
+          url:"/pages/home/product-show/product-show"
         },{
           imgUrl: "../image/images-index/MenDian_icon.png",
           text: "门店",
-          url:"pages/home/mendian/mendian"
+          url:""
         },{
           imgUrl: "../image/images-index/YuYue_icon.png",
           text: "预约",
-          url:"pages/home/reservation/reservation"
+          url:""
         }
       ],
       // 企业视频的地址
@@ -96,13 +96,8 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '123456789'
     })
-  },
-  tiaozhuan:function(res){
-    var idn = res.currentTarget.id;
-    var icon_url = this.data.icon;
-
-    console.log(icon_url[idn].url);
   }
+  
   
 
 })
