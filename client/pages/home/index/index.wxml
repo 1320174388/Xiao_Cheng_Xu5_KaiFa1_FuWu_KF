@@ -62,7 +62,7 @@
         </view>
         <!--了解更多产品  -->
         <view class='btn_container'>
-            <button class='liaojie' plain="true" style='border: dashed #9b9b9b 1rpx;'>了解更多产品</button>
+            <button class='liaojie' plain="true" style='border: dashed #9b9b9b 1rpx;' bindtap='tiaozhuan_productdetails'>了解更多产品</button>
         </view>
     </view>
 
@@ -122,7 +122,7 @@
                 </view>
             </view>
             <view class='btn_container'>
-                <button class='liaojie' plain="true" style='border: dashed #9b9b9b 1rpx;'>了解更多产品</button>
+                <button class='liaojie' plain="true" style='border: dashed #9b9b9b 1rpx;' bindtap='tiaozhuan_productdetails'>了解更多产品</button>
             </view>
         </view>
     </view>

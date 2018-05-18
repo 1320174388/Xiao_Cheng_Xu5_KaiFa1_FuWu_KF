@@ -1,11 +1,11 @@
 {
   "pages":[
     "pages/home/index/index",
-    "pages/home/product-show/product-show",
+    "pages/home/product/show/show",
     "pages/home/reservation/Subscribe/Subscribe",
     "pages/home/reservation/Subscribe3/Subscribe3",
     "pages/home/product/product",
-    "pages/home/productdetails/productdetails",
+    "pages/home/product/productdetails/productdetails",
     "pages/home/store/store"
   ],
   "window":{

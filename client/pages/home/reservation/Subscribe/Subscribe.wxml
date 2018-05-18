@@ -6,7 +6,7 @@
 
 
 <view class='one'  >
-  <image style='width:30%;' src='../../image/images-product-show/1.png' mode="widthFix"></image>
+  <image style='width:30%;' src='../../image/images-show/1.png' mode="widthFix"></image>
   <view class='two'>
     <text> \n 1231231231232</text>
   </view>

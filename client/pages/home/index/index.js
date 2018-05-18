@@ -23,7 +23,7 @@ Page({
           imgUrl: "../image/images-index/ZhanShi_icon.png",
           text: "展示",
           bindtap: 'tiaozhuan2',
-          url:"/pages/home/product-show/product-show"
+          url: "/pages/home/product/show/show"
         },{
           imgUrl: "../image/images-index/MenDian_icon.png",
           text: "门店",
@@ -34,6 +34,7 @@ Page({
           text: "预约",
           bindtap: 'tiaozhuan',
           url:"/pages/home/reservation/Subscribe/Subscribe"
+
         }
       ],
       // 企业视频的地址
@@ -100,14 +101,16 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '123456789'
     })
+
   },
+  //页面跳转
   tiaozhuan:function(res){
     var idn = res.currentTarget.id;
     var icon_url = this.data.icon;
     wx.switchTab({
-      url: icon_url[idn].url
-    });  
-    console.log(icon_url[idn].url);
+      url: icon_url[idn].url,
+    })
+    // console.log(icon_url[idn].url);
   },
   tiaozhuan2:function(res){
     var idn = res.currentTarget.id;
@@ -115,8 +118,15 @@ Page({
     wx.navigateTo({
       url: icon_url[idn].url,
     })
-    console.log(icon_url[idn].url);
+    // console.log(icon_url[idn].url);
+
+  },
+  tiaozhuan_productdetails:function(){
+    wx.navigateTo({
+      url:'../product/productdetails/productdetails'
+    })
   }
+  
   
 
 })

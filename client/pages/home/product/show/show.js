@@ -7,52 +7,52 @@ Page({
   data: {
     // 图片和名称
     imgg: [{
-      imgUrl: "../image/images-product-show/2.png",
+      imgUrl: "../../image/images-show/2.png",
       text: "美肤液"
     }, {
-        imgUrl: "../image/images-product-show/3.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "美容液"
     }, {
-        imgUrl: "../image/images-product-show/4.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "精华霜"
     }, {
-        imgUrl: "../image/images-product-show/5.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "口红"
     }, {
-        imgUrl: "../image/images-product-show/6.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "卸妆水"
     }, {
-        imgUrl: "../image/images-product-show/7.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }, {
-        imgUrl: "../image/images-product-show/8.png",
+        imgUrl: "../../image/images-show/2.png",
       text: "粉底液"
     }]
   },

@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      product_img_url:[
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg",
+        "../image/images-product/timg.jpg"
+
+      ]
   },
 
   /**
@@ -62,5 +72,14 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * product_details
+   */
+  product_details:function(res){
+    wx.navigateTo({
+      url: '/pages/home/product/productdetails/productdetails'
+    })
   }
 })
