@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/addCgi/addCgi",
     "pages/product/product",
-    "pages/productdetails/productdetails"
+    "pages/productdetails/productdetails",
+    "pages/store/store"
   ],
   "window":{
     "backgroundColor":"#F6F6F6",
