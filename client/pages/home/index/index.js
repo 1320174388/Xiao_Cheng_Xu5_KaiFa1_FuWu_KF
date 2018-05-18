@@ -7,25 +7,29 @@ Page({
   data: {
       // 轮播图img的地址
       swiper_imgUrl:[
-        "./image/swiper_banner.png",
-        "./image/swiper_banner.png",
-        "./image/swiper_banner.png",
-        "./image/swiper_banner.png"
+        "../image/images-index/swiper_banner.png",
+        "../image/images-index/swiper_banner.png",
+        "../image/images-index/swiper_banner.png",
+        "../image/images-index/swiper_banner.png"
       ],
       // icon图标的img和文字的地址
       icon:[
         {
-          imgUrl:"./image/ChanPin_icon.png",
-          text:"产品"
+          imgUrl:"../image/images-index/ChanPin_icon.png",
+          text:"产品",
+          url:"pages/home/product/product"
         },{
-          imgUrl: "./image/ZhanShi_icon.png",
-          text: "展示"
+          imgUrl: "../image/images-index/ZhanShi_icon.png",
+          text: "展示",
+          url:"pages/home/product-show/product-show"
         },{
-          imgUrl: "./image/MenDian_icon.png",
-          text: "门店"
+          imgUrl: "../image/images-index/MenDian_icon.png",
+          text: "门店",
+          url:"pages/home/mendian/mendian"
         },{
-          imgUrl: "./image/YuYue_icon.png",
-          text: "预约"
+          imgUrl: "../image/images-index/YuYue_icon.png",
+          text: "预约",
+          url:"pages/home/reservation/reservation"
         }
       ],
       // 企业视频的地址
@@ -92,6 +96,13 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '123456789'
     })
+  },
+  tiaozhuan:function(res){
+    var idn = res.currentTarget.id;
+    var icon_url = this.data.icon;
+
+    console.log(icon_url[idn].url);
   }
+  
 
 })

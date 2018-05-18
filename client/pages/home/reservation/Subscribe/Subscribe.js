@@ -70,7 +70,7 @@ Page({
   },
   jump_one1: function () {
     wx.navigateTo({
-      url: '../product/product'
+      url: '../../product-show/product-show'
     })
   }
   

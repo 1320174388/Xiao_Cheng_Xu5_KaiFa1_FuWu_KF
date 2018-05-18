@@ -1,0 +1,19 @@
+<!--pages/product/product.wxml-->
+
+
+
+<view class="shelf-nav">
+
+  <view class="shelf-nav-item" wx:for="{{ imgg }}" wx:key="index">
+
+   
+
+      <image src="{{ item.imgUrl }}" class="shelf-nav-item__image"> </image>
+
+      <text>\n {{ item.text }}</text>
+
+    
+
+  </view>
+
+</view>
