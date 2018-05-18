@@ -7,10 +7,10 @@ Page({
   data: {
       img_url:[
         "../image/images-store/timg (1).jpg",
-        "../image/images-store/timg (2).jpg",
-        "../image/images-store/timg (3).jpg",
-        "../image/images-store/timg (4).jpg",
-        "../image/images-store/timg (5).jpg"
+        "../image/images-store/timg (1).jpg",
+        "../image/images-store/timg (1).jpg",
+        "../image/images-store/timg (1).jpg",
+        "../image/images-store/timg (1).jpg"
       ]
   },
 

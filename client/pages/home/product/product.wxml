@@ -1,9 +1,9 @@
 <!--pages/product/product.wxml-->
 <view>
-<view class="wrap">
+<view class="wrap" wx:for="{{product_img_url}}" wx:key="index">
   <view class="main">
     <view class="content-up">
-      <image src="../image/images-product/timg (1).jpg" style="width:100%"></image>
+      <image src="{{item}}" style="width:100%"></image>
     </view>
     <view class="content-down" style=" text-align:center;">
       产品名称
@@ -11,80 +11,4 @@
   </view>
 </view>
 
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (2).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
-
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (3).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
-
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (4).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
-
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (5).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
-
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (6).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
-
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (2).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
-
-<view class="wrap">
-  <view class="main">
-    <view class="content-up">
-      <image src="../image/images-product/timg (1).jpg" style="width:100%"></image>
-    </view>
-    <view class="content-down" style=" text-align:center;">
-      产品名称
-    </view>
-  </view>
-</view>
 </view>

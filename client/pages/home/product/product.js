@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      product_img_url:[
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg",
+        "../image/images-product/timg (1).jpg"
+
+      ]
   },
 
   /**
