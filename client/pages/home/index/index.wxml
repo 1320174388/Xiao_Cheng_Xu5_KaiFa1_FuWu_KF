@@ -15,7 +15,7 @@
     <!--icon图标容器  -->
     <view class='icon_container'>
       <!--单个icon图标容器  -->
-      <view class='icon' wx:for="{{icon}}" wx:key="index">
+      <view class='icon' wx:for="{{icon}}" wx:key="index" id="{{index}}" bindtap='tiaozhuan'>
         <!--icon图标的图片  -->
         <image src='{{item.imgUrl}}' class='icon_img'></image>
         <!--icon图标的文字  -->
@@ -35,7 +35,7 @@
     <!--艾美丽容器  -->
     <view class='Aimeili_container'>
         <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('./image/zhuangshi_line.png')">
+        <view class='Aimeili_title' style="background-image:url('../image/images-index/zhuangshi_line.png')">
             <!-- 文字 -->
             <view class='Chinese'>艾美丽\t艾健康</view>
             <view class='English'>SERVICE\tLTEMS</view>
@@ -44,7 +44,7 @@
         <view class='tuwen_container'>
             <!--左图右字  -->
             <view class='tuwen_content'>
-                <image src='./image/AiMeiLi_one.png' class='Aimeili_img'></image>
+                <image src='../image/images-index/AiMeiLi_one.png' class='Aimeili_img'></image>
                 <view class='text_container'>
                     <text style='font-size:32rpx;color:#303030;'>细致肌肤，改善肤色\n</text>
                     <text style='font-size:26rpx;color:#9b9b9b;'>艾兰慕德/桌颜嫩肤系列</text>
@@ -56,7 +56,7 @@
                     <text style='font-size:32rpx;color:#303030;'>紧致保养，重塑美颈\n</text>
                     <text style='font-size:26rpx;color:#9b9b9b;'>清洁\t保养\t美白\t护肤</text>
                 </view>
-                <image src='./image/AiMeiLi_two.png' class='Aimeili_img'></image>
+                <image src='../image/images-index/AiMeiLi_two.png' class='Aimeili_img'></image>
                 
             </view>
         </view>
@@ -69,27 +69,27 @@
     <!--空谷幽兰  -->
     <view class='Aimeili_container'>
         <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('./image/zhuangshi_line.png')">
+        <view class='Aimeili_title' style="background-image:url('../image/images-index/zhuangshi_line.png')">
             <!-- 文字 -->
             <view class='Chinese'>空谷幽兰</view>
             <view class='English'>ELEGANT</view>
         </view>
         <!--图片介绍  -->
         <view class='tupian_container'>
-          <image src='./image/kong_gu_you_lan.png' class='konggu'></image>
+          <image src='../image/images-index/kong_gu_you_lan.png' class='konggu'></image>
         </view>
     </view>
     <!--明德惟馨  -->
     <view class='Aimeili_container'>
         <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('./image/zhuangshi_line.png')">
+        <view class='Aimeili_title' style="background-image:url('../image/images-index/zhuangshi_line.png')">
             <!-- 文字 -->
             <view class='Chinese'>明德惟馨</view>
             <view class='English'>COMPANY\tPROFILE</view>
         </view>
         <!--图片介绍  -->
         <view class='tupian_container'>
-          <image src='./image/kong_gu_you_lan.png' class='konggu'></image>
+          <image src='../image/images-index/kong_gu_you_lan.png' class='konggu'></image>
         </view>
     </view>
     <!--美丽案例  -->
@@ -104,7 +104,7 @@
             <!--美丽案例上图文容器  -->
             <view class='Meili_tuwen_shang'>
                 <!--美丽案例图片  -->
-                <image src='./image/mei_li_an_li.png' class='Meili_tupian'></image>
+                <image src='../image/images-index/mei_li_an_li.png' class='Meili_tupian'></image>
                 <!--美丽案例文字容器  -->
                 <view class='Meili_text'>
                     <text class='Meili_text_up'>丁女士-我陪着艾兰慕德一起前进\n</text>
@@ -114,7 +114,7 @@
             <!--美丽案例下图文容器  -->
             <view class='Meili_tuwen_xia'>
                 <!--美丽案例图片  -->
-                <image src='./image/mei_li_an_li.png' class='Meili_tupian'></image>
+                <image src='../image/images-index/mei_li_an_li.png' class='Meili_tupian'></image>
                 <!--美丽案例文字容器  -->
                 <view class='Meili_text'>
                     <text class='Meili_text_up'>赵女士-感谢兄弟姐妹们实现了我十年的减肥梦\n</text>
@@ -131,14 +131,14 @@
         <!--热线容器  -->
         <view class='rexian_container' bindtap='phoneCall'>
             <!--热线小图标  -->
-            <image src='./image/phone_icon.png' class='rexian_phone_img'></image>
+            <image src='../image/images-index/phone_icon.png' class='rexian_phone_img'></image>
             <!--热线电话  -->
             <text>服务热线：400-100-8071</text>
         </view>
         <!--地址容器  -->
         <view class='rexian_container dizhi_container'>
             <!--地址小图标  -->
-            <image src='./image/address_icon.png' class='dizhi_address_img'></image>
+            <image src='../image/images-index/address_icon.png' class='dizhi_address_img'></image>
             <!--热线电话  -->
             <text>公司地址：北京市亦庄经济开发区荣华中路富星国际2号楼1402</text>
         </view>

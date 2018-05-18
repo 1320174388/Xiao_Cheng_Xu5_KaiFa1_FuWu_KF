@@ -1,4 +1,4 @@
-// pages/product/product.js
+// pages/home/mendian/mendian.js
 Page({
 
   /**

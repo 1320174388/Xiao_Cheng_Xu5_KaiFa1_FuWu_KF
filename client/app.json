@@ -1,11 +1,12 @@
 {
   "pages":[
     "pages/home/index/index",
-    "pages/home/product/product",
+    "pages/home/product-show/product-show",
     "pages/home/reservation/Subscribe/Subscribe",
     "pages/home/reservation/Subscribe3/Subscribe3",
-    "pages/product/product",
-    "pages/productdetails/productdetails",
+    "pages/home/product/product",
+    "pages/home/productdetails/productdetails",
+    "pages/home/mendian/mendian",
     "pages/index/index"
   ],
   "window":{
@@ -14,6 +15,37 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#939393",
+    "selectedColor": "#e87590",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "首页",
+        "iconPath": "./pages/home/image/images-index/icon_index.png",
+        "selectedIconPath": "./pages/home/image/images-index/icon_index_active.png"      
+      },
+      {
+        "pagePath": "pages/home/product/product",
+        "text": "产品",
+        "iconPath": "./pages/home/image/images-index/icon_product.png",
+        "selectedIconPath": "./pages/home/image/images-index/icon_product_active.png"
+      },
+      {
+        "pagePath": "pages/home/mendian/mendian",
+        "text": "门店",
+        "iconPath": "./pages/home/image/images-index/icon_mendian.png",
+        "selectedIconPath": "./pages/home/image/images-index/icon_mendian_active.png"
+      },
+      {
+        "pagePath": "pages/home/reservation/Subscribe/Subscribe",
+        "text": "预约",
+        "iconPath": "./pages/home/image/images-index/icon_yuyue.png",
+        "selectedIconPath": "./pages/home/image/images-index/icon_yuyue_active.png"
+      }
+    ]
   }
   
 }
