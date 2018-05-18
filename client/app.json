@@ -1,5 +1,6 @@
 {
   "pages":[
+<<<<<<< HEAD
     "pages/home/index/index",
     "pages/home/product-show/product-show",
     "pages/home/reservation/Subscribe/Subscribe",
@@ -8,6 +9,13 @@
     "pages/home/productdetails/productdetails",
     "pages/home/mendian/mendian",
     "pages/index/index"
+=======
+    "pages/index/index",
+    "pages/addCgi/addCgi",
+    "pages/product/product",
+    "pages/productdetails/productdetails",
+    "pages/store/store"
+>>>>>>> ecf6df1fac7d3bd70b097e36e18173d1ea98cf4b
   ],
   "window":{
     "backgroundColor":"#F6F6F6",

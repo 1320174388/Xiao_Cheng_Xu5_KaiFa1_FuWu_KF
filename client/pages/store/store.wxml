@@ -1,0 +1,49 @@
+<!--pages/store/store.wxml-->
+<view class="wrap">
+  <view class="main">
+     <view class="content-img">
+       <image class="img" src="./image/timg (1).jpg" mode='scaleToFill' ></image>
+     </view>
+     <view class="content-text" style="font-size:24rpx">
+       <text>店面名称\n</text>
+       <text>店面电话\n</text>
+       <text>店面地址\n</text>
+       
+     </view>
+  </view>
+
+  <view class="main">
+     <view class="content-img">
+       <image class="img" src="./image/timg (2).jpg" mode='scaleToFill' ></image>
+     </view>
+     <view class="content-text" style="font-size:24rpx">
+       <text>店面名称\n</text>
+       <text>店面电话\n</text>
+       <text>店面地址\n</text>
+       
+     </view>
+  </view>
+
+  <view class="main">
+     <view class="content-img">
+       <image class="img" src="./image/timg (3).jpg" mode='scaleToFill' ></image>
+     </view>
+     <view class="content-text" style="font-size:24rpx">
+       <text>店面名称\n</text>
+       <text>店面电话\n</text>
+       <text>店面地址\n</text>
+       
+     </view>
+  </view>
+
+  <view class="main">
+     <view class="content-img">
+       <image class="img" src="./image/timg (4).jpg" mode='scaleToFill' ></image>
+     </view>
+     <view class="content-text" style="font-size:24rpx">
+       <text>店面名称\n</text>
+       <text>店面电话\n</text>
+       <text>店面地址\n</text>
+     </view>
+  </view>
+</view>

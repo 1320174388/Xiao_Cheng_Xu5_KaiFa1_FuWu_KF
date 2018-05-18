@@ -37,12 +37,22 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": -1,
+=======
+			"current": 2,
+>>>>>>> ecf6df1fac7d3bd70b097e36e18173d1ea98cf4b
 			"list": [
 				{
 					"id": -1,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "store",
+					"pathName": "pages/store/store",
 					"query": ""
 				}
 			]
