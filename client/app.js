@@ -35,8 +35,12 @@ function login_add(number = 1) {
             },
             method: 'post',
             success: function (res) {
-              console.log(res.data);
-              wx.setStorageSync('token', res.data.retData.token);
+              if (res.data.errNum == 0){
+                console.log(res.data);
+                wx.setStorageSync('token', res.data.retData.token);
+              }else{
+                console.log(res.data);
+              }
             }
           });
         } else {
