@@ -1,0 +1,18 @@
+.wrap{
+  height:325rpx;
+  width:50%;
+  float:left;
+  margin-bottom:20rpx;
+}
+.main{
+  height:303rpx;
+  width:225rpx;
+  margin:0 auto;
+}
+.content-up{
+  border-radius:50%;
+  height:225rpx;
+  width:100%;
+  margin:22rpx auto;
+  overflow:hidden;
+}

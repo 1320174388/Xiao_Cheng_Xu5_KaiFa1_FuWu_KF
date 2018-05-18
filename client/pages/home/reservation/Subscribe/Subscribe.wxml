@@ -1,0 +1,19 @@
+<!--pages/Subscribe/Subscribe.wxml-->
+
+
+
+
+
+
+<view class='one'  >
+  <image style='width:30%;' src='./../img/1.png' mode="widthFix"></image>
+  <view class='two'>
+    <text> \n 1231231231232</text>
+  </view>
+
+  <button style='width:30%;' class='yu_y' bindtap="jump_one">预约</button>
+</view>
+
+
+
+

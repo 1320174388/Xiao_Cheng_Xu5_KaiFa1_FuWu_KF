@@ -1,12 +1,51 @@
 {
-	"client": "./client",
-	"svr": "./server",
-	"miniprogramRoot": "./client",
-	"qcloudRoot": "./server",
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
 		"newFeature": true
 	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.98",
 	"appid": "wx6516385261fa963a",
 	"projectname": "Xiao_cheng_Xu5_KaiFa1_FuWu1",
-	"condition": {}
+	"svr": "./server",
+	"client": "./client",
+	"qcloudRoot": "./server",
+	"miniprogramRoot": "./client",
+	"pluginRoot": "",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": ""
+				}
+			]
+		}
+	}
 }

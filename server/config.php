@@ -10,7 +10,7 @@ $config = [
     'appId' => 'wx6516385261fa963a',
 
     // 微信小程序 AppSecret
-    'appSecret' => 'dc9823245780a506e679a121bb535e0b',
+    'appSecret' => '',
 
     // 使用腾讯云代理登录
     'useQcloudLogin' => true,
