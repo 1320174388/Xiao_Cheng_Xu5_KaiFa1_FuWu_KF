@@ -1,0 +1,90 @@
+<!--pages/product/product.wxml-->
+<view>
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (1).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (2).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (3).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (4).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (5).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (6).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (2).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+
+<view class="wrap">
+  <view class="main">
+    <view class="content-up">
+      <image src="./image/timg (1).jpg" style="width:100%"></image>
+    </view>
+    <view class="content-down" style=" text-align:center;">
+      产品名称
+    </view>
+  </view>
+</view>
+</view>
