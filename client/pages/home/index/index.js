@@ -96,6 +96,12 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '123456789'
     })
+  },
+  tiaozhuan:function(res){
+    var idn = res.currentTarget.id;
+    var icon_url = this.data.icon;
+
+    console.log(icon_url[idn].url);
   }
   
 

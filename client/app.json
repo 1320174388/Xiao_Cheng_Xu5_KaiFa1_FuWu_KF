@@ -1,21 +1,14 @@
 {
   "pages":[
-<<<<<<< HEAD
     "pages/home/index/index",
     "pages/home/product-show/product-show",
     "pages/home/reservation/Subscribe/Subscribe",
     "pages/home/reservation/Subscribe3/Subscribe3",
     "pages/home/product/product",
     "pages/home/productdetails/productdetails",
-    "pages/home/mendian/mendian",
+    "pages/home/store/store",
     "pages/index/index"
-=======
-    "pages/index/index",
-    "pages/addCgi/addCgi",
-    "pages/product/product",
-    "pages/productdetails/productdetails",
-    "pages/store/store"
->>>>>>> ecf6df1fac7d3bd70b097e36e18173d1ea98cf4b
+
   ],
   "window":{
     "backgroundColor":"#F6F6F6",
@@ -42,7 +35,7 @@
         "selectedIconPath": "./pages/home/image/images-index/icon_product_active.png"
       },
       {
-        "pagePath": "pages/home/mendian/mendian",
+        "pagePath": "pages/home/store/store",
         "text": "门店",
         "iconPath": "./pages/home/image/images-index/icon_mendian.png",
         "selectedIconPath": "./pages/home/image/images-index/icon_mendian_active.png"
