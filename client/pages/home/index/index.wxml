@@ -15,7 +15,7 @@
     <!--icon图标容器  -->
     <view class='icon_container'>
       <!--单个icon图标容器  -->
-      <view class='icon' wx:for="{{icon}}" wx:key="index" id="{{index}}" bindtap='tiaozhuan'>
+      <view class='icon' wx:for="{{icon}}" wx:key="index" id="{{index}}" bindtap='{{item.bindtap}}'>
         <!--icon图标的图片  -->
         <image src='{{item.imgUrl}}' class='icon_img'></image>
         <!--icon图标的文字  -->

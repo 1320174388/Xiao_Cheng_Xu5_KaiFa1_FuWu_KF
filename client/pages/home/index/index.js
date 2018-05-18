@@ -17,18 +17,22 @@ Page({
         {
           imgUrl:"../image/images-index/ChanPin_icon.png",
           text:"产品",
+          bindtap:'tiaozhuan',
           url:"/pages/home/product/product"
         },{
           imgUrl: "../image/images-index/ZhanShi_icon.png",
           text: "展示",
+          bindtap: 'tiaozhuan2',
           url:"/pages/home/product-show/product-show"
         },{
           imgUrl: "../image/images-index/MenDian_icon.png",
           text: "门店",
+          bindtap: 'tiaozhuan',
           url:"/pages/home/store/store"
         },{
           imgUrl: "../image/images-index/YuYue_icon.png",
           text: "预约",
+          bindtap: 'tiaozhuan',
           url:"/pages/home/reservation/Subscribe/Subscribe"
         }
       ],
@@ -100,12 +104,17 @@ Page({
   tiaozhuan:function(res){
     var idn = res.currentTarget.id;
     var icon_url = this.data.icon;
-    wx.navigateTo({
-      url: icon_url[idn].url,
-    })
     wx.switchTab({
       url: icon_url[idn].url
     });  
+    console.log(icon_url[idn].url);
+  },
+  tiaozhuan2:function(res){
+    var idn = res.currentTarget.id;
+    var icon_url = this.data.icon;
+    wx.navigateTo({
+      url: icon_url[idn].url,
+    })
     console.log(icon_url[idn].url);
   }
   
