@@ -1,49 +1,12 @@
 <!--pages/store/store.wxml-->
 <view class="wrap">
-  <view class="main">
-     <view class="content-img">
-       <image class="img" src="../image/images-store/timg (1).jpg" mode='scaleToFill' ></image>
-     </view>
-     <view class="content-text" style="font-size:24rpx">
-       <text>店面名称\n</text>
-       <text>店面电话\n</text>
-       <text>店面地址\n</text>
-       
-     </view>
-  </view>
+      <view class='mendian_content'wx:for="{{img_url}}" wx:key="index">
+          <image class="img" src="{{item}}"></image>
+          <view class="content_text">
+            <text>店面名称\n</text>
+            <text>店面电话:12345678911\n</text>
+            <text>店面地址:北京市朝阳区双井桥首城国际</text>
+          </view>
+      </view>
 
-  <view class="main">
-     <view class="content-img">
-       <image class="img" src="../image/images-store/timg (2).jpg" mode='scaleToFill' ></image>
-     </view>
-     <view class="content-text" style="font-size:24rpx">
-       <text>店面名称\n</text>
-       <text>店面电话\n</text>
-       <text>店面地址\n</text>
-       
-     </view>
-  </view>
-
-  <view class="main">
-     <view class="content-img">
-       <image class="img" src="../image/images-store/timg (3).jpg" mode='scaleToFill' ></image>
-     </view>
-     <view class="content-text" style="font-size:24rpx">
-       <text>店面名称\n</text>
-       <text>店面电话\n</text>
-       <text>店面地址\n</text>
-       
-     </view>
-  </view>
-
-  <view class="main">
-     <view class="content-img">
-       <image class="img" src="../image/images-store/timg (4).jpg" mode='scaleToFill' ></image>
-     </view>
-     <view class="content-text" style="font-size:24rpx">
-       <text>店面名称\n</text>
-       <text>店面电话\n</text>
-       <text>店面地址\n</text>
-     </view>
-  </view>
 </view>

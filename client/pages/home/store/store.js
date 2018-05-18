@@ -5,14 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      img_url:[
+        "../image/images-store/timg (1).jpg",
+        "../image/images-store/timg (2).jpg",
+        "../image/images-store/timg (3).jpg",
+        "../image/images-store/timg (4).jpg",
+        "../image/images-store/timg (5).jpg"
+      ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
@@ -63,4 +69,5 @@ Page({
   onShareAppMessage: function () {
   
   }
+  
 })
