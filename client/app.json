@@ -4,6 +4,8 @@
     "pages/home/product/product",
     "pages/home/reservation/Subscribe/Subscribe",
     "pages/home/reservation/Subscribe3/Subscribe3",
+    "pages/product/product",
+    "pages/productdetails/productdetails",
     "pages/index/index"
   ],
   "window":{
