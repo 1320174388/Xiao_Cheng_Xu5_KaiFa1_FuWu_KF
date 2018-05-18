@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.98",
 	"appid": "wx6516385261fa963a",
-	"projectname": "Xiao_cheng_Xu5_KaiFa1_FuWu1",
+	"projectname": "Xiao_cheng_Xu5_KaiFa1_FuWu1_TY",
 	"svr": "./server",
 	"client": "./client",
 	"qcloudRoot": "./server",
