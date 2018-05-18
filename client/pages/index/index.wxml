@@ -1,3 +1,0 @@
-<!--pages/index/index.wxml-->
-
-<button open-type="contact" bindtap='sss'>客服</button>
