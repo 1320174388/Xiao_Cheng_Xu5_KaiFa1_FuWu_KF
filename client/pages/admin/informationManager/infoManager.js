@@ -1,3 +1,5 @@
+var config = require('../../../config.js');
+var app = getApp();
 var recommendAdd = [];
 Page({
 
@@ -7,22 +9,15 @@ Page({
   data: {
     navbar: ['首页', '推荐', '信息', '展示'],
     currentTab: 0,
+    host: config.infomation.host,
     // 轮播图片
-    imgUrls: [
-      'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/swiper_banner.png',
-      'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun1.jpg',
-      'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun2.jpg'
-    ],
+    imgUrls: null,
     // 推荐列表信息
     recommendArray: [0, 1, 2],
-    infoArray: [
-      {
-        id: 1,
-        infoName: '爱咯安姆',
-        infoPhone: '15138492262',
-        infoAddress: '北京市海淀区西土城5号楼六单元305室'
-      },
-    ],
+    infoArray: null,
+    config_content:null,
+    config_phone:null,
+    config_name:'啊买哦',
     // 添加推荐产品
     recommendAddArray: [
       {
@@ -71,20 +66,8 @@ Page({
     // 信息修改
     informationUpdate: false,
     getInformationInfo: null,
-    showArray: [
-      {
-        id: 1,
-        showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun1.jpg'
-      },
-      {
-        id: 2,
-        showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun2.jpg'
-      },
-      {
-        id: 2,
-        showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun3.jpg'
-      },
-    ],
+    showArray: null,
+    notice_index:null,
   },
   navbarTap: function (e) {
     this.setData({
@@ -134,11 +117,9 @@ Page({
   // 确认修改信息
   sureUpdate: function (e) {
     this.setData({
-      infoArray: [{
-        infoName: e.detail.value.infoName,
-        infoPhone: e.detail.value.infoPhone,
-        infoAddress: e.detail.value.infoAddress
-      }],
+      config_name: e.detail.value.config_name,
+      config_phone: e.detail.value.config_phone,
+      config_address: e.detail.value.config_address,
     });
   },
   // 删除推荐列表信息
@@ -151,32 +132,53 @@ Page({
   },
   // 删除展示的图片
   delPicture: function (e) {
-    var delShowArray = this.data.showArray;
-    delete delShowArray[e.currentTarget.dataset.showid];
-    this.setData({
-      showArray: delShowArray,
-    })
+    var THIS = this; 
+    app.post(
+      config.infomation.del_notice_image_file, {
+        'token': wx.getStorageSync('token'),
+        'notice_index': e.currentTarget.dataset.showid
+      }, function (res) {
+        THIS.onLoad();
+        // if (res.data.errNum == 0) {
+        //   app.point(res.data.retMsg, "success");
+        //   setTimeout(function () {
+        //     THIS.onLoad();
+        //   }, 1000);
+        // } else {
+        //   app.point(res.data.retMsg, "none");
+        // };
+      }
+    );
   },
   // 图片上传
   getPicture: function () {
     var This = this;
-    var showImg = This.data.showArray;
     wx.chooseImage({
       count: 1, // 默认9  
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths[0];
-        showImg[showImg.length] = {
-          id: showImg.length + 1,
-          showSrc: tempFilePaths,
-        }
-        This.setData({
-          showArray: showImg,
-        })
-        wx.setStorageSync("show_img", showImg);
-
+        var tempFilePaths_new = res.tempFilePaths;
+        wx.uploadFile({
+          url: config.infomation.set_notice_image_file, //仅为示例，非真实的接口地址
+          header: {
+            'content-type': 'multipart/form-data'
+          },
+          filePath: tempFilePaths_new[0],
+          name: 'notice_image_file',
+          success: function (res) {
+            var data = JSON.parse(res.data);
+            if (data.errNum == 0) {
+              app.point(
+                '上传成功',
+                'success',
+                1000
+              );
+              This.onLoad();
+            }
+          }
+        });
       }
     })
   },
@@ -184,7 +186,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var This = this;
+    // 获取轮播图
+    app.post(
+      config.infomation.get_service_config_type, {
+        'token': wx.getStorageSync('token'),
+        service_type: 'config_data'
+      }, function (res) {
+        This.setData({
+          imgUrls: res.data.retData.sowing_map
+        });
+      },
+    );
+    // 获取信息配置
+    app.post(
+      config.infomation.get_service_config_type, {
+        'token': wx.getStorageSync('token'),
+        service_type: 'config_data'
+      }, function (res) {
+        This.setData({
+          config_address: res.data.retData.config_details.config_address.config_content,
+          config_phone: res.data.retData.config_details.config_phone.config_content,
+        });
+      },
+    );
+    // 获取展示图片
+    app.post(
+      config.infomation.get_service_config_type, {
+        'token': wx.getStorageSync('token'),
+        service_type: 'config_data'
+      }, function (res) {
+        This.setData({
+          showArray: res.data.retData.notice_image
+        });
+      },
+    );
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -234,17 +270,53 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+/**
+ * 上传轮播图
+ */
   up_pic:function(){
     var that = this;
-    wx.chooseImage({
-      success: function(res) {
-        var img_urls_new = res.tempFilePaths;
-        that.setData({
-          imgUrls:img_urls_new
-        })
-      },
-      
-    })
-    
+    function upload_file(imgUrls,num=0,numbers=1){
+      if(numbers > imgUrls.length){
+        that.onLoad();
+        return false;
+      };
+      app.point(
+        '第' + numbers + '张图片上传中',
+        'loading',
+        10000
+      );
+      wx.uploadFile({
+        url: config.infomation.sowing_map_file, //仅为示例，非真实的接口地址
+        header: {
+          'content-type': 'multipart/form-data'
+        },
+        filePath: imgUrls[num],
+        name: 'sowing_map_file',
+        formData: {
+          'the_first_map': numbers
+        },
+        success: function (res) {
+          var data = JSON.parse(res.data);
+          if (data.errNum==0){
+            app.point(
+              '上传成功',
+              'success',
+                1000
+            );
+            upload_file(imgUrls, num+1, numbers+1);
+            
+          }
+        }
+      })
+    };
+      wx.chooseImage({
+        count: 6, // 默认6
+        success: function (res) {
+          var img_urls_new = res.tempFilePaths;
+          upload_file(img_urls_new);
+        },
+      })
+   
   }
 })
