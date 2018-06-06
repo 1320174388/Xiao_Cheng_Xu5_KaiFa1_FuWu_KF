@@ -89,38 +89,32 @@ class Set_Service_Config extends LoginController
      * 名称: Set_Config_Notice_Image()
      * 功能: 展示位图片的image地址
      * 参数: notice_image_file 图片文件信息
-     * 参数: notice_sort 以获取图片的最大编号
      */
     public function Set_Config_Notice_Image()
     {
-        $notice_sort = $this->input->post('notice_sort');
-
-        if(!$notice_sort){
-            return return_response( 2, '没有发送当前最大的图片编号');
-        }else{
-            $notice_sort++;
-        }
 
         $notice_image_file = upload_create('noticeimage','notice_image_file');
 
         if($notice_image_file){
+
+            $notice_sort = $this->My_Service_Config->get_notice_image_number();
 
             $res = $this->My_Service_Config->insert_service_config([
                 'config_index'   => token(),
                 'config_name'    => '展示位图片',
                 'config_type'    => 'notice_image',
                 'config_content' => $notice_image_file,
-                'config_infos'   => $notice_sort
+                'config_infos'   => $notice_sort + 1
             ]);
 
             if($res){
                 return return_response( 0, '上传成功');
             }else{
-                return return_response( 4, '上传失败');
+                return return_response( 3, '上传失败');
             }
 
         }else{
-            return return_response( 3, '请正确上传图片');
+            return return_response( 2, '请正确上传图片');
         }
 
     }

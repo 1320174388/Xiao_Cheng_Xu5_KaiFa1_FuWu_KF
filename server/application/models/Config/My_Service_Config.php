@@ -57,6 +57,21 @@ class My_Service_Config extends CI_Model
     }
 
     /**
+     * 名称: get_notice_image_number()
+     * 功能: 获取推荐位图片最大下标
+     */
+    public function get_notice_image_number()
+    {
+        $query_sql = "select config_infos from {$this->tableName} ";
+
+        $query_sql .= " where config_type = 'notice_image'";
+
+        $query_sql .= " order by config_infos desc";
+
+        return $this->CI->db->query($query_sql)->result()[0]->config_infos;
+    }
+
+    /**
      * 名称: insert_data_arr()
      * 功能: 处理添加配置信息时传递的数据信息
      * 参数: array()
