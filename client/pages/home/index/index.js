@@ -114,7 +114,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    
   },
 
   /**
@@ -142,7 +142,6 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '010-86220269'
     })
-
   },
   //页面跳转
   tiaozhuan:function(res){
