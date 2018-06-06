@@ -1,3 +1,6 @@
+var config = require('../../../../config.js');//引用config.js文件
+var app = getApp();//引用app.js文件
+var token;//token令牌
 Page({
 
   /**
@@ -21,15 +24,15 @@ Page({
         "checked": false
       }
     ],
-    job_change: "",
-    qx_checked:false
+    // 添加的职位名称
+    job_change: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    token=wx.getStorageSync("token");
   },
 
   /**
@@ -80,6 +83,7 @@ Page({
   onShareAppMessage: function () {
     
   },
+  // 多选框点击事件
   jur_choose:function(res){
     var idn = res.currentTarget.id;
     var icon_color = this.data.quanxuan_arr[idn].icon_color;
@@ -99,39 +103,40 @@ Page({
       
     }
   },
-  job_change: function (res) {
-    this.setData({
-      job_change: res.detail.value
-    })
-  },
-  jump_jur:function(){
-    var q_x = this.data.quanxuan_arr;
-    for(var i=0;i<q_x.length;i++){
-      if(q_x[i].checked){
-        this.setData({
-          qx_checked:true
-        })
-      }
+  // 提交按钮
+  jump_jur:function(res){
+    
+    var form_info = res.detail.value;
+    var right = "";
+    for (var i = 0; i < form_info.jur_choose.length; i++) {
+      right = right + String(form_info.jur_choose[i]) + ",";
     }
-    if (this.data.job_change==""){
-      var app = getApp();
-      app.point("请输入名称", "none", 1000)
-    }else{
-      if (this.data.qx_checked) {
-        // 添加元素
-        var jur_manager_arr=wx.getStorageSync("jur_manager_arr");
-        jur_manager_arr.push(this.data.job_change);
-        wx.setStorageSync("jur_manager_arr", jur_manager_arr);
+    // post请求数据
+    app.post(config.service.host +'/api/admin/position/create',{
+        "token":token,
+        "roleName": res.detail.value.job_change,
+        "right": right
+    },function(res){
+      if (res.data.errNum == 0){
+        // 成功拿到数据
+        // 返回上一页面
         wx.navigateBack({
           delta: 1
         })
-      } else {
-        var app = getApp();
-        app.point("请选择权限", "none", 1000)
+      } else if (res.data.errNum == 1){
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 2){
+        // 请输入职位名称
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 3) {
+        // 没有选择权限
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 4) {
+        // 职位已存在
+        app.point(res.data.retMsg, "none", 1000);
       }
-    }
-    
-
+    })
     
   }
 })
