@@ -1,0 +1,273 @@
+.content-column{
+  display: flex;  
+  flex-direction: column;  
+}
+.content-row{  
+  display: flex;  
+  flex-direction: row;  
+}
+.display_none{
+ display: none;
+}
+.display_show{ 
+ display: block;
+}
+/* 选项卡 */
+ .navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;
+  color: #abaaaa;
+  font-size: 32rpx;  
+}  
+.navbar .item.active{  
+  color: #5daef8;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 57rpx;  
+  right: 0;  
+  height: 4rpx;  
+  background: #5daef8;
+  width:74rpx;   
+}
+ /* 轮播图 */
+ .rotation-chart{
+  margin-top: 30rpx;
+  background-color: #fff;
+ } 
+ /* 轮播图文字 */
+ .rotation-chart-context{
+   margin-top: 14rpx;
+   line-height:45rpx;
+ }
+ /* 左侧蓝色样式  */
+ .rotation-chart-border{
+  width: 5rpx;
+	height: 28rpx;
+  background-color:#5cadf8;
+  margin-top: 10rpx;
+ }
+ /* 轮播图字体样式 */
+ .rotation-chart-text{
+	font-Family: "PingFangSC-Regular";
+	font-Size: 32rpx;
+	color:#4b4b4b;
+  margin-left:8rpx;
+ }
+ /* 轮播图图片  */
+ .rotation-chart-img{
+  margin-top: 14rpx;
+ }
+ /* 轮播图图片 高度 */
+ .swiper{
+   height: 428rpx;
+ }
+ /* 轮播图图片 宽度 */
+ .rotation-chart-picture{
+   width: 100%;
+ }
+ .recommend{
+   margin-top: 30rpx;
+   height: 227rpx;
+   background-color: #fff;
+ }
+ /* 推荐图片 */
+ .recommend-img{
+   text-align: center;
+   margin-top: 30rpx;
+ }
+ .recommend-picture{
+  width: 166rpx;
+  height: 163rpx;
+ }
+ /* 推荐详情  */
+ .recommend-info{
+   margin-top: 30rpx;
+ }
+ /* 推荐名称 */
+ .recommend-info-name{
+  font-Family: "PingFangSC-Regular";
+	font-Size: 32rpx;
+	color: #4b4b4b;
+ }
+ /* 推荐详细信息 */
+ .recommend-info-datiled{
+   width: 486rpx;
+   font-Family: "PingFangSC-Regular";
+	 font-Size: 28rpx;
+	 color: #aaaaaa;
+   margin-top:2rpx;
+ }
+ /* 推荐详细信息 */
+ .recommend-info-delete{
+   width: 100rpx;
+   position:relative;
+   left:400rpx;
+   bottom:30rpx;
+ }
+ /* 删除 */
+ .delete{
+  font-Family: "PingFangSC-Regular";
+	font-Size: 24rpx;
+	color:#aaaaaa;
+  padding-bottom: 10rpx;
+ }
+ /* 添加按钮 */
+ .recommend-add{
+   width: 100%;
+   background-Color: #5cadf8;
+   color: #fff;
+   position: fixed;
+   bottom: 0;
+ }
+ .recommend-add::after{
+   border: none;
+ }
+ /* 推荐产品添加 */
+ .product-recommend-add{
+   display: flex;
+   flex-wrap: wrap;
+ }
+ .product-recommend-add-info{
+   width: 320rpx;
+   height: 396rpx;
+   margin-top: 30rpx;
+   margin-left: 40rpx;
+   background-color: #fff;
+   border-radius:10rpx;
+ }
+ /* 推荐产品添加图片 */
+ .product-recommend-add-img{
+    width: 320rpx;
+    height: 302rpx;
+ }
+ .product-recommend-add-name{
+   font-Family: "PingFangSC-Regular";
+	 font-Size:30rpx;
+	 color:#4b4b4b;
+   margin-top: 20rpx;
+   padding-left: 14rpx;
+ }
+ .product-recommend-add-radio{
+   margin-top: 18rpx;
+   font-size: 16rpx;
+ }
+ /* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: #f66767;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+ /* 信息 */
+ .info{
+  margin-top: 30rpx;
+  height: 168rpx;
+  background-color: #fff;
+  padding-left: 40rpx;
+ }
+ /* 姓名 */
+ .info-name{
+  font-Family: "PingFangSC-Regular";
+	font-Size: 32rpx;
+	color: #4b4b4b;
+  padding-top: 22rpx;
+ }
+ /* 电话 */
+ .info-phone{
+  font-Family: "PingFangSC-Regular";
+	font-Size:24rpx;
+	color:#4b4b4b;
+  padding-top: 6rpx;
+ }
+ .info-phone-name{
+   color:#aaaaaa;
+ }
+ /* 地址 */
+ .info-address{
+  font-Family: "PingFangSC-Regular";
+	font-Size:24rpx;
+	color:#4b4b4b;
+ }
+ .info-address-name{
+    color:#aaaaaa;
+ }
+ /* 修改信息 */
+ .update-info{
+  margin-top: 30rpx;
+  background-color: #fff;
+ }
+ /* 修改信息-全部 */
+ .update-info-detailed{
+  font-Family: "PingFangSC-Regular";
+	font-Size: 32rpx;
+	color:#4b4b4b;
+  line-height:80rpx;
+  padding-left: 20rpx;
+ }
+.detailed{
+  border-bottom: 1rpx solid #dddddd;
+}
+.update{
+  padding-top:10rpx; 
+}
+ /* 顶部图片 */
+.show-img{
+  margin-bottom: -70rpx;
+}
+.picture{
+  width: 100%;
+  position: relative;
+  top: -70rpx;
+  z-index: 10;
+}
+.deleteIco{
+  font-size:60rpx;
+  color: #fff;
+  width: 50rpx;
+  position: relative; 
+  left: 93%;  
+  height: 70rpx;
+  z-index: 20;
+}
+ /* 底部图片上传 */
+ .show-foot-img{
+   height: 495rpx;
+   background-color: #d7d7d7;
+   text-align: center;
+   margin-top: 40rpx;
+   width: 100%;
+ }
+ .show-foot-add{
+   line-height: 495rpx;
+   font-size:120rpx;
+   font-weight: bolder;
+   color: #fff;
+ }

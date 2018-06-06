@@ -1,0 +1,79 @@
+.qwe {
+  /* border: 1px solid red; */
+  padding: 30rpx;
+  display: flex;
+   margin-top: 40rpx; 
+  background-color: white;
+}
+
+.q1 {
+  /* border: 1px solid brown; */
+}
+.q2{
+  padding-left: 200rpx;
+  display: flex;
+}
+.q3 {
+  padding-left: 240rpx;
+  padding-top: 100rpx;
+  /* border: 1px solid black; */
+}
+
+.qmc {
+  /* border: 1px solid red; */
+  padding-left: 20rpx;
+  width: 400rpx;
+}.qxq {
+   /* border: 1px solid red;  */
+   padding-left: 20rpx;
+  width:500rpx;
+  height: 120rpx;
+  font-size: 15px;
+  color:#c6c6c6;
+}
+.bj{
+  /* border: 1px solid red;  */
+  color: #cee6fd;
+  font-size: 15px
+}
+.sc{
+  /* border: 1px solid red;  */
+  
+  font-size: 15px
+}
+
+.tupian {
+  /* border: 1px solid tomato; */
+  width: 180rpx;
+  height: 180rpx;
+}
+.button{
+ width: 100%;
+  height: 100rpx;
+  background: #5cadf8;
+  font-size: 38rpx;
+  border-radius: 0;
+  line-height: 100rpx;
+  color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+ }
+ .img{
+   padding-top: 2rpx;
+   width: 40rpx;
+   height:  40rpx;
+ }
+ .background-colo{
+    background-color: #F6F6F6 ; 
+ }
+
+ page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: #F6F6F6;  
+} 
+
+.dibu{
+  height: 60px;
+}

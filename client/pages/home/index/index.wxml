@@ -22,20 +22,11 @@
         <text class='icon_text'>{{item.text}}</text>
       </view>
     </view>
-    <!--企业视频容器  -->
-    <view class='Qiye_video_container'>
-        <!--企业视频标题  -->
-        <view class='Qiye_video_title'>
-            <view class='hong'></view>
-            <text>企业视频</text>
-        </view>
-        <!--企业视频  -->
-        <video src='' class='qiye_shipin' controls='true' autoplay='true' show-fullscreen-btn='true' objectFit='fill'></video>
-    </view>
+    
     <!--艾美丽容器  -->
     <view class='Aimeili_container'>
         <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('../image/images-index/zhuangshi_line.png')">
+        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
             <!-- 文字 -->
             <view class='Chinese'>艾美丽\t艾健康</view>
             <view class='English'>SERVICE\tLTEMS</view>
@@ -44,7 +35,7 @@
         <view class='tuwen_container'>
             <!--左图右字  -->
             <view class='tuwen_content'>
-                <image src='../image/images-index/AiMeiLi_one.png' class='Aimeili_img'></image>
+                <image src='{{host_image_Url}}/AiMeiLi_one.png' class='Aimeili_img'></image>
                 <view class='text_container'>
                     <text style='font-size:32rpx;color:#303030;'>细致肌肤，改善肤色\n</text>
                     <text style='font-size:26rpx;color:#9b9b9b;'>艾兰慕德/桌颜嫩肤系列</text>
@@ -56,7 +47,7 @@
                     <text style='font-size:32rpx;color:#303030;'>紧致保养，重塑美颈\n</text>
                     <text style='font-size:26rpx;color:#9b9b9b;'>清洁\t保养\t美白\t护肤</text>
                 </view>
-                <image src='../image/images-index/AiMeiLi_two.png' class='Aimeili_img'></image>
+                <image src='{{host_image_Url}}/AiMeiLi_two.png' class='Aimeili_img'></image>
                 
             </view>
         </view>
@@ -69,78 +60,83 @@
     <!--空谷幽兰  -->
     <view class='Aimeili_container'>
         <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('../image/images-index/zhuangshi_line.png')">
+        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
             <!-- 文字 -->
             <view class='Chinese'>空谷幽兰</view>
             <view class='English'>ELEGANT</view>
         </view>
         <!--图片介绍  -->
         <view class='tupian_container'>
-          <image src='../image/images-index/kong_gu_you_lan.png' class='konggu'></image>
+          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
         </view>
     </view>
     <!--明德惟馨  -->
     <view class='Aimeili_container'>
         <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('../image/images-index/zhuangshi_line.png')">
+        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
             <!-- 文字 -->
             <view class='Chinese'>明德惟馨</view>
             <view class='English'>COMPANY\tPROFILE</view>
         </view>
         <!--图片介绍  -->
         <view class='tupian_container'>
-          <image src='../image/images-index/kong_gu_you_lan.png' class='konggu'></image>
+          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
         </view>
     </view>
-    <!--美丽案例  -->
-    <view class='Meili_container'>
-        <!-- 美丽案例标题 -->
-        <view class='Qiye_video_title'>
-            <view class='hong'></view>
-            <text>美丽案例</text>
+    <!--明德惟馨  -->
+    <view class='Aimeili_container'>
+        <!-- 文字背景 -->
+        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
+            <!-- 文字 -->
+            <view class='Chinese'>明德惟馨</view>
+            <view class='English'>COMPANY\tPROFILE</view>
         </view>
-        <!--美丽案例上下图文容器  -->
-        <view class='Meili_tuwen_container'>
-            <!--美丽案例上图文容器  -->
-            <view class='Meili_tuwen_shang'>
-                <!--美丽案例图片  -->
-                <image src='../image/images-index/mei_li_an_li.png' class='Meili_tupian'></image>
-                <!--美丽案例文字容器  -->
-                <view class='Meili_text'>
-                    <text class='Meili_text_up'>丁女士-我陪着艾兰慕德一起前进\n</text>
-                    <text class='Meili_text_down'>来艾兰慕德双井店也有一年的时间了，在这一年的时间里，我看到了太多的奇迹发生，当然也包括我身上所发生的...</text>
-                </view>
-            </view>
-            <!--美丽案例下图文容器  -->
-            <view class='Meili_tuwen_xia'>
-                <!--美丽案例图片  -->
-                <image src='../image/images-index/mei_li_an_li.png' class='Meili_tupian'></image>
-                <!--美丽案例文字容器  -->
-                <view class='Meili_text'>
-                    <text class='Meili_text_up'>赵女士-感谢兄弟姐妹们实现了我十年的减肥梦\n</text>
-                    <text class='Meili_text_down'>在一个心情不错的下午在电梯楼梯口遇到从未打过招呼的公司同事，虽然从未打过招呼，但是那次她深深的洗衣了我的...</text>
-                </view>
-            </view>
-            <view class='btn_container'>
-                <button class='liaojie' plain="true" style='border: dashed #9b9b9b 1rpx;' bindtap='tiaozhuan_productdetails'>了解更多产品</button>
-            </view>
+        <!--图片介绍  -->
+        <view class='tupian_container'>
+          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
         </view>
     </view>
+    <!--明德惟馨  -->
+    <view class='Aimeili_container'>
+        <!-- 文字背景 -->
+        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
+            <!-- 文字 -->
+            <view class='Chinese'>明德惟馨</view>
+            <view class='English'>COMPANY\tPROFILE</view>
+        </view>
+        <!--图片介绍  -->
+        <view class='tupian_container'>
+          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
+        </view>
+    </view>
+    
     <!--热线和地址容器  -->
     <view class='rexian_dizhi_container'>
         <!--热线容器  -->
         <view class='rexian_container' bindtap='phoneCall'>
             <!--热线小图标  -->
-            <image src='../image/images-index/phone_icon.png' class='rexian_phone_img'></image>
+            <image src='{{host_image_Url}}/phone_icon.png' class='rexian_phone_img'></image>
             <!--热线电话  -->
-            <text>服务热线：400-100-8071</text>
+            <text>服务热线：010-86220269</text>
         </view>
         <!--地址容器  -->
         <view class='rexian_container dizhi_container'>
             <!--地址小图标  -->
-            <image src='../image/images-index/address_icon.png' class='dizhi_address_img'></image>
+            <image src='{{host_image_Url}}/address_icon.png' class='dizhi_address_img'></image>
             <!--热线电话  -->
-            <text>公司地址：北京市亦庄经济开发区荣华中路富星国际2号楼1402</text>
+            <text>公司地址：北京市海淀区高里掌路1号院6号楼201-123</text>
         </view>
     </view>
+    <!--地老天荒的logo和电话  -->
+    <view class='dlth' bindtap='phone_dlth'>
+        <image src='https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/gslogo_1x.png' class='dlth_logo'  mode="widthFix"></image>
+        <view>
+          售后电话\t:\t<text>010-86220269</text>
+        </view>
+    </view>
+    <!--后台进入按钮  -->
+      <view class='admin_enter' catchtap='{{admin_btn_event}}' animation="{{animationData}}" style='left:{{admin_left}}px;top:{{admin_top}}px' catchtouchmove='admin_move' catchtouchend='admin_move_end'>
+      <image src='https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/icon_admin.png' class='admin_icon' mode='widthFix'></image>
+      </view>
+    
 </view>

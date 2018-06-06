@@ -1,0 +1,45 @@
+<view class="navs">
+    <text data-w="w" class='{{selected ? "changes" : "unchanges"}}' bindtap="select">最新预约</text>
+    <text data-y="y" class='{{select ? "changes" : "unchanges"}}' bindtap="select">历史预约</text>
+</view>
+<!--最新预约表单-->
+<view class='{{selected ? "show" : "hide" }}' wx:for="{{reserve_arr_f}}" wx:key="index">
+  <view class="warp-new" bindtap='reserve_checked' id="{{index}}">
+    <view class="left">
+      <checkbox style='z-index:3;opacity:0;' checked='{{item.reserve}}'></checkbox>
+      <icon type='success' class='new_reserve_icon'></icon>
+      <view class='new_reserve_icon_container' wx:if="{{!item.reserve}}"></view>
+    </view>
+    <view class="content">
+      <view class="box-left">
+        <view style='font-size:32rpx'>姓名：<text>{{item.name}}</text></view>
+        <view>电话：<text>{{item.phone}}</text></view>
+        <view>性别：<text>{{item.sex}}</text></view>
+      </view>
+      <view class="box-right">
+        <view class="Prompt-new">{{item.reserve_text}}</view>
+        <view style='margin-bottom: 18rpx'>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+  <button class="dete" bindtap='reserve_chuli'>确定处理</button>
+</view>
+<!--历史预约表单-->
+<view class='{{select ? "show" : "hide" }}'  wx:for="{{reserve_arr_t}}" wx:key="index">
+  <view class="warp-old">
+    <view class="left">
+  
+    </view>
+    <view class="content">
+      <view class="box-left">
+        <view style='font-size:32rpx'>姓名：<text>{{item.name}}</text></view>
+        <view>电话：<text>{{item.phone}}</text></view>
+        <view>性别：<text>{{item.sex}}</text></view>
+      </view>
+      <view class="box-right">
+        <view class="Prompt-old">{{item.reserve_text}}</view>
+        <view style='margin-bottom: 18rpx'>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

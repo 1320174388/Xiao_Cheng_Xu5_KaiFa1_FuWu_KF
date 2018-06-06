@@ -14,3 +14,29 @@
   color: #323232;
   padding: 15rpx 140rpx 23rpx 40rpx;
 }
+.admin_enter{
+  box-sizing: border-box;
+  width:60rpx;
+  height: 60rpx;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10rpx 0 0 10rpx;
+  border-radius: 50%;
+  position: fixed;
+
+}
+.admin_icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+/*地老天荒售后电话  */
+.dlth{
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 30rpx;
+  padding: 10rpx 0 20rpx 0;
+}
+.dlth_logo{
+  width: 400rpx;
+  margin-bottom: 10rpx;
+}

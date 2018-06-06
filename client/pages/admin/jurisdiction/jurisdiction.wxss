@@ -1,0 +1,57 @@
+/* pages/admin/jurisdiction/jurisdiction.wxss */
+page{
+  background: #F6F6F6;
+}
+.container{
+  box-sizing: border-box;
+  padding: 30rpx;
+  margin-bottom: 100rpx;
+}
+.jur_manager{
+  padding-left: 50rpx;
+  height: 145rpx;
+  background: #ffffff;
+  margin-bottom: 50rpx;
+  line-height: 145rpx;
+  border-radius: 4rpx
+}
+.jur_text{
+  font-size: 36rpx;
+  color: #4c4c4c;
+}
+.xiugai_remove{
+  width: 162rpx;
+  float: right;
+  display: flex;
+  flex-flow: column;
+  line-height: 72rpx;
+}
+.modify{
+  font-size: 28rpx;
+  color: #77b3ff;
+  width: 162rpx;
+  height: 72rpx;
+  border-left: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  text-align: center;
+}
+.remove{
+  font-size: 28rpx;
+  color: #f7485d;
+  width: 162rpx;
+  height: 72rpx;
+  border-left: 1px solid #eaeaea;
+  text-align: center;
+}
+.jur_add{
+  width: 100%;
+  height: 100rpx;
+  background: #5cadf8;
+  font-size: 38rpx;
+  border-radius: 0;
+  line-height: 100rpx;
+  color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

@@ -1,4 +1,5 @@
 // pages/product/product.js
+var config = require('../../../../config.js');
 Page({
 
   /**
@@ -7,75 +8,47 @@ Page({
   data: {
     // 图片和名称
     imgg: [{
-      imgUrl: "../../image/images-show/2.png",
-      text: "美肤液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "美容液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "精华霜"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "口红"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "卸妆水"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }, {
-        imgUrl: "../../image/images-show/2.png",
-      text: "粉底液"
-    }]
+      id: 1,
+      showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun1.jpg'
+    },
+    {
+      id: 2,
+      showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun2.jpg'
+    },
+    {
+      id: 3,
+      showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun3.jpg'
+    }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (wx.getStorageSync("show_img") == ""){
 
+    }else{
+      this.setData({
+        imgg: wx.getStorageSync("show_img")
+      })
+    }
+    
+    
   },
 
   /**

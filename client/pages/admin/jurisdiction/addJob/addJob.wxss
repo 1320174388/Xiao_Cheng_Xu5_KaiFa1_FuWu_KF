@@ -1,0 +1,69 @@
+page{
+  background: #F6F6F6;
+}
+.container{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 30rpx;
+  font-size: 36rpx;
+}
+.job_name_container{
+  background: #ffffff;
+  line-height: 100rpx;
+  padding-left: 50rpx;
+  display: flex;
+  margin-bottom: 77rpx;
+  color: #4c4c4c;
+}
+.job_name{
+  width: 535rpx;
+  font-size: 36rpx;
+  margin: 25rpx 0 0 40rpx;
+}
+.jur_quanxian{
+  margin: 0 0 10rpx 50rpx;
+  color: #abaaaa;
+}
+.jur_choose{
+  background: #ffffff;
+  margin-top: 10rpx;
+}
+.check_style{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid #dddddd;
+  line-height: 100rpx;
+  padding-left: 50rpx;
+  position: relative;
+}
+.check_st{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.jur_icon{
+  position: absolute;
+  top: 25rpx;
+  right: 70rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.job_add{
+  width: 100%;
+  height: 100rpx;
+  background: #5cadf8;
+  font-size: 38rpx;
+  border-radius: 0;
+  line-height: 100rpx;
+  color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.footer{
+  width: 100%;
+  height: 100rpx;
+}

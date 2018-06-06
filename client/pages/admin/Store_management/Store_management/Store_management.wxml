@@ -1,0 +1,48 @@
+<!--pages/home/admin/product_management/product_management/product_management.wxml-->
+<!--颜色棕色  -->
+
+
+
+
+
+  <view class='zuiwai'>
+    <!--外面  -->
+    <view class='qwe' wx:for='{{Store_arr}}' wx:key='index'>
+      <!--图片  -->
+      <view class='q1'>
+        <view class='tupian'>
+          <image class='tupian' src='{{item.img}}'></image>
+        </view>
+      </view>
+      <!--文字  -->
+      <view class='q1' >
+        <!--商品名称  -->
+        <view class='qmc'>{{item.Product_name}}</view>
+        <!--商品详情  -->
+        <scroll-view class='qxq'  >
+            <textarea class='n' value='{{item.Product_Info}}'  size="20" bindblur='cms2' style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
+        </scroll-view>
+        <!--  -->
+        <view class='q2' >
+          <!--按钮图片  -->
+          <view class='img'>
+            <image class='img' src='../../image/a/a1.png'></image>
+          </view>
+          <navigator url='../Store_management_Edit/Store_management_Edit?index={{index}}'>
+            <view class='bj' bindtap='bj1' >　编辑　</view>
+          </navigator>
+          <!--按钮图片  -->
+          <view class='img'>
+            <image class='img' src='../../image/a/a2.png'></image>
+          </view>
+          <view class='sc' bindtap='sc1' id='{{index}}' >　删除</view>
+
+        </view>
+      </view>
+    </view>
+    <navigator url='../Store_management_Add/Store_management_Add'>
+      <button class='button'   bindtap='zj'>增加</button>
+    </navigator>
+
+    <view class='dibu'></view>
+  </view>

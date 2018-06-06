@@ -1,34 +1,5 @@
 /* pages/product/product.wxss */
-.shelf-nav {
-
-display: flex;  
-
-flex-wrap: wrap; 
-
-padding: 30rpx;
-
-}
-
-.shelf-nav-item {
-
-width: 50%; 
-
-margin-bottom: 20rpx;
-
-text-align: center; 
-
-}
-
-.shelf-nav-item__image {
-
-width: 150rpx; 
-
-height: 150rpx; 
-
-
-
-border-radius: 50%; 
-
-border: 1px solid #d9d9d9; 
-
+image{
+  width: 100%;
+  display: block;
 }

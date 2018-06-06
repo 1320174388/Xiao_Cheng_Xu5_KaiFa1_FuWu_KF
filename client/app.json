@@ -6,7 +6,22 @@
     "pages/home/reservation/Subscribe3/Subscribe3",
     "pages/home/product/product",
     "pages/home/product/productdetails/productdetails",
-    "pages/home/store/store"
+    "pages/home/store/store",
+    "pages/admin/index/index",
+    "pages/admin/jurisdiction/jurisdiction",
+    "pages/admin/jurisdiction/addJob/addJob",
+    "pages/admin/jurisdiction/modifyJob/modifyJob",
+    "pages/admin/administrators/administrators",
+    "pages/admin/administrators/addManager/addManager",
+    "pages/admin/administrators/modifyManager/modifyManager",
+    "pages/admin/reserve/reserve",
+    "pages/admin/informationManager/infoManager",
+    "pages/admin/product_management/product_management/product_management",
+    "pages/admin/product_management/product_management_Add/product_management_Add",
+    "pages/admin/product_management/product_management_Edit/product_management_Edit",
+    "pages/admin/Store_management/Store_management/Store_management", 
+    "pages/admin/Store_management/Store_management_Add/Store_management_Add",
+    "pages/admin/Store_management/Store_management_Edit/Store_management_Edit"
   ],
   "window":{
     "backgroundColor":"#F6F6F6",
@@ -14,6 +29,7 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle":"black"
+
   },
   "tabBar": {
     "color": "#939393",

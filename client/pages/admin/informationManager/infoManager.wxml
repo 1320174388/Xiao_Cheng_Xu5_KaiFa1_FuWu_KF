@@ -1,0 +1,210 @@
+<!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+  
+<!--首页-->  
+<view hidden="{{currentTab!==0}}">  
+  <!-- 轮播图 -->
+  <view class="content-column rotation-chart">
+    <!-- 轮播图文字 -->
+    <view style="flex:1">
+      <view class="content-row rotation-chart-context">
+        <!-- 左侧蓝色样式 -->
+        <view style="flex:0.01" class='rotation-chart-border'>
+        </view>
+        <!-- 轮播图字体样式 -->
+        <view style="flex:1" class='rotation-chart-text'>
+          <text>轮播图</text>
+        </view> 
+      </view>
+    </view>
+    <!-- 轮播图图片 -->
+    <view style="flex" class='rotation-chart-img'>
+      <swiper class="swiper" indicator-dots="true" indicator-color="#b2b2b2"
+              indicator-active-color="rgba(0, 0, 0, 0.43)" autoplay="true" circular="true" 
+              interval="5000" duration="1000">
+        <block wx:for="{{imgUrls}}" wx:key="index">
+          <swiper-item bindtap="up_pic">
+            <image src="{{item}}" class='rotation-chart-picture'/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view> 
+  </view>
+</view>  
+  
+<!--推荐-->  
+<view hidden="{{currentTab!==1}}">
+ <!-- 推荐产品详情 -->
+  <view  class="{{productInfo?'display_show':'display_none'}}">
+    <view wx:for="{{recommendArray}}" wx:key="index" wx:if="{{item || item==0}}"> 
+      <view class="content-row recommend"> 
+        <!-- 推荐图片 -->
+        <view style="flex:1" class='recommend-img'>
+            <image src='{{recommendAddArray[item].recommendAddSrc}}' class='recommend-picture'></image>
+        </view> 
+        <!-- 推荐详情 -->
+        <view style="flex:2.5" class='recommend-info'>
+          <view class="content-column"> 
+            <!-- 推荐名称 -->
+            <view style="flex:1" class='recommend-info-name'>
+            {{recommendAddArray[item].recommendAddName}}
+            </view> 
+            <!-- 推荐详细信息 -->
+            <view style="flex:1" class='recommend-info-datiled'>
+              {{recommendAddArray[item].recommendDatiled}}
+            </view> 
+            <!-- 删除 -->
+            <view style="flex:1" class='recommend-info-delete' bindtap='recommendDelete' 
+                  data-editid="{{index}}">
+              <text class="iconfont icon-shanchu delete">\t删\t除</text>
+            </view>  
+          </view>
+        </view>  
+      </view> 
+    </view>
+      <!-- 添加按钮 -->
+    <view style='height:100rpx'></view>
+    <button class='recommend-add' bindtap='changeAdd'>设置</button> 
+  </view>
+
+   <!-- 推荐产品添加 -->
+  <view class="{{productSubmit?'display_show':'display_none'}}">
+    <checkbox-group bindchange="checkboxChange" class='product-recommend-add'>
+      <view wx:for="{{recommendAddArray}}" wx:key="index" wx:if="{{item}}">
+        <view class="content-column" class='product-recommend-add-info'> 
+          <!-- 推荐产品添加图片 -->
+          <view style="flex:1">
+            <image src='{{item.recommendAddSrc}}' class='product-recommend-add-img'></image>
+          </view> 
+          <!-- 推荐产品添加名称与按钮 -->
+          <view style="flex:1">
+            <view class="content-row"> 
+              <!--  推荐产品添加名称 -->
+              <view style="flex:1"  class='product-recommend-add-name'> 
+                {{item.recommendAddName}}
+              </view> 
+              <!--  推荐产品添加按钮 -->
+              <view style="flex:0.25" class="product-recommend-add-radio">
+                <checkbox value='{{index}}'
+                checked="{{item.checked}}"></checkbox>
+              </view> 
+            </view> 
+          </view>
+        </view> 
+      </view>
+    </checkbox-group> 
+    <!-- 确定 -->
+    <view style='height:100rpx;'></view>
+    <button class='recommend-add' bindtap='changeSure'>确定</button>
+  </view>
+</view>  
+  
+<!--信息-->  
+<view hidden="{{currentTab!==2}}">
+  <view class="{{informationList?'display_show':'display_none'}}"> 
+    <view wx:for="{{infoArray}}" wx:key="index" wx:if="{{item}}">  
+      <view class="content-column info">
+        <!-- 姓名 -->
+        <view style="flex:1" class='info-name'>
+          {{item.infoName}}
+        </view>
+        <!-- 电话 -->
+        <view style="flex:1" class='info-phone'>
+          <view class="content-row">
+            <view style="flex:1">
+              电话:
+            </view>
+            <view style="flex:10" class='info-phone-name'>
+              {{item.infoPhone}}
+            </view>  
+          </view>
+        </view>
+        <!-- 地址 -->
+        <view style="flex:1" class='info-address'>
+          <view class="content-row">
+            <view style="flex:1">
+              地址:
+            </view>
+            <view style="flex:10" class='info-address-name'>
+              {{item.infoAddress}}
+            </view>  
+          </view>
+        </view>  
+      </view>
+    </view>
+    <view style='height:100rpx'></view>  
+    <button class='recommend-add' bindtap='setUpdate' 
+            data-infoName="{{infoArray[0].infoName}}" data-infoPhone="{{infoArray[0].infoPhone}}"
+            data-infoAddress="{{infoArray[0].infoAddress}}">
+            设置
+    </button>
+  </view>
+  <!-- 信息修改 -->
+  <view class="{{informationUpdate?'display_show':'display_none'}}">
+    <form bindsubmit='sureUpdate'>
+      <!-- 修改信息 -->
+      <view class="content-column update-info">
+        <!-- 修改名称 -->
+        <view style="flex:1" class='update-info-detailed detailed'>
+          <view class="content-row">
+            <!-- 名称 -->
+            <view style="flex:0.15">
+              名称:
+            </view>
+            <!-- 修改名称 -->
+            <view style="flex:1" class='update'>
+              <input name="infoName" value="{{infoArray[0].infoName}}"/>
+            </view>  
+          </view>
+        </view>
+        <!-- 修改电话 -->
+        <view style="flex:1" class='update-info-detailed detailed'>
+          <view class="content-row">
+            <!-- 电话 -->
+            <view style="flex:0.15">
+              电话:
+            </view>
+            <!-- 修改电话 -->
+            <view style="flex:1" class='update'>
+              <input name="infoPhone" value="{{infoArray[0].infoPhone}}"/>
+            </view>  
+          </view>
+        </view>
+        <!-- 修改地址 -->
+        <view style="flex:1" class='update-info-detailed'>
+          <view class="content-row">
+            <!-- 地址-->
+            <view style="flex:0.15">
+              地址:
+            </view>
+            <!-- 修改地址 -->
+            <view style="flex:1" class='update'>
+              <input name="infoAddress" value="{{infoArray[0].infoAddress}}"/>
+            </view>  
+          </view>
+        </view> 
+      </view>
+      <!-- 确认修改 -->
+      <button class='recommend-add' form-type='submit' bindtap='suresUpdate'>确认修改</button>
+    </form>
+  </view>
+</view>
+
+<!--展示-->  
+<view hidden="{{currentTab!==3}}">
+  <!-- 展示图片 -->
+  <view class='show-img' wx:for="{{showArray}}" wx:key="index" wx:if="{{item}}">
+    <view class='deleteIco' bindtap='delPicture' data-showid="{{index}}">X</view>
+    <view>
+      <image src='{{item.showSrc}}' class='picture' mode="widthFix"></image>
+    </view>
+   
+  </view> 
+    <!--底部图片上传 -->
+    <view class='show-foot-img' bindtap='getPicture'>
+      <text class='show-foot-add' bindcatch='getPicture'>+</text>
+    </view>  
+  <!-- </view> -->
+</view>

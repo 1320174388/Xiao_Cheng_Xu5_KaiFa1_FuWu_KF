@@ -4,16 +4,8 @@
 
 <view class="shelf-nav">
 
-  <view class="shelf-nav-item" wx:for="{{ imgg }}" wx:key="index">
-
-   
-
-      <image src="{{ item.imgUrl }}" class="shelf-nav-item__image"> </image>
-
-      <text>\n {{ item.text }}</text>
-
-    
-
+  <view  wx:for="{{imgg}}" wx:key="index">
+    <image wx:if="{{item}}" src='{{item.showSrc}}'></image>
   </view>
 
 </view>

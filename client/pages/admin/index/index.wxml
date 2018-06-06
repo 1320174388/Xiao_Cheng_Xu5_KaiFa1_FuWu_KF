@@ -1,0 +1,6 @@
+<!--pages/admin/index/index.wxml-->
+<view class='container'>
+    <view>
+        <button id='{{index}}' class='index_btn' wx:for='{{btn_arr}}' wx:key="index" bindtap='web_jump'>{{item.name}}</button>
+    </view>
+</view>

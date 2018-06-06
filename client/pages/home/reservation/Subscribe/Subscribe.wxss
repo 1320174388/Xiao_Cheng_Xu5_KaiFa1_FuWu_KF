@@ -20,3 +20,17 @@ border-radius:25px;
 page{
   background-color: #FFF0F5;
 }
+.admin_enter{
+  box-sizing: border-box;
+  width:60rpx;
+  height: 60rpx;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10rpx 0 0 10rpx;
+  border-radius: 50%;
+  position: fixed;
+
+}
+.admin_icon{
+  width: 40rpx;
+  height: 40rpx;
+}

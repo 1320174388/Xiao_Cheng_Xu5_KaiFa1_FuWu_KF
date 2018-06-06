@@ -1,0 +1,25 @@
+<!--pages/admin/administrators/addManager/addManager.wxml-->
+<view class="container">
+    <view class='id_name_container'>
+        <text>ID</text>
+        <input class='id_name' placeholder='输入ID账号' bindblur='id_change'></input>
+    </view>
+    <view class='job_name_container'>
+        <text>名称</text>
+        <input class='job_name' placeholder='输入管理员名称' bindblur='job_change'></input>
+    </view>
+    <view class='jur_name'>
+        <text class='jur_quanxian'>职位</text>
+        <radio-group class='jur_choose'>
+            <view class='check_style' wx:for="{{quanxuan_arr}}" wx:key="index">
+                <radio value='index' checked='{{item.checked}}' class='check_st' bindtap='jur_choose' id="{{index}}"></radio>
+                <text>{{item.name}}</text>
+                <icon type='success' color='{{item.icon_color}}' class='jur_icon' bindtap='jur_choose' id="{{index}}"></icon>
+            </view>
+        </radio-group>
+    </view>
+    <button class='job_add' bindtap='jump_jur'>
+        确定
+    </button> 
+    <view class='footer'></view>
+</view>

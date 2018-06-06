@@ -1,0 +1,13 @@
+<!--pages/admin/jurisdiction/jurisdiction.wxml-->
+<view class='container'>
+    <view class='jur_manager' wx:for="{{jur_manager_arr}}" wx:key="index">
+        <text class='jur_text'>{{item}}</text>
+        <view class='xiugai_remove'>
+            <view class='modify' bindtap='jump_modify_job' id='{{index}}'>修改</view>
+            <view class='remove' bindtap='jur_remove' id='{{index}}'>删除</view>
+        </view>
+    </view>
+    <button class='jur_add' bindtap='jump_add_job'>
+        添加
+    </button> 
+</view>

@@ -1,11 +1,12 @@
 // pages/productdetails/productdetails.js
+var config = require('../../../../config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    host_image_Url:  config.service.host_image_Url
   },
 
   /**

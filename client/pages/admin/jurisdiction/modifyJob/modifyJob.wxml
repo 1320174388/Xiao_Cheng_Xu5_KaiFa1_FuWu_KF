@@ -1,0 +1,21 @@
+<!--添加职位页面  -->
+<view class="container">
+    <view class='job_name_container'>
+        <text>职位</text>
+        <input class='job_name' placeholder='输入职位名称' value='{{job_change}}' bindblur='job_change'></input>
+    </view>
+    <view class='jur_name'>
+        <text class='jur_quanxian'>权限</text>
+        <checkbox-group class='jur_choose'>
+            <view class='check_style' wx:for="{{quanxuan_arr}}" wx:key="index">
+                <checkbox value='index' checked='{{item.checked}}' class='check_st' bindtap='jur_choose' id="{{index}}"></checkbox>
+                <text>{{item.name}}</text>
+                <icon type='success' color='{{item.icon_color}}' class='jur_icon'  bindtap='jur_choose' id="{{index}}"></icon>
+            </view>
+        </checkbox-group>
+    </view>
+    <button class='job_add' bindtap='jump_jur'>
+        确定
+    </button> 
+    <view class='footer'></view>
+</view>
