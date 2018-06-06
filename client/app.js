@@ -21,4 +21,25 @@ App({
         duration: time
       });
     },
+    /**
+     * 封装功能：wx.request() 封装函数
+     * 页面引入：var app = getApp();
+     * 调用方法：app.post('url地址',{'传值键名'：'传值内容'},function(res){
+     *            // 传值成功后的回调函数
+     *          });
+     * 调用实例：app.post('url地址',{'传值键名'：'传值内容'},function(res){
+     *            console.log(res.data);
+     *          });
+     */
+    post: function (urls, datas, func) {
+      wx.request({
+        url: urls,
+        data: datas,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'post',
+        success: func
+      });
+    },
 })
