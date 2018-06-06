@@ -19,6 +19,7 @@ class Get_Service_Config extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Config/My_Service_Config');
+        $this->load->model('admin/Product');
     }
 
     /**
@@ -96,13 +97,17 @@ class Get_Service_Config extends CI_Controller {
      */
     private function Get_Service_Product_Key()
     {
-        /**
-         * 等待产品模型完成重新编写
-         */
-        return $this->My_Service_Config->select_service_config(
+        $data = $this->My_Service_Config->select_service_config(
             'config_index,config_content',
             "config_type = 'product_key'"
         );
+
+        foreach($data as $key => $value){
+            $res = $this->Product->ProductFind($value->config_content);
+            $value->config_content = $res;
+        }
+
+        return $data;
     }
 
     /**

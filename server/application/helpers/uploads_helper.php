@@ -16,11 +16,11 @@ function upload_create($dir,$file_name){
     $fileName = md5($number.$date.$string);
     $config = [
         'upload_path'   => './uploads/'.$dir.'/', // 文件保存路径
-        'allowed_types' => 'gif|jpg|png|jpeg',         // 准许文件上穿格式
+        'allowed_types' => 'gif|jpg|png|jpeg',    // 准许文件上穿格式
         'file_name'     => $fileName.'.png',      // 准许文件上穿格式
         'max_size'      => '2048',                // 准许上传文件大小
-        'max_width'     => '1366',                // 上传图片宽度
-        'max_height'    => '768'                  // 上传图片高度
+        'max_width'     => '2000',                // 上传图片宽度
+        'max_height'    => '2000'                 // 上传图片高度
     ];
     // 加载文件上传类
     $CI->load->library('upload',$config);

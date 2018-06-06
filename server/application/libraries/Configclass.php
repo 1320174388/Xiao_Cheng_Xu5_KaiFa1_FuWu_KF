@@ -23,12 +23,12 @@ class Configclass {
         [
             'id'          => 'X',
             'right_name'  => '职位管理',
-            'right_route' => '/pages/Admin/...'
+            'right_route' => '/pages/admin/jurisdiction/jurisdiction'
         ],
         [
             'id'          => 'A',
             'right_name'  => '管理列表',
-            'right_route' => '/pages/Admin/...'
+            'right_route' => '/pages/admin/administrators/administrators'
         ]
     ];
 
