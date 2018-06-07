@@ -13,50 +13,13 @@ Page({
     // 轮播图片
     imgUrls: null,
     // 推荐列表信息
-    recommendArray: [0, 1, 2],
+    recommendArray: null,
     infoArray: null,
     config_content:null,
     config_phone:null,
-    config_name:'啊买哦',
+    config_name:'首页信息设置',
     // 添加推荐产品
-    recommendAddArray: [
-      {
-        id: 1,
-        recommendAddSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/AiMeiLi_one.png',
-        recommendAddName: '玉泽沐浴液',
-        recommendDatiled: '玉泽官方正品 皮肤屏障修护身体乳液，补水滋润润肤露甘油。实验验证有效改善肌肤...'
-      },
-      {
-        id: 2,
-        recommendAddSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/AiMeiLi_two.png',
-        recommendAddName: '洗护用品套装',
-        recommendDatiled: '玉泽官方正品 皮肤屏障修护身体乳液，补水滋润润肤露甘油。实验验证有效改善肌肤...'
-      },
-      {
-        id: 3,
-        recommendAddSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/images_product_timg.jpg',
-        recommendAddName: '玉泽沐浴液',
-        recommendDatiled: '玉泽官方正品 皮肤屏障修护身体乳液，补水滋润润肤露甘油。实验验证有效改善肌肤...'
-      },
-      {
-        id: 1,
-        recommendAddSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun3.jpg',
-        recommendAddName: '玉泽沐浴液',
-        recommendDatiled: '玉泽官方正品 皮肤屏障修护身体乳液，补水滋润润肤露甘油。实验验证有效改善肌肤...'
-      },
-      {
-        id: 2,
-        recommendAddSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun2.jpg',
-        recommendAddName: '洗护用品套装',
-        recommendDatiled: '玉泽官方正品 皮肤屏障修护身体乳液，补水滋润润肤露甘油。实验验证有效改善肌肤...'
-      },
-      {
-        id: 3,
-        recommendAddSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun1.jpg',
-        recommendAddName: '玉泽沐浴液',
-        recommendDatiled: '玉泽官方正品 皮肤屏障修护身体乳液，补水滋润润肤露甘油。实验验证有效改善肌肤...'
-      },
-    ],
+    recommendAddArray: null,
     // 推荐跳转添加
     productInfo: true,
     // 推荐产品添加提交
@@ -68,6 +31,7 @@ Page({
     getInformationInfo: null,
     showArray: null,
     notice_index:null,
+    product_index:null,
   },
   navbarTap: function (e) {
     this.setData({
@@ -87,13 +51,32 @@ Page({
   /**
    * 推荐产品添加提交
    */
-  changeSure: function () {
+  changeSure: function (e) {
     var that = this;
-    that.setData({
-      recommendArray: recommendAdd,
-      productInfo: true,
-      productSubmit: false
-    });
+    var str = '';
+    for (var i in recommendAdd){
+      str += ',' + recommendAdd[i];
+    }
+    str = str.replace(/,/, "");
+    app.post(
+      config.infomation.set_config_product_key, {
+        'token': wx.getStorageSync('token'),
+        'product_key':str
+      }, function (res) {
+        if (res.data.errNum == 0){
+          app.point(res.data.retMsg, "success");
+          that.setData({
+            // recommendArray: recommendAdd,
+            productInfo: true,
+            productSubmit: false
+          });
+          that.onLoad();
+        }else{
+          app.point(res.data.retMsg, "none");
+        }
+        
+      }
+    );
   },
   checkboxChange: function (e) {
     recommendAdd = e.detail.value;
@@ -116,19 +99,41 @@ Page({
   },
   // 确认修改信息
   sureUpdate: function (e) {
-    this.setData({
-      config_name: e.detail.value.config_name,
-      config_phone: e.detail.value.config_phone,
-      config_address: e.detail.value.config_address,
-    });
+    var This = this;
+    app.post(
+      config.infomation.set_config_config_details, {
+        'token': wx.getStorageSync('token'),
+        'config_phone': e.detail.value.config_phone,
+        'config_address': e.detail.value.config_address,
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          app.point(res.data.retMsg, "success");
+          This.onLoad();
+        } else {
+          app.point(res.data.retMsg, "none");
+        };
+      }
+    );
+   
   },
   // 删除推荐列表信息
   recommendDelete: function (e) {
-    var delRecommendArray = this.data.recommendArray;
-    delete delRecommendArray[e.currentTarget.dataset.editid];
-    this.setData({
-      recommendArray: delRecommendArray,
-    })
+    var THIS = this;
+    app.post(
+      config.infomation.del_config_product_key, {
+        'token': wx.getStorageSync('token'),
+        'product_index': e.currentTarget.dataset.editid
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          app.point(res.data.retMsg, "success");
+          setTimeout(function () {
+            THIS.onLoad();
+          }, 1000);
+        } else {
+          app.point(res.data.retMsg, "none");
+        };
+      }
+    );
   },
   // 删除展示的图片
   delPicture: function (e) {
@@ -138,15 +143,14 @@ Page({
         'token': wx.getStorageSync('token'),
         'notice_index': e.currentTarget.dataset.showid
       }, function (res) {
-        THIS.onLoad();
-        // if (res.data.errNum == 0) {
-        //   app.point(res.data.retMsg, "success");
-        //   setTimeout(function () {
-        //     THIS.onLoad();
-        //   }, 1000);
-        // } else {
-        //   app.point(res.data.retMsg, "none");
-        // };
+        if (res.data.errNum == 0) {
+          app.point(res.data.retMsg, "success");
+          setTimeout(function () {
+            THIS.onLoad();
+          }, 1000);
+        } else {
+          app.point(res.data.retMsg, "none");
+        };
       }
     );
   },
@@ -167,6 +171,9 @@ Page({
           },
           filePath: tempFilePaths_new[0],
           name: 'notice_image_file',
+          formData: {
+            'token': wx.getStorageSync('token'),
+          },
           success: function (res) {
             var data = JSON.parse(res.data);
             if (data.errNum == 0) {
@@ -176,6 +183,8 @@ Page({
                 1000
               );
               This.onLoad();
+            }else{
+              app.point(res.data.retMsg, "none");
             }
           }
         });
@@ -187,37 +196,32 @@ Page({
    */
   onLoad: function (options) {
     var This = this;
-    // 获取轮播图
+    // 获取项目配置信息接口
     app.post(
       config.infomation.get_service_config_type, {
         'token': wx.getStorageSync('token'),
         service_type: 'config_data'
       }, function (res) {
         This.setData({
-          imgUrls: res.data.retData.sowing_map
-        });
-      },
-    );
-    // 获取信息配置
-    app.post(
-      config.infomation.get_service_config_type, {
-        'token': wx.getStorageSync('token'),
-        service_type: 'config_data'
-      }, function (res) {
-        This.setData({
+          // 获取轮播图
+          imgUrls: res.data.retData.sowing_map,
+          // 获取信息配置
           config_address: res.data.retData.config_details.config_address.config_content,
           config_phone: res.data.retData.config_details.config_phone.config_content,
+          // 获取展示图片
+          showArray: res.data.retData.notice_image,
+          // 获取推荐位信息
+          recommendArray: res.data.retData.product_key,
         });
       },
     );
-    // 获取展示图片
+    // 获取推荐位产品信息
     app.post(
-      config.infomation.get_service_config_type, {
+      config.infomation.get_product, {
         'token': wx.getStorageSync('token'),
-        service_type: 'config_data'
       }, function (res) {
         This.setData({
-          showArray: res.data.retData.notice_image
+          recommendAddArray: res.data.retData
         });
       },
     );
@@ -294,10 +298,12 @@ Page({
         filePath: imgUrls[num],
         name: 'sowing_map_file',
         formData: {
-          'the_first_map': numbers
+          'the_first_map': numbers,
+          'token': wx.getStorageSync('token'),
         },
         success: function (res) {
           var data = JSON.parse(res.data);
+          console.log(data);
           if (data.errNum==0){
             app.point(
               '上传成功',
@@ -306,6 +312,8 @@ Page({
             );
             upload_file(imgUrls, num+1, numbers+1);
             
+          }else{
+            app.point(res.data.retMsg, "none");
           }
         }
       })

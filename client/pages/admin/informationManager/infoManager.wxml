@@ -42,22 +42,22 @@
       <view class="content-row recommend"> 
         <!-- 推荐图片 -->
         <view style="flex:1" class='recommend-img'>
-            <image src='{{recommendAddArray[item].recommendAddSrc}}' class='recommend-picture'></image>
+            <image src='{{host}}{{item.config_content.product_img_url}}' class='recommend-picture'></image>
         </view> 
         <!-- 推荐详情 -->
         <view style="flex:2.5" class='recommend-info'>
           <view class="content-column"> 
             <!-- 推荐名称 -->
             <view style="flex:1" class='recommend-info-name'>
-            {{recommendAddArray[item].recommendAddName}}
+            {{item.config_content.product_name}}
             </view> 
             <!-- 推荐详细信息 -->
             <view style="flex:1" class='recommend-info-datiled'>
-              {{recommendAddArray[item].recommendDatiled}}
+              {{item.config_content.product_info}}
             </view> 
             <!-- 删除 -->
             <view style="flex:1" class='recommend-info-delete' bindtap='recommendDelete' 
-                  data-editid="{{index}}">
+                  data-editid="{{item.config_index}}">
               <text class="iconfont icon-shanchu delete">\t删\t除</text>
             </view>  
           </view>
@@ -76,18 +76,18 @@
         <view class="content-column" class='product-recommend-add-info'> 
           <!-- 推荐产品添加图片 -->
           <view style="flex:1">
-            <image src='{{item.recommendAddSrc}}' class='product-recommend-add-img'></image>
+            <image src='{{host}}{{item.product_img_url}}' class='product-recommend-add-img'></image>
           </view> 
           <!-- 推荐产品添加名称与按钮 -->
           <view style="flex:1">
             <view class="content-row"> 
               <!--  推荐产品添加名称 -->
               <view style="flex:1"  class='product-recommend-add-name'> 
-                {{item.recommendAddName}}
+                {{item.product_name}}
               </view> 
               <!--  推荐产品添加按钮 -->
               <view style="flex:0.25" class="product-recommend-add-radio">
-                <checkbox value='{{index}}'
+                <checkbox value='{{item.id}}'
                 checked="{{item.checked}}"></checkbox>
               </view> 
             </view> 
