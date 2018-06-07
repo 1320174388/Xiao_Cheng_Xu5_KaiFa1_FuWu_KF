@@ -10,7 +10,8 @@ Page({
   data: {
       // 权限数组
       jur_manager_arr:"",
-      
+      // 没有添加职位时显示
+      job_show:true
   },
 
   /**
@@ -26,11 +27,15 @@ Page({
       } else if (res.data.errNum == 0) {
         // 成功拿到数据
         that.setData({
-          jur_manager_arr: res.data.retData.list
+          jur_manager_arr: res.data.retData.list,
+          job_show: false
         })
       } else if (res.data.errNum == 2) {
         // 没有添加职位
-        app.point(res.data.retMsg, "none", 1000);
+        that.setData({
+          jur_manager_arr: "",
+          job_show:true
+        })
       }
     })
 

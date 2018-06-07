@@ -10,7 +10,8 @@ Page({
   data: {
     // 管理员列表
     manager_arr: "",
-    jur_arr:""
+    jur_arr:"",
+    job_show:true
   },
 
   /**
@@ -23,16 +24,17 @@ Page({
       if (res.data.errNum == 0) {
         // 成功拿到数据
         that.setData({
-          manager_arr: res.data.retData.list
+          manager_arr: res.data.retData.list,
+          job_show: false
         })
       } else if (res.data.errNum == 1) {
         // 没有权限
         app.point(res.data.retMsg, "none", 1000);
       } else if (res.data.errNum == 2) {
         // 当前没有添加管理员
-        app.point(res.data.retMsg, "none", 1000);
         that.setData({
-          manager_arr: ""
+          manager_arr: "",
+          job_show: true
         })
       }
     })

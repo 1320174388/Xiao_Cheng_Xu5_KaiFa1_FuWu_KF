@@ -1,5 +1,6 @@
 <!--pages/admin/jurisdiction/jurisdiction.wxml-->
 <view class='container'>
+    <view wx:if="{{job_show}}" style='color:gray;text-align:center;'>当前还没有添加职位</view>
     <view class='jur_manager' wx:for="{{jur_manager_arr}}" wx:key="index">
         <text class='jur_text'>{{item.role_name}}</text>
         <view class='xiugai_remove'>
