@@ -66,7 +66,7 @@ class My_Service_Config extends CI_Model
 
         $query_sql .= " where config_type = 'notice_image'";
 
-        $query_sql .= " order by config_infos desc";
+        $query_sql .= " order by config_infos+0 desc";
 
         return $this->CI->db->query($query_sql)->result()[0]->config_infos;
     }

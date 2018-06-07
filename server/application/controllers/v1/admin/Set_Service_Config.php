@@ -86,6 +86,28 @@ class Set_Service_Config extends LoginController
     }
 
     /**
+     * 名称: Del_Config_Product_Key()
+     * 参数: product_index 发送当前要删除图片的 config_index 标识
+     */
+    public function Del_Config_Product_Key()
+    {
+        $product_index = $this->input->post('product_index');
+
+        if(!$product_index){
+            return return_response( 2, '没有发送图片标识');
+        }
+
+        $res = $this->My_Service_Config->delete_service_config("config_index = '{$product_index}'");
+
+        if($res){
+            return return_response( 0, '删除成功');
+        }else{
+            return return_response( 3, '删除失败');
+        }
+
+    }
+
+    /**
      * 名称: Set_Config_Notice_Image()
      * 功能: 展示位图片的image地址
      * 参数: notice_image_file 图片文件信息
@@ -99,12 +121,14 @@ class Set_Service_Config extends LoginController
 
             $notice_sort = $this->My_Service_Config->get_notice_image_number();
 
+            if(!$notice_sort) $int = 0; else $int = intval($notice_sort);
+
             $res = $this->My_Service_Config->insert_service_config([
                 'config_index'   => token(),
                 'config_name'    => '展示位图片',
                 'config_type'    => 'notice_image',
                 'config_content' => $notice_image_file,
-                'config_infos'   => $notice_sort + 1
+                'config_infos'   => $int + 1
             ]);
 
             if($res){

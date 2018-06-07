@@ -116,10 +116,11 @@ class Get_Service_Config extends CI_Controller {
      */
     private function Get_Service_Notice_Image()
     {
-        return $this->My_Service_Config->select_service_config(
+        $res = $this->My_Service_Config->select_service_config(
             'config_index,config_content',
-            "config_type = 'notice_image'"
+            "config_type = 'notice_image' order by config_infos+0 asc"
         );
+        return $res;
     }
 
     /**

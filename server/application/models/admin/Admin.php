@@ -93,7 +93,7 @@ class Admin extends CI_Model {
 
     public function admin_user_delete($admin_id)
     {
-        // 删除数据库管理员数据
+        $this->db->delete('index_user_roles',['admin_id'=>$admin_id]);
         $res = $this->CI->db->delete('data_admin_users',['id' => $admin_id]);
         if($res) return $res;
     }
