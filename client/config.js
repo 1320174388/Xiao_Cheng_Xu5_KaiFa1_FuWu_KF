@@ -32,6 +32,11 @@ var config = {
        del_notice_image_file: `${host}/api/admin/Set_Service_Config/Del_Config_Notice_Image`,
       // 配置信息
       set_config_config_details: `${host}/api/admin/Set_Service_Config/Set_Config_Config_Details`,
+    },
+    //预约接口地址
+    Subscribe:{
+host,
+Subscribe_file: `${host}/api/home/reserve/subit`
     }
 
 
