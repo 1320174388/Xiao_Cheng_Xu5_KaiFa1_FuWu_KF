@@ -1,3 +1,8 @@
+var config = require('../../../../config.js');//引用config.js文件
+var app = getApp();//引用app.js文件
+var token;//token令牌
+var id;//要修改的元素的id
+
 Page({
 
   /**
@@ -21,19 +26,20 @@ Page({
         "checked": false
       }
     ],
-    job_change:"",
-    qx_checked:false,
-    qx_idn:""
+    //默认的权限名称
+    job_default:"",
+    qx_checked:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
       this.setData({
-        job_change:options.def_name,
-        qx_idn:options.idn
+        job_default: options.job_defalut
       })
+      id = options.id;
   },
 
   /**
@@ -84,6 +90,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 点击多选框事件
   jur_choose: function (res) {
     var idn = res.currentTarget.id;
     var icon_color = this.data.quanxuan_arr[idn].icon_color;
@@ -103,39 +110,46 @@ Page({
 
     }
   },
-  job_change:function(res){
-    this.setData({
-      job_change: res.detail.value
-    })
-  },
-  jump_jur: function () {
-    
-    var q_x = this.data.quanxuan_arr;
-    for (var i = 0; i < q_x.length; i++) {
-      if (q_x[i].checked) {
-        this.setData({
-          qx_checked: true
-        })
-      }
+  // 确定按钮
+  jump_jur: function (res) {
+    var that = this;
+    var form_info = res.detail.value;
+    var right="";
+    for(var i = 0;i<form_info.jur_choose.length;i++){
+      right = right+String(form_info.jur_choose[i])+",";
     }
-    if (this.data.job_change == "") {
-      var app = getApp();
-      app.point("请输入名称", "none", 1000)
-    } else {
-      
-      if (this.data.qx_checked) {
-       
-        // 修改元素
-        var jur_manager_arr = wx.getStorageSync("jur_manager_arr");
-        jur_manager_arr.splice(this.data.qx_idn,1,this.data.job_change);
-        wx.setStorageSync("jur_manager_arr", jur_manager_arr);
+    app.post(config.service.host +'/api/admin/position/update',{
+      "token":token,
+      "id":id,
+      "roleName": form_info.job_name,
+      "right":right
+    },function(res){
+      if(res.data.errNum == 0){
+        // 修改成功
+        // 页面返回
         wx.navigateBack({
-          delta:1
+          delta: 1
         })
-      } else {
-        var app = getApp();
-        app.point("请选择权限", "none", 1000)
+      } else if (res.data.errNum == 1){
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg,"none",1000);
+      } else if (res.data.errNum == 2) {
+        // 请输入职位名称
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 3) {
+        // 没有选择权限
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 4) {
+        // 要修改角色不存在
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 5) {
+        // 职位已存在
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 6) {
+        // 修改失败
+        app.point(res.data.retMsg, "none", 1000);
       }
-    }
+    })
+
   }
 })

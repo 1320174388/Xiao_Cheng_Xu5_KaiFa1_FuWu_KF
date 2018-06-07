@@ -1,13 +1,16 @@
 // pages/admin/jurisdiction/jurisdiction.js
+var config = require('../../../config.js');//引用config.js文件
+var app = getApp();//引用app.js文件
+var token;//token令牌
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+      // 权限数组
       jur_manager_arr:"",
-      job_change:"",
-      qx_idn:""
+      
   },
 
   /**
@@ -29,9 +32,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      jur_manager_arr: wx.getStorageSync("jur_manager_arr")
+    var that = this;
+    token = wx.getStorageSync("token");
+    app.post(config.service.host + '/api/admin/position/show', { "token": token }, function (res) {
+      if (res.data.errNum == 1) {
+        // 没有权限
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 0) {
+        // 成功拿到数据
+        that.setData({
+          jur_manager_arr: res.data.retData.list
+        })
+      } else if (res.data.errNum == 2) {
+        // 没有添加职位
+        app.point(res.data.retMsg, "none", 1000);
+      }
     })
+    
   },
 
   /**
@@ -68,28 +85,46 @@ Page({
   onShareAppMessage: function () {
   
   },
-  // 删除
+  // 删除事件
   jur_remove:function(res){
+    var that = this;
     var idn = res.currentTarget.id;
-    var man_arr=this.data.jur_manager_arr;
-    man_arr.splice(idn, 1);
-    this.setData({
-      jur_manager_arr: man_arr
+    // 删除api
+    app.post(config.service.host +'/api/admin/position/delete',{
+      "token":token,
+      "id":idn
+    },function(res){
+      if(res.data.errNum == 0){
+        // 删除成功
+        app.point(res.data.retMsg,"success",1000)
+        // 刷新onload
+        that.onShow();
+      } else if (res.data.errNum == 1){
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg, "none", 1000)
+      } else if (res.data.errNum == 2) {
+        // 当前职位已被管理员使用,不可删除
+        app.point(res.data.retMsg, "none", 1000)
+      } else if (res.data.errNum == 3) {
+        // 删除失败
+        app.point(res.data.retMsg, "none", 1000)
+      }
     });
-    wx.setStorageSync("jur_manager_arr", this.data.jur_manager_arr);
+    
   },
-  // 添加
+  // 添加事件
   jump_add_job:function(){
     wx.navigateTo({
       url: './addJob/addJob',
     })
   },
-  // 修改
+  // 修改事件
   jump_modify_job:function(res){
-    var idn = res.currentTarget.id;
-    var default_name = this.data.jur_manager_arr[idn];
+    var arr_idn = res.currentTarget.id;
+    var id = this.data.jur_manager_arr[arr_idn].id;
+    var job_defalut = this.data.jur_manager_arr[arr_idn].role_name;
     wx.navigateTo({
-      url: './modifyJob/modifyJob?def_name=' + default_name+'&idn='+idn,
+      url: './modifyJob/modifyJob?id=' + id + '&job_defalut=' + job_defalut,
     })
   }
 })
