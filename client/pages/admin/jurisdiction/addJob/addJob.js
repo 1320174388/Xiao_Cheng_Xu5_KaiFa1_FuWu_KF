@@ -109,8 +109,9 @@ Page({
     var form_info = res.detail.value;
     var right = "";
     for (var i = 0; i < form_info.jur_choose.length; i++) {
-      right = right + String(form_info.jur_choose[i]) + ",";
+      right = right + "," + String(form_info.jur_choose[i]);
     }
+    right = right.replace(/,/,'');
     // post请求数据
     app.post(config.service.host +'/api/admin/position/create',{
         "token":token,
