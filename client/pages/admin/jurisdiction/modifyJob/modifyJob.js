@@ -118,6 +118,7 @@ Page({
     for(var i = 0;i<form_info.jur_choose.length;i++){
       right = right+String(form_info.jur_choose[i])+",";
     }
+    right = right.replace(/,/, '');
     app.post(config.service.host +'/api/admin/position/update',{
       "token":token,
       "id":id,

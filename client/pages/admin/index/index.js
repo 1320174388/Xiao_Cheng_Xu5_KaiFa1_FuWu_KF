@@ -37,20 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setStorageSync("jur_manager_arr", [
-      "总经理", "大堂经理"
-    ]);
-    wx.setStorageSync("manager_arr", [
-      {
-        jur: "一级管理员",
-        name: "于帅"
-      },
-      {
-        jur: "二级管理员",
-        name: "豪美"
-      }
-    ]);
-    wx.setStorageSync("jur_arr",["一级管理员","二级管理员","三级管理员"]);
+    
     wx.setStorageSync("reserve_arr_false",[{
       name:"张三",
       phone:12345678978,

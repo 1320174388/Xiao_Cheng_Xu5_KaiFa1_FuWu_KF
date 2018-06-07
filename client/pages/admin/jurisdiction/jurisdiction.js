@@ -17,21 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
     var that = this;
     token = wx.getStorageSync("token");
     app.post(config.service.host + '/api/admin/position/show', { "token": token }, function (res) {
@@ -48,7 +33,22 @@ Page({
         app.point(res.data.retMsg, "none", 1000);
       }
     })
+
     
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.onLoad();
   },
 
   /**
@@ -98,7 +98,7 @@ Page({
         // 删除成功
         app.point(res.data.retMsg,"success",1000)
         // 刷新onload
-        that.onShow();
+        that.onLoad();
       } else if (res.data.errNum == 1){
         // 你没有权限进行此操作
         app.point(res.data.retMsg, "none", 1000)

@@ -1,21 +1,41 @@
 // pages/admin/administrators/administrators.js
+var config = require('../../../config.js');//引用config.js文件
+var app = getApp();//引用app.js文件
+var token;//token令牌
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // 管理员列表
     manager_arr: "",
-    jur_arr:"",
-    job_change: "",
-    qx_idn: ""
+    jur_arr:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    token = wx.getStorageSync("token");
+    app.post(config.service.host + '/api/admin/isadmin/show', { "token": token }, function (res) {
+      if (res.data.errNum == 0) {
+        // 成功拿到数据
+        that.setData({
+          manager_arr: res.data.retData.list
+        })
+      } else if (res.data.errNum == 1) {
+        // 没有权限
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 2) {
+        // 当前没有添加管理员
+        app.point(res.data.retMsg, "none", 1000);
+        that.setData({
+          manager_arr: ""
+        })
+      }
+    })
   },
 
   /**
@@ -29,10 +49,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      manager_arr:wx.getStorageSync("manager_arr"),
-      jur_arr:wx.getStorageSync("jur_arr")
-    })
+    this.onLoad();
   },
 
   /**
@@ -71,11 +88,29 @@ Page({
   },
   // 删除
   jur_remove: function (res) {
-    var idn = res.currentTarget.id;
-    var man_arr = this.data.manager_arr;
-    man_arr.splice(idn, 1);
-    this.setData({
-      manager_arr: man_arr
+    var that = this;
+    var admin_id = res.currentTarget.id;
+    // 删除api
+    app.post(config.service.host + '/api/admin/isadmin/delete', {
+      "token": token,
+      "admin_id": admin_id
+    }, function (res) {
+      if (res.data.errNum == 0) {
+        // 刷新onload
+        that.onLoad();
+        // 删除成功
+        app.point(res.data.retMsg, "success", 1000)
+        
+      } else if (res.data.errNum == 1) {
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg, "none", 1000)
+      } else if (res.data.errNum == 2) {
+        // 管理员ID丢失
+        app.point(res.data.retMsg, "none", 1000)
+      } else if (res.data.errNum == 3) {
+        // 删除失败
+        app.point(res.data.retMsg, "none", 1000)
+      }
     });
   },
   // 添加
@@ -87,9 +122,10 @@ Page({
   // 修改
   jump_modify_job: function (res) {
     var idn = res.currentTarget.id;
-    var default_name = this.data.manager_arr[idn].name;
+    var default_id = this.data.manager_arr[idn].id;
+    var default_name = this.data.manager_arr[idn].admin_name;
     wx.navigateTo({
-      url: './modifyManager/modifyManager?def_name=' + default_name + '&qx_idn=' + idn,
+      url: './modifyManager/modifyManager?def_name=' + default_name + '&def_id=' + default_id,
     })
   }
 })

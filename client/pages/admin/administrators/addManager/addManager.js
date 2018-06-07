@@ -1,39 +1,44 @@
 // pages/admin/administrators/addManager/addManager.js
+var config = require('../../../../config.js');//引用config.js文件
+var app = getApp();//引用app.js文件
+var token;//token令牌
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    quanxuan_arr: [
-      {
-        "name": "一级管理员",
-        "icon_color": "gray",
-        checked:false
-      },
-      {
-        "name": "二级管理员",
-        "icon_color": "gray",
-        checked: false
-      },
-      {
-        "name": "三级管理员",
-        "icon_color": "gray",
-        checked: false
-      }
-    ],
-    qx_checked:false,
-    default_job:"",
-    id_number:"",
-    qx_idn:"",
-    jur_idn:""
+    // 权限选择的颜色数组
+    jur_arr: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    token = wx.getStorageSync("token");
+    app.post(config.service.host +'/api/admin/isadmin/roles',{
+      'token':token
+    },function(res){
+      if(res.data.errNum == 0){
+        // 请求成功
+        var jur_arr = res.data.retData.list;
+        for (var i = 0; i < jur_arr.length;i++){
+          jur_arr[i].icon_color = "gray";
+          jur_arr[i].checked = false;
+        }
+        that.setData({
+          jur_arr: jur_arr
+        });
+      } else if (res.data.errNum == 1) {
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg, "none", 1000)
+      } else if (res.data.errNum == 2) {
+        // 当前还没有管理职位
+        app.point(res.data.retMsg, "none", 1000)
+      }
+    })
   },
 
   /**
@@ -84,18 +89,16 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 权限选择
+  // 权限选择事件
   jur_choose: function (res) {
-    this.setData({
-      jur_idn:res.currentTarget.id
-    })
+
     // 改变颜色和checked属性值
     var idn = res.currentTarget.id;
-    var color_gai = "quanxuan_arr[" + idn + "].icon_color";
-    var checked_gai = "quanxuan_arr[" + idn + "].checked";
-    for (var i = 0; i < this.data.quanxuan_arr.length; i++) {
-      var color_gai_arr = "quanxuan_arr[" + i + "].icon_color"
-      var checked_gai_arr = "quanxuan_arr[" + i + "].checked";
+    var color_gai = "jur_arr[" + idn + "].icon_color";
+    var checked_gai = "jur_arr[" + idn + "].checked";
+    for (var i = 0; i < this.data.jur_arr.length; i++) {
+      var color_gai_arr = "jur_arr[" + i + "].icon_color"
+      var checked_gai_arr = "jur_arr[" + i + "].checked";
       this.setData({
         [color_gai_arr]: "gray",
         [color_gai]: "green",
@@ -106,55 +109,48 @@ Page({
     }
 
   },
-  // 管理员ID
-  id_change: function(res){
-    this.setData({
-      id_number:res.detail.value
-    })
-  },
-  // 管理员名称
-  job_change: function (res) {
-    this.setData({
-      default_job: res.detail.value
-    })
-  },
-  jump_jur: function () {
-    var app = getApp();
-    var q_x = this.data.quanxuan_arr;
-    for (var i = 0; i < q_x.length; i++){
-      if (q_x[i].checked) {
-        this.setData({
-          qx_checked: true
+  // 提交信息
+  jump_jur: function (res) {
+    // 管理员信息
+    var manager = res.detail.value;
+    app.post(config.service.host +'/api/admin/isadmin/create',{
+      'token':token,
+      'admin_name':manager.job_change,
+      'user_id':manager.id_change,
+      'role_id':manager.jur_choose
+    },function(res){
+      if (res.data.errNum == 0) {
+        // 添加成功
+        // 返回上一页面
+        wx.navigateBack({
+          delta: 1
         })
-        
+      } else if (res.data.errNum == 1) {
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 2) {
+        // 请选择管理员职位
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 3) {
+        // 请输入管理员名称
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 4) {
+        // 用户不存在
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 5) {
+        // 此用户已经是管理员
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 6) {
+        // 管理员名称已存在
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 7) {
+        // 管理员添加失败
+        app.point(res.data.retMsg, "none", 1000);
+      } else if (res.data.errNum == 8) {
+        // 管理员职位绑定失败
+        app.point(res.data.retMsg, "none", 1000);
       }
-    }
-    if(this.data.id_number == ""){
-      app.point("请输入ID账号", "none", 1000)
-    }else{
-      if (this.data.default_job == "") {
+    })
 
-        app.point("请输入名称", "none", 1000)
-      } else {
-        if (this.data.qx_checked) {
-          var manager_arr = wx.getStorageSync("manager_arr");
-          var jur_arr = wx.getStorageSync("jur_arr");
-          var manager_new = {
-            jur: jur_arr[this.data.jur_idn],
-            name:this.data.default_job
-          };
-          manager_arr.push(manager_new);
-          wx.setStorageSync("manager_arr", manager_arr);
-          wx.navigateBack({
-            delta:1
-          })
-          
-        } else {
-
-          app.point("请选择权限", "none", 1000)
-        }
-      }
-    }
-    
   }
 })
