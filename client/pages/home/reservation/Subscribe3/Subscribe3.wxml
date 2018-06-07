@@ -1,21 +1,21 @@
 <!--pages/Subscribe3/Subscribe3.wxml-->
 <view class='two'>
-  <form>
+  <form bindsubmit="jump_two">
 
 
-    <input style='margin-top:130px;' placeholder='提示：请输入姓名 （必填）' type="text" class='ys'  />
+    <input style='margin-top:130px;' value='{{form_info}}'  name="name" placeholder='提示：请输入姓名 （必填）'  type="text" class='ys'  />
 
     <text>\n</text>
 
-    <input type="text" class='ys' placeholder=' 提示：请输入手机（必填）'   size="20" maxlength='11' />
+    <input type="text" class='ys' value='{{form_info}}' name="phone" placeholder=' 提示：请输入手机（必填）'   size="20" maxlength='11' />
     
     <text>\n</text>
-    <input  type="text" class='ys'placeholder='性别（可不填）' size="20" />
+    <input  type="text" class='ys' value='{{form_info}}' name="sex" placeholder='性别（可不填）' size="20"  />
     
     <text>\n</text>
     <text>\n</text>
     
-    <button class='yu_wc' bindtap="jump_two">完成预约</button>
+    <button class='yu_wc' formType="submit">完成预约</button>
 
   </form>
 

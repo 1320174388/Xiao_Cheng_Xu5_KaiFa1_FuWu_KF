@@ -35,9 +35,12 @@ var config = {
       set_config_product_key: `${host}/api/admin/Set_Service_Config/Set_Config_Product_Key`,
       //请求推荐位信息接口
       del_config_product_key: `${host}/api/admin/Set_Service_Config/Del_Config_Product_Key`,
+    },
+    //预约接口地址
+    Subscribe:{
+      host,
+      Subscribe_file: `${host}/api/home/reserve/subit`
     }
-
-
 };
 
 module.exports = config;
