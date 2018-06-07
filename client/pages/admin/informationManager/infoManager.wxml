@@ -26,7 +26,7 @@
               interval="5000" duration="1000">
         <block wx:for="{{imgUrls}}" wx:key="index">
           <swiper-item bindtap="up_pic">
-            <image src="{{item}}" class='rotation-chart-picture'/>
+            <image src="{{host}}{{item.config_content}}" class='rotation-chart-picture'/>
           </swiper-item>
         </block>
       </swiper>
@@ -104,11 +104,11 @@
 <!--信息-->  
 <view hidden="{{currentTab!==2}}">
   <view class="{{informationList?'display_show':'display_none'}}"> 
-    <view wx:for="{{infoArray}}" wx:key="index" wx:if="{{item}}">  
+    <view>  
       <view class="content-column info">
         <!-- 姓名 -->
         <view style="flex:1" class='info-name'>
-          {{item.infoName}}
+          {{config_name}}
         </view>
         <!-- 电话 -->
         <view style="flex:1" class='info-phone'>
@@ -117,7 +117,7 @@
               电话:
             </view>
             <view style="flex:10" class='info-phone-name'>
-              {{item.infoPhone}}
+              {{config_phone}}
             </view>  
           </view>
         </view>
@@ -128,7 +128,7 @@
               地址:
             </view>
             <view style="flex:10" class='info-address-name'>
-              {{item.infoAddress}}
+              {{config_address}}
             </view>  
           </view>
         </view>  
@@ -136,8 +136,8 @@
     </view>
     <view style='height:100rpx'></view>  
     <button class='recommend-add' bindtap='setUpdate' 
-            data-infoName="{{infoArray[0].infoName}}" data-infoPhone="{{infoArray[0].infoPhone}}"
-            data-infoAddress="{{infoArray[0].infoAddress}}">
+            data-infoName="{{config_name}}" data-infoPhone="{{config_phone}}"
+            data-infoAddress="{{config_address}}">
             设置
     </button>
   </view>
@@ -155,7 +155,7 @@
             </view>
             <!-- 修改名称 -->
             <view style="flex:1" class='update'>
-              <input name="infoName" value="{{infoArray[0].infoName}}"/>
+              <input name="config_name" value="{{config_name}}"/>
             </view>  
           </view>
         </view>
@@ -168,7 +168,7 @@
             </view>
             <!-- 修改电话 -->
             <view style="flex:1" class='update'>
-              <input name="infoPhone" value="{{infoArray[0].infoPhone}}"/>
+              <input name="config_phone" value="{{config_phone}}"/>
             </view>  
           </view>
         </view>
@@ -181,7 +181,7 @@
             </view>
             <!-- 修改地址 -->
             <view style="flex:1" class='update'>
-              <input name="infoAddress" value="{{infoArray[0].infoAddress}}"/>
+              <input name="config_address" value="{{config_address}}"/>
             </view>  
           </view>
         </view> 
@@ -196,9 +196,9 @@
 <view hidden="{{currentTab!==3}}">
   <!-- 展示图片 -->
   <view class='show-img' wx:for="{{showArray}}" wx:key="index" wx:if="{{item}}">
-    <view class='deleteIco' bindtap='delPicture' data-showid="{{index}}">X</view>
+    <view class='deleteIco' bindtap='delPicture' data-showid="{{item.config_index}}">X</view>
     <view>
-      <image src='{{item.showSrc}}' class='picture' mode="widthFix"></image>
+      <image src='{{host}}{{item.config_content}}' class='picture' mode="widthFix"></image>
     </view>
    
   </view> 

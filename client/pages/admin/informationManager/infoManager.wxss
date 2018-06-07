@@ -250,7 +250,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 }
 .deleteIco{
   font-size:60rpx;
-  color: #fff;
+  color:#fff;
   width: 50rpx;
   position: relative; 
   left: 93%;  
