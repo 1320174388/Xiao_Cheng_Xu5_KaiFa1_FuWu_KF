@@ -147,6 +147,10 @@ Page({
           'store_addr': res.detail.value.Store_addr,
         },
         success: function (res) {
+          if (res.statusCode == 413) {
+            app.point('请上传1M以内图片', "none", 1000);
+            return false;
+          }
           var data = JSON.parse(res.data);
           if (data.errNum == 0) {
             // 更新成功
