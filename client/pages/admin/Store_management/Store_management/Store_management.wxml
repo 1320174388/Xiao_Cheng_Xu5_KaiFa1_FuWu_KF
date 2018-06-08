@@ -1,26 +1,22 @@
 <!--pages/home/admin/product_management/product_management/product_management.wxml-->
 <!--颜色棕色  -->
-
-
-
-
-
   <view class='zuiwai'>
+  <view wx:if="{{job_show}}" style='color:gray;text-align:center;padding-top:20rpx;'>当前还没有添加门店</view>
     <!--外面  -->
     <view class='qwe' wx:for='{{Store_arr}}' wx:key='index'>
       <!--图片  -->
       <view class='q1'>
         <view class='tupian'>
-          <image class='tupian' src='{{item.img}}'></image>
+          <image class='tupian' src='{{item.store_img_url}}'></image>
         </view>
       </view>
       <!--文字  -->
       <view class='q1' >
-        <!--商品名称  -->
-        <view class='qmc'>{{item.Product_name}}</view>
-        <!--商品详情  -->
+        <!--门店名称  -->
+        <view class='qmc'>{{item.store_name}}</view>
+        <!--门店详情  -->
         <scroll-view class='qxq'  >
-            <textarea class='n' value='{{item.Product_Info}}'  size="20" bindblur='cms2' style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
+            <textarea class='n' value='{{item.store_addr}}'  size="20" bindblur='cms2' style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
         </scroll-view>
         <!--  -->
         <view class='q2' >
@@ -28,20 +24,18 @@
           <view class='img'>
             <image class='img' src='../../image/a/a1.png'></image>
           </view>
-          <navigator url='../Store_management_Edit/Store_management_Edit?index={{index}}'>
-            <view class='bj' bindtap='bj1' >　编辑　</view>
-          </navigator>
+            <view class='bj' id='{{index}}' bindtap='edit'>　编辑　</view>
           <!--按钮图片  -->
           <view class='img'>
             <image class='img' src='../../image/a/a2.png'></image>
           </view>
-          <view class='sc' bindtap='sc1' id='{{index}}' >　删除</view>
+          <view class='sc' bindtap='removeStore' id='{{item.id}}' >　删除</view>
 
         </view>
       </view>
     </view>
     <navigator url='../Store_management_Add/Store_management_Add'>
-      <button class='button'   bindtap='zj'>增加</button>
+      <button class='button'>增加</button>
     </navigator>
 
     <view class='dibu'></view>

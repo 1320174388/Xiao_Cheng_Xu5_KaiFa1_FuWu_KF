@@ -1,17 +1,20 @@
 // pages/home/admin/product_management/product_management_Edit/product_management_Edit.js
+var config = require('../../../../config.js');//引入config.js模块
+var app = getApp();//引入app.js
+var token;//定义token令牌
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img: "",
-    name1: "",
-    name2: "",
-    ab: '',
-    v1: '',
-    v2: '',
-
+    // 要提交的img路径
+    img:"",
+    // 默认信息
+    def_img: "",
+    def_name:"",
+    def_id:"",
+    def_addr:""
   },
 
 
@@ -19,108 +22,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    console.log(e)
-
-
-
-
-
-    this.setData({ ab: e.index })
-
-
-    var key4 = wx.getStorageSync('Store0')
-
-
-    console.log(key4)
-
-    var that = this
-
-
-    that.setData({ img: key4[e.index].img })
-    that.setData({ name1: key4[e.index].Product_name })
-    that.setData({ name2: key4[e.index].Product_Info })
-
-
-
-
-  },
-  // cms1: function (a) {
-
-  //   var that = this
-  //   if (that.data.v2 == '') {
-  //     that.setData({ v2: that.data.name2 })
-  //   }
-
-  //   that.setData({ v1: a.detail.value })
-
-
-  // },
-  // cms2: function (b) {
-  //   var that = this
-  //   if (that.data.v1 == '') {
-  //     that.setData({ v1: that.data.name1 })
-  //   }
-
-
-
-  //   that.setData({ v2: b.detail.value })
-
-
-  // },
-  check: function (w) {
-    var that = this;
-    var app = getApp();
-    
-    //获取
-    var f_arr = wx.getStorageSync('Store0')
-
-
-    //获取编辑的值
-    var name2 = w.detail.value
-    if (that.data.img == f_arr[that.data.ab].img) {
-      name2.img = that.data.img
-    } else {
-      name2.img = that.data.img[0]
-    }
-    // 判断名称和产品介绍是否为空
-    if(name2.Product_name==""){
-      app.point("请输入产品名称","none",1000);
-    }else{
-      if(name2.Product_Info==""){
-        app.point("请输入产品介绍","none",1000);
-      }else{
-        //替换
-        f_arr.splice(that.data.ab, 1, name2);
-        //重新发回缓存
-        wx.setStorageSync('Store0', f_arr);
-        wx.navigateBack({
-          delta: 1
-        });
-      }
-    }
-
-
-  },
-
-  //选择图片
-  choose: function (ch) {
-
-    var that = this
-    wx.chooseImage({
-
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
-        that.setData({ img: res.tempFilePaths })
-      }
+    token = wx.getStorageSync('token');
+    this.setData({
+      def_img: e.def_img,
+      def_name: e.def_name,
+      def_id: e.def_id,
+      def_addr: e.def_addr
     })
   },
-
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -168,5 +78,104 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  //选择图片
+  choose: function (ch) {
+
+    var that = this
+    wx.chooseImage({
+
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        that.setData({ 
+          img: res.tempFilePaths[0],
+          def_img: res.tempFilePaths[0]
+        })
+      }
+    })
+  },
+  // 提交事件
+  check: function (res) {
+    var that = this;
+    // 判断图片是否修改
+    if (that.data.img == ''){
+      app.post(config.service.host + '/api/admin/Store_Management/edit_Store',{
+        'token':token,
+        'store_id':that.data.def_id,
+        'store_name': res.detail.value.Store_name,
+        'store_addr': res.detail.value.Store_addr,
+      },function(res){
+        if(res.data.errNum == 0){
+          // 更新成功
+          // 返回上一页
+          wx.navigateBack({
+            delta:1
+          })
+        } else if(res.data.errNum == 1){
+          // 你没有权限进行此操作
+          app.point(res.data.retMsg,"none",1000);
+        } else if (res.data.errNum == 2) {
+          // 请发送要删除的门店ID
+          app.point("请选择要修改的门店ID", "none", 1000);
+        } else if (res.data.errNum == 3) {
+          // 请填写门店名称
+          app.point(res.data.retMsg, "none", 1000);
+        } else if (res.data.errNum == 4) {
+          // 请正确上传门店图片
+          app.point(res.data.retMsg, "none", 1000);
+        } else if (res.data.errNum == 5) {
+          // 更新失败
+          app.point(res.data.retMsg, "none", 1000);
+        }
+      })
+    }else{
+      wx.uploadFile({
+        url: config.service.host + '/api/admin/Store_Management/edit_Store',
+        filePath: that.data.img,
+        name: 'store_img_file',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        formData: {
+          'token': token,
+          'store_id': that.data.def_id,
+          'store_name': res.detail.value.Store_name,
+          'store_addr': res.detail.value.Store_addr,
+        },
+        success: function (res) {
+          var data = JSON.parse(res.data);
+          if (data.errNum == 0) {
+            // 更新成功
+            // 返回上一页
+            wx.navigateBack({
+              delta: 1
+            })
+          } else if (data.errNum == 1) {
+            // 你没有权限进行此操作
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 2) {
+            // 请发送要删除的门店ID
+            app.point("请选择要修改的门店ID", "none", 1000);
+          } else if (data.errNum == 3) {
+            // 请填写门店名称
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 4) {
+            // 请正确上传门店图片
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 5) {
+            // 更新失败
+            app.point(data.retMsg, "none", 1000);
+          }
+
+        }
+      })
+    }
+    
+
+  },
+
 })
