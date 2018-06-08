@@ -3,6 +3,7 @@ var config = require('../../../config.js');
 var app = getApp();
 var height = 0;
 var timer;
+var numType = true;
 Page({
 
   /**
@@ -52,7 +53,7 @@ Page({
       // 后台按钮点击事件
       admin_btn_event:'admin_enter',
       // 后台按钮显示
-      admin_show:"block",
+      admin_show: false,
       
   },
 
@@ -60,9 +61,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.setStorageSync("admin_left", that.data.admin_left);
 
+    var This = this;
+    var that = this;
+
+    wx.setStorageSync("admin_left", that.data.admin_left);
     wx.setStorageSync("admin_top", that.data.admin_top);
     var e = wx.getSystemInfoSync();
     height = e.windowHeight;
@@ -73,15 +76,33 @@ Page({
     query.select('.admin_enter').boundingClientRect(function(res){
       that.setData({
         admin_btn_width: res.width
-      })
+      });
       wx.setStorageSync("admin_left", that.data.window_width - that.data.admin_btn_width/2);
       that.setData({
         admin_left: wx.getStorageSync("admin_left")
-
-      })
+      });
     }).exec();
+
+    timer = setInterval(function (num = 0) {
+      if (!wx.getStorageSync("admin_show")) {
+        return false;
+      }
+      if (!numType) {
+        return false;
+      }
+      numType = false;
+      var admin_show = wx.getStorageSync("admin_show");
+      if (admin_show) {
+        This.setData({
+          admin_show: true
+        });
+      } else {
+        This.setData({
+          admin_show: true
+        });
+      }
+    }, 1000);
     
-    var This = this;
     // 获取项目配置信息接口
     app.post(
       config.infomation.get_service_config_type, {
@@ -99,20 +120,6 @@ Page({
         });
       }
     );
-    timer = setInterval(function(){
-      var admin_show=wx.getStorageSync("admin_show");
-      if (admin_show){
-        This.setData({
-          admin_show: "block"
-        })
-        console.log(This.data.admin_show)
-      }else{
-        This.setData({
-          admin_show: "none"
-        })
-      }
- 
-    },1000);
   },
 
   /**

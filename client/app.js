@@ -101,10 +101,8 @@ function login_add(number = 1) {
                 success: function(res){
                   if(res.data.errNum == 0){
                     wx.setStorageSync("admin_show", true)
-                    console.log(res.data)
                   }else{
                     wx.setStorageSync("admin_show", false)
-                    console.log(res.data)
                   }
                 }
               })

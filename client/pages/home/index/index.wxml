@@ -62,7 +62,7 @@
         </view>
     </view>
     <!--后台进入按钮  -->
-      <view class='admin_enter' catchtap='{{admin_btn_event}}' animation="{{animationData}}" style='left:{{admin_left}}px;top:{{admin_top}}px;display:{{admin_show}};' catchtouchmove='admin_move' catchtouchend='admin_move_end'>
+      <view class='admin_enter' catchtap='{{admin_btn_event}}' animation="{{animationData}}" style='left:{{admin_left}}px;top:{{admin_top}}px;' catchtouchmove='admin_move' catchtouchend='admin_move_end' hidden='{{admin_show?true:false}}'>
       <image src='{{host_image_Url}}/icon_admin.png' class='admin_icon' mode='widthFix'></image>
       </view>
 </view>
