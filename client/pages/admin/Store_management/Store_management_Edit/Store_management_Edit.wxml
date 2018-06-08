@@ -1,35 +1,32 @@
 <view class='w'>
+  <!-- 表单 -->
   <form bindsubmit="check">
     <view class='q1'>
+      <!--图片  -->
       <view class='tupian'>
-
-        <image class='tupian'   src='{{img}}' bindtap='choose' mode='widthFix'></image>
-
+        <image class='tupian' src='{{def_img}}' bindtap='choose' mode='widthFix'></image>
       </view>
+      <!--输入框  -->
       <view class='q2'>
         <view class='q'>
-          <view class='qq1'>产品名称 ：</view>
+          <view class='qq1'>门店名称 ：</view>
           <view class='qq1'>
-            <input type="text" value='{{name1}}' name='Product_name' class='ys' placeholder=' 输入产品名称' size="20" ></input>
+            <input type="text" name='Store_name'  class='ys' placeholder=' 输入门店名称' size="20" value='{{def_name}}'></input>
           </view>
-
         </view>
         <view class='qwe'></view>
         <view class='q'>
-          产品介绍：
+          门店地址：
         </view>
         <view class='n'>
-
-          <textarea class='n' name='Product_Info' value='{{name2}}' size="20"  style='height:100px ;background:#ffffff ; width: 100%; padding: 20rpx;  box-sizing: border-box;'  maxlength="1000"> </textarea>
-
-
-
+          <textarea class='n' name='Store_addr' size="20" style='height:100px ;background:#ffffff ; width: 100%; padding: 20rpx;  box-sizing: border-box;' placeholder='  请输入门店地址' maxlength="1000" value='{{def_addr}}'> </textarea>
         </view>
       </view>
-      <view class='button_v'>
-      <button formType="submit" class='button'  style='padding:0 margin:0'>确定</button>
-</view>
-
+      <!--确定按钮  -->
+      <view>
+        <button class='button' formType="submit" >确定</button>
+      </view>
     </view>
   </form>
+
 </view>

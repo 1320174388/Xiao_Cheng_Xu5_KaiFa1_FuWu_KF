@@ -1,105 +1,25 @@
 // pages/home/admin/product_management/product_management_Add/product_management_Add.js
+var config = require('../../../../config.js');//引入config.js模块
+var app = getApp();//引入app.js
+var token;//定义token令牌
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // 图片路径
     img: "/pages/admin/image/a/jia.png",
-    name1: "",
-    name2: "",
-    v1: '',
-    v2: ''
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    token = wx.getStorageSync('token');
   },
-  //选择图片
-  choose: function (ch) {
-
-    var that = this
-    wx.chooseImage({
-
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
-        that.setData({ img: res.tempFilePaths })
-      }
-    })
-  },
-  //获取数据
-  // cms1: function (a) {
-
-  //   var that = this
-  //   that.setData({ v1: a.detail.value })
-
-  // },
-  // cms2: function (b) {
-  //   var that = this
-  //   that.setData({ v2: b.detail.value })
-  // },
-  //确定保存
-  check: function (w) {
-    var that = this;
-    var app = getApp();
-
-    //获取
-    var f_arr = wx.getStorageSync('Store0')
-
-
-    //获取编辑的值
-    var name2 = w.detail.value
-
-    name2.img = that.data.img[0]
-
-
-
-
-    if (name2.img == '/') {
-      wx.showToast({
-        title: '请添加一张图片',
-        icon: 'none',
-        duration:1000
-      })
-
-
-      console.log("图片没改变")
-    } else {
-      
-      // 判断名称和产品介绍是否为空
-      if (name2.Product_name == "") {
-        app.point("请输入产品名称", "none", 1000);
-      } else {
-        if (name2.Product_Info == "") {
-          app.point("请输入产品介绍", "none", 1000);
-        } else {
-          //替换
-          f_arr.push(name2);
-          //重新发回缓存
-          wx.setStorageSync('Store0', f_arr)
-          wx.navigateBack({
-            delta: 1
-          })
-        }
-      }
-
-    }
-
-
-
-
-
-   
-  },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -147,5 +67,78 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //选择图片
+  choose: function (ch) {
+
+    var that = this
+    wx.chooseImage({
+
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        that.setData({ img: res.tempFilePaths })
+      }
+    })
+  },
+
+  //确定保存
+  check: function (res) {
+    var that = this;
+    // 验证图片是否为空
+    if (that.data.img == '/pages/admin/image/a/jia.png'){
+      var img = "";
+      app.point('请选择图片','none',1000)
+    }else{
+      
+      var img = that.data.img[0];
+      
+      // 添加api
+      wx.uploadFile({
+        url: config.service.host + '/api/admin/Store_Management/add_Store',
+        filePath: img,
+        name: 'store_img_file',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        formData: {
+          'token': token,
+          'store_name': res.detail.value.Store_name,
+          'store_addr': res.detail.value.Store_addr,
+        },
+        success: function (res) {
+          var data = JSON.parse(res.data);
+          if (data.errNum == 0) {
+            // 添加成功
+            // 返回上一页面
+            wx.navigateBack({
+              delta: 1
+            })
+          } else if (data.errNum == 1) {
+            // 你没有权限进行此操作
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 2) {
+            // 请填写门店名称
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 3) {
+            // 请填写门店地址
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 4) {
+            // 请正确上传门店图片
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 5) {
+            // 添加失败
+            app.point(data.retMsg, "none", 1000);
+          }
+        }
+      })
+    }
+    
+
+
   }
+
 })
