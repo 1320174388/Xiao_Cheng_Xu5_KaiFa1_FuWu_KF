@@ -1,17 +1,20 @@
 // pages/home/admin/product_management/product_management_Edit/product_management_Edit.js
+var config = require('../../../../config.js');//引入config.js模块
+var app = getApp();//引入app.js
+var token;//定义token令牌
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // 要提交的img路径
     img: "",
-    name1: "",
-    name2: "",
-    ab: '',
-    v1: '',
-    v2: '',
- 
+    // 默认信息
+    product_img: "",
+    product_name: "",
+    product_id: "",
+    product_info: ""
   },
 
 
@@ -19,93 +22,108 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    token = wx.getStorageSync('token');
+    this.setData({
+      product_img: e.product_img,
+      product_name: e.product_name,
+      product_id: e.product_id,
+      product_info: e.product_info
+    })
+
+
+  },
   
-
-    this.setData({ ab: e.index })
-    var key4 = wx.getStorageSync('key0')
-    var that = this
-    that.setData({ img: key4[e.index].img })
-    that.setData({ name1: key4[e.index].Product_name })
-    that.setData({ name2: key4[e.index].Product_Info })
-
-    
-
-
-  },
-  cms1: function (a) {
-   
-    // var that = this
-    // if(that.data.v2==''){
-    //   that.setData({v2:that.data.name2  })
-    // }
-    
-    // that.setData({ v1: a.detail.value })
-   
-
-
-  },
-  cms2: function (b) {
-
-    // var that = this
-    
-    // if (that.data.v1 == '') {
-    //   that.setData({ v1: that.data.name1 })
-    // }
-    // that.setData({ v2: b.detail.value })
-    
-
-  },
-  check: function (w) { 
+  
+  check: function (res) {
     var that = this;
-    var app = getApp();
-    
-    //获取
-    var f_arr = wx.getStorageSync('key0')
-
-    
-    //获取编辑的值
-    var name2=w.detail.value
-    if(that.data.img==f_arr[that.data.ab].img){
-      name2.img = that.data.img 
-    }else{
-      name2.img = that.data.img[0] 
-    }
-
-  
-    // 判断名称和产品介绍是否为空
-    if (name2.Product_name == "") {
-      app.point("请输入产品名称", "none", 1000);
+    // 判断图片是否修改
+    if (that.data.img == '') {
+      app.post(config.service.host + '/api/admin/Set_Product/edit_Product', {
+        'token': token,
+        'product_id': that.data.product_id,
+        'product_name': res.detail.value.product_name,
+        'product_info': res.detail.value.product_info,
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          // 更新成功
+          // 返回上一页
+          setTimeout(function () {
+            console.log("定时器")
+            var pages = getCurrentPages(); // 当前页面  
+            var beforePage = pages[pages.length - 2]; // 前一个页面 
+            wx.navigateBack({
+              success: function () {
+                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+              }
+            });
+          }, 2000);
+        } else if (res.data.errNum == 1) {
+          // 你没有权限进行此操作
+          app.point(res.data.retMsg, "none", 1000);
+        } else if (res.data.errNum == 2) {
+          // 请发送要删除的门店ID
+          app.point("请选择要修改的门店ID", "none", 1000);
+        } else if (res.data.errNum == 3) {
+          // 请填写门店名称
+          app.point(res.data.retMsg, "none", 1000);
+        } else if (res.data.errNum == 4) {
+          // 请正确上传门店图片
+          app.point(res.data.retMsg, "none", 1000);
+        } else if (res.data.errNum == 5) {
+          // 更新失败
+          app.point(res.data.retMsg, "none", 1000);
+        }
+      })
     } else {
-      if (name2.Product_Info == "") {
-        app.point("请输入产品介绍", "none", 1000);
-      } else {
-        //替换
-        f_arr.splice(that.data.ab, 1, name2);
-        //重新发回缓存
-        wx.setStorageSync('key0', f_arr)
-        wx.navigateBack({
-          delta: 1
-        });
-      }
+      app.point('上传中', 'loading', 10000)
+      wx.uploadFile({
+        url: config.service.host + '/api/admin/Set_Product/edit_Product',
+        filePath: that.data.img,
+        name: 'product_img_file',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        formData: {
+          'token': token,
+          'product_id': that.data.product_id,
+          'product_name': res.detail.value.product_name,
+          'product_info': res.detail.value.product_info,
+        },
+        success: function (res) {
+          var data = JSON.parse(res.data);
+          if (data.errNum == 0) {
+            // 更新成功
+            // 返回上一页
+            setTimeout(function () {
+              console.log("定时器")
+              var pages = getCurrentPages(); // 当前页面  
+              var beforePage = pages[pages.length - 2]; // 前一个页面 
+              wx.navigateBack({
+                success: function () {
+                  beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+                }
+              });
+            }, 2000);
+          } else if (data.errNum == 1) {
+            // 你没有权限进行此操作
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 2) {
+            // 请发送要删除的门店ID
+            app.point("请选择要修改的门店ID", "none", 1000);
+          } else if (data.errNum == 3) {
+            // 请填写门店名称
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 4) {
+            // 请正确上传门店图片
+            app.point(data.retMsg, "none", 1000);
+          } else if (data.errNum == 5) {
+            // 更新失败
+            app.point(data.retMsg, "none", 1000);
+          }
+
+        }
+      })
     }
-   
-
-
-    //   var huoqu = wx.getStorageSync('key0')
-
-    //   var option = {
-    //     'img': that.data.img,
-    //     'name1': that.data.v1,
-    //     'name2': that.data.v2
-    //   }
-    //   console.log(option)
-    //   var f_arr = wx.getStorageSync('key0')
-    //   f_arr.splice(that.data.ab, 1, option);
-
-    //   wx.setStorageSync('key0', f_arr)
- 
- 
-
   },
 
   //选择图片
@@ -121,8 +139,11 @@ Page({
 
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        that.setData({ img: res.tempFilePaths })
-
+        that.setData({ 
+          product_img: res.tempFilePaths[0] ,
+          img: res.tempFilePaths[0]
+        })
+        
       }
     })
   },

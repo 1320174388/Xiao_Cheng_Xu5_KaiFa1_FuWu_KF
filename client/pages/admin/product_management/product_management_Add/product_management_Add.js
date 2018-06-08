@@ -1,4 +1,7 @@
 // pages/home/admin/product_management/product_management_Add/product_management_Add.js
+var config = require('../../../../config.js');//引入config.js模块
+var app = getApp();//引入app.js
+var token;//token令牌
 Page({
 
   /**
@@ -6,17 +9,14 @@ Page({
    */
   data: {
     img: "/pages/admin/image/a/jia.png",
-    name1: "",
-    name2: "",
-    v1: '',
-    v2: ''
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    token = wx.getStorageSync('token');
   },
   //选择图片
   choose: function (ch) {
@@ -35,69 +35,74 @@ Page({
       }
     })
   },
-  //获取数据
-  // cms1: function (a) {
 
-  //   // var that = this
-  //   // that.setData({ v1: a.detail.value })
-
-  // },
-  // cms2: function (b) {
-  //   // var that = this
-  //   // that.setData({ v2: b.detail.value })
-  // },
   //确定保存
-  check: function (w) {
-    var that = this
-    var app = getApp();
-    //获取
-    var f_arr = wx.getStorageSync('key0')
-
-
-    //获取编辑的值
-    var name2 = w.detail.value
-   
-      name2.img = that.data.img[0]
-
-
-   
-
-
-
-    if (name2.img =='/') {
-          wx.showToast({
-            title: '请添加一张图片',
-            icon:'none',
-            duration:1000
-          })
-
-          console.log("图片没改变")
+  check: function (res) {
+    var that = this;
+    if (that.data.img == '/pages/admin/image/a/jia.png') {
+      var img = "";
+      app.point('请选择图片', 'none', 1000)
     } else {
-
-      // 判断名称和产品介绍是否为空
-      if (name2.Product_name == "") {
-        app.point("请输入产品名称", "none", 1000);
-      } else {
-        if (name2.Product_Info == "") {
-          app.point("请输入产品介绍", "none", 1000);
-        } else {
-          //替换
-          f_arr.push(name2);
-          //重新发回缓存
-          wx.setStorageSync('key0', f_arr)
-
-          wx.navigateBack({
-            delta: 1
-          })
+      var img = that.data.img[0];
+      app.point('上传中', 'loading', 10000)
+      wx.uploadFile({
+        url: config.service.host + '/api/admin/Set_Product/add_Product',
+        filePath: img,
+        name: 'product_img_file',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        formData: {
+          'token': token,
+          'product_name': res.detail.value.Product_name,
+          'product_info': res.detail.value.Product_Info,
+        },
+        success: function (res) {
+          console.log("运行成功返回函数 ")
+          if (res.statusCode == 413) {
+            getApp().point('请上传1M以内图片', "none", 1000);
+            console.log("运行if ")
+            return false;
+          }else{
+            var data = JSON.parse(res.data);
+            console.log(data)
+            if (data.errNum == 0) {
+              getApp().point(data.retMsg, "success", 3000);
+              // 添加成功
+              setTimeout(function () {
+                
+                var pages = getCurrentPages(); // 当前页面  
+                var beforePage = pages[pages.length - 2]; // 前一个页面 
+                wx.navigateBack({
+                  success: function () {
+                    beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+                  }
+                });
+              }, 2000);
+            }
+            else if (data.errNum == 1) {
+              // 你没有权限进行此操作
+              app.point(data.retMsg, "none", 1000);
+            } else if (data.errNum == 2) {
+              // 请填写产品名称
+              app.point(data.retMsg, "none", 1000);
+            } else if (data.errNum == 3) {
+              // 请填写产品地址
+              app.point(data.retMsg, "none", 1000);
+            } else if (data.errNum == 4) {
+              // 请正确上传产品图片
+              app.point(data.retMsg, "none", 1000);
+            } else if (data.errNum == 5) {
+              // 添加失败
+              app.point(data.retMsg, "none", 1000);
+            }
+          }
         }
-      }
- 
+      })
     }
 
 
-
-
-
+  
 
 
 

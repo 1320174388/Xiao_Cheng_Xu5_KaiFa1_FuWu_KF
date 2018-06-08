@@ -7,31 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-      product_img_url:[
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg",
-        config.service.host_image_Url + "/images_product_timg.jpg"
-      ],
-      // 后台按钮位置
-      admin_left: '',
-      admin_top: '',
-      // 屏幕宽度
-      window_width: '',
-      // 后台按钮宽度
-      admin_btn_width: '',
-      // 后台按钮点击事件
-      admin_btn_event: 'admin_enter'
+    Host:config.service.host,
+    product_img_url: [
+      
+    ],
+    // 后台按钮位置
+    admin_left: '',
+    admin_top: '',
+    // 屏幕宽度
+    window_width: '',
+    // 后台按钮宽度
+    admin_btn_width: '',
+    // 后台按钮点击事件
+    admin_btn_event: 'admin_enter'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    this.Get_product();
     var that = this;
     var e = wx.getSystemInfoSync();
     height = e.windowHeight;
@@ -43,16 +39,38 @@ Page({
       that.setData({
         admin_btn_width: res.width
       })
-      
+
 
     }).exec()
+  },
+
+  //获取产品信息接口 
+  Get_product: function (res) {
+    var This =this
+    wx.request({
+      url: config.Product.Get_Product_file,
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      success: function (r) {
+         console.log(r.data.retData)
+        if (r.data.errNum==0){
+          This.setData({ product_img_url: r.data.retData})
+
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -63,48 +81,52 @@ Page({
       admin_left: wx.getStorageSync("admin_left"),
       admin_top: wx.getStorageSync("admin_top")
     })
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
   /**
    * product_details
    */
-  product_details:function(res){
+  product_details: function (res) {
+    console.log(res)
+    var Item =res.currentTarget.dataset.item
+    wx.setStorageSync("product_details", Item)
+    //返回
     wx.navigateTo({
       url: '/pages/home/product/productdetails/productdetails'
     })

@@ -3,14 +3,14 @@
     <view class='q1'>
       <view class='tupian'>
 
-        <image class='tupian'   src='{{img}}' bindtap='choose' mode='widthFix'></image>
+        <image class='tupian'   src='{{product_img}}' bindtap='choose' mode='widthFix'></image>
 
       </view>
       <view class='q2'>
         <view class='q'>
           <view class='qq1'>产品名称 ：</view>
           <view class='qq1'>
-            <input type="text" value='{{name1}}' name='Product_name' class='ys' placeholder=' 输入产品名称' size="20" ></input>
+            <input type="text" value='{{product_name}}' name='product_name' class='ys' placeholder=' 输入产品名称' size="20" ></input>
           </view>
 
         </view>
@@ -20,7 +20,7 @@
         </view>
         <view class='n'>
 
-          <textarea class='n' name='Product_Info' value='{{name2}}' size="20"  style='height:100px ;background:#ffffff ; width: 100%; padding: 20rpx;  box-sizing: border-box;'  maxlength="1000"> </textarea>
+          <textarea class='n' name='product_info' value='{{product_info}}' size="20"  style='height:100px ;background:#ffffff ; width: 100%; padding: 20rpx;  box-sizing: border-box;'  maxlength="1000"> </textarea>
 
 
 

@@ -1,72 +1,85 @@
 // pages/home/admin/product_management/product_management/product_management.js
+var config = require('../../../../config.js');//引入config.js模块
+var app = getApp();//引入app.js
+var token;//定义token令牌
 Page({
-
-
-
   /**
    * 页面的初始数据
    */
-  data: {
-    fa_arr: [{
-      'img': " https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/AiMeiLi_one.png",
-      'Product_name': "精华洗面奶",
-      'Product_Info': "精华洗面奶"
-    }
-
-
-    ],
-    abc: ''//删除下标
+  data: {  // 产品列表
+    Product_arr: '',
+    // 没有添加产品时显示
+    job_show: true
 
 
   },
-
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-
-
-
-  },
-  //点击编辑发送数据到缓存
-  bj1: function (r) {
-
-    
-  },
-  zj: function (t) {
-    
-  },
-
-  sc1: function (k) {
-
-
-    var that = this
-    var abc = k.currentTarget.id
+    var that = this;
+    //获取缓存中的token令牌
+    token = wx.getStorageSync('token');
+    //获取产品信息
    
-
-    wx.showModal({
-      title: '提示',
-      content: '是否确定删除',
-      success: function (res) {
-        if (res.confirm) {
-          var a_arr = wx.getStorageSync('key0')
-          a_arr.splice(abc, 1)
-
-          that.setData({ fa_arr: a_arr })
-          wx.setStorageSync('key0', a_arr)
-
-
-        } else {
-
+    app.post(config.service.host + '/api/home/Product_Get/get_Product', {},  function (res) {
+      console.log(res.data)
+      if (res.data.errNum == 0) {
+        // 请求成功
+        var product_arr = res.data.retData;
+        if (product_arr.length == 0) {
+          that.setData({
+            Product_arr: '',
+            job_show: true,
+          })
+        } else if (product_arr.length > 0) {
+          for (var i = 0; i < product_arr.length; i++) {
+            product_arr[i].product_img_url = config.service.host + res.data.retData[i].product_img_url
+          }
+          that.setData({
+            Product_arr: product_arr,
+            job_show: false
+          })
         }
 
       }
     })
 
+  },
+  // 删除
+  removeProduct: function (res) {
+    var that = this;
+    var removeId = res.currentTarget.id;
+    // 删除api
+    app.post(config.service.host + '/api/admin/Set_Product/del_Product', {
+      'token': token,
+      'product_id': removeId
+    }, function (res) {
+      if (res.data.errNum == 0) {
+        // 删除成功
+        app.point(res.data.retMsg, 'success', 1000);
+        // 刷新onload
+        that.onLoad();
+      } else if (res.data.errNum == 1) {
+        // 你没有权限进行此操作
+        app.point(res.data.retMsg, 'none', 1000)
+      } else if (res.data.errNum == 2) {
+        // 请发送要删除的产品ID
+        app.point("请选择要删除的产品", 'none', 1000)
+      } else if (res.data.errNum == 3) {
+        // 删除失败
+        app.point(res.data.retMsg, 'none', 1000)
+      }
+    })
 
+  },
+  // 编辑
+  edit: function (res) {
+    var index = res.currentTarget.id;
+    var product_arr = this.data.Product_arr;
+    wx.navigateTo({
+      url: '../product_management_Edit/product_management_Edit?product_name=' + product_arr[index].product_name + '&product_info=' + product_arr[index].product_info + '&product_id=' + product_arr[index].id + '&product_img=' + product_arr[index].product_img_url,
+    })
   },
 
   /**
@@ -82,13 +95,7 @@ Page({
    */
   onShow: function () {
 
-    if (wx.getStorageSync('key0') == '') {
-console.log("没拿到数据")
-    } else {
-      this.setData({ fa_arr: wx.getStorageSync('key0') })
-    }
-
-
+    
 
 
 
@@ -98,14 +105,14 @@ console.log("没拿到数据")
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log("onHide")
+    
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log("onUnload")
+   
   },
 
   /**

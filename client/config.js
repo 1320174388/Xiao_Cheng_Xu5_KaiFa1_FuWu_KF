@@ -47,6 +47,18 @@ var config = {
       Subscribe_lists: `${host}/api/admin/reserve/lists`,
       // 处理预约
       Subscribe_update: `${host}/api/admin/reserve/update`,
+    },
+    //产品
+    Product:{
+      host,
+      //获取产品信息接口
+      Get_Product_file: `${host}/api/home/Product_Get/get_Product`,
+      //添加产品信息
+      Add_Product_file: `${host}/api/admin/Set_Product/add_Product`,
+      //删除产品信息
+      Del_Product_file: `${host}/api/admin/Set_Product/del_Product`,
+      //修改产品信息
+      Edit_Product_file: `${host}/api/admin/Set_Product/edit_Product`
     }
 };
 

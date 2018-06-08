@@ -1,26 +1,22 @@
 <!--pages/home/admin/product_management/product_management/product_management.wxml-->
 <!--颜色棕色  -->
-
-
-
-
-
   <view class='zuiwai'>
+  <view wx:if="{{job_show}}" style='color:gray;text-align:center;padding-top:20rpx;'>当前还没有添加产品</view>
     <!--外面  -->
-    <view class='qwe' wx:for='{{fa_arr}}' wx:key='index' >
+    <view class='qwe' wx:for='{{Product_arr}}' wx:key='index'>
       <!--图片  -->
       <view class='q1'>
         <view class='tupian'>
-          <image class='tupian' src='{{item.img}}'></image>
+          <image class='tupian' src='{{item.product_img_url}}'></image>
         </view>
       </view>
       <!--文字  -->
       <view class='q1' >
-        <!--商品名称  -->
-        <view class='qmc'>{{item.Product_name}}</view>
-        <!--商品详情  -->
-        <scroll-view class='qxq'   >
-            <textarea class='n' value='{{item.Product_Info}}'  size="20"  style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
+        <!--产品名称  -->
+        <view class='qmc'>{{item.product_name}}</view>
+        <!--门店详情  -->
+        <scroll-view class='qxq'  >
+            <textarea class='n' value='{{item.product_info}}'  size="20" style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
         </scroll-view>
         <!--  -->
         <view class='q2' >
@@ -28,21 +24,19 @@
           <view class='img'>
             <image class='img' src='../../image/a/a1.png'></image>
           </view>
-          <navigator url='../product_management_Edit/product_management_Edit?index={{index}}'>
-            <view class='bj' bindtap='bj1' >　编辑　</view>
-          </navigator>
+            <view class='bj' id='{{index}}' bindtap='edit'>　编辑　</view>
           <!--按钮图片  -->
           <view class='img'>
             <image class='img' src='../../image/a/a2.png'></image>
           </view>
-          <view class='sc' bindtap='sc1' id='{{index}}' >　删除</view>
+          <view class='sc' bindtap='removeProduct' id='{{item.id}}' >　删除</view>
 
         </view>
       </view>
     </view>
-    <navigator url='../product_management_Add/product_management_Add' >
-      <button class='button'   bindtap='zj'  >增加</button>
+    <navigator url='../product_management_Add/product_management_Add'>
+      <button class='button'>增加</button>
     </navigator>
 
-    <view  class='dibu'></view>
+    <view class='dibu'></view>
   </view>

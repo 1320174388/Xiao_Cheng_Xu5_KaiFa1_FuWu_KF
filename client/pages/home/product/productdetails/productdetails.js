@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    
     host_image_Url:  config.service.host_image_Url
   },
 
@@ -13,7 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var value= wx.getStorageSync("product_details")
+   
+    this.setData({
+      Host: config.service.host,
+      value:value,
+    })
+    wx.removeStorageSync("product_details")
   },
 
   /**
