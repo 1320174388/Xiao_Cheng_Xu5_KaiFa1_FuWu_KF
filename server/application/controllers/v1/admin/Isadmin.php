@@ -66,7 +66,7 @@ class Isadmin extends LoginController {
         $user_id = $this->input->post('user_id');
 
         $var = $this->validateclass->validator($user_id,'int');
-        if(!$var){
+        if($var){
             return return_response( 4, '用户不存在');
         }
 
