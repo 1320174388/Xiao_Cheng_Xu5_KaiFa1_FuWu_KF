@@ -39,7 +39,12 @@ var config = {
     //预约接口地址
     Subscribe:{
       host,
-      Subscribe_file: `${host}/api/home/reserve/subit`
+      // 预约提交
+      Subscribe_file: `${host}/api/home/reserve/subit`,
+      // 查看预约
+      Subscribe_lists: `${host}/api/admin/reserve/lists`,
+      // 处理预约
+      Subscribe_update: `${host}/api/admin/reserve/update`,
     }
 };
 

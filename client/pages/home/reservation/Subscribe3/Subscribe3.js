@@ -18,19 +18,9 @@ Page({
     var sex = e.detail.value.sex
 
     if (name == "") {
-      wx.showToast({
-        title: '请输入名字！',
-        icon: 'none',
-        duration: 3000,
-        mask: true
-      })
+      getApp().point('请输入名字！', 'none', 2000);
     } else if (phone == "") {
-      wx.showToast({
-        title: '请输入手机号！',
-        icon: 'none',
-        duration: 3000,
-        mask: true
-      })
+      getApp().point('请输入手机号！', 'none', 2000);
     } else {
       //调用接口发送数据
       wx.request({
@@ -45,26 +35,13 @@ Page({
         },
         method: 'post',
         success: function (res) {
-          console.log(res)
-
-          if (res.statusCode == '200') {
-
-            wx.showToast({
-              title: '成功预约',
-              icon: 'succes',
-              duration: 3000,
-              mask: true
-            })
+          if (res.data.errNum == 0) {
+            getApp().point(res.data.retMsg, 'succes', 3000);
             that.setData({
               form_info: ''
             })
           } else {
-            wx.showToast({
-              title: '请检查填写',
-              icon: 'succes',
-              duration: 3000,
-              mask: true
-            })
+            getApp().point(res.data.retMsg, 'none', 2000);
           }
         }
       })

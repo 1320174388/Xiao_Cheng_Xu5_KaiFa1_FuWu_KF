@@ -21,13 +21,10 @@ class Makes extends CI_Model {
         return $makes->result();
     }
 
-    public function update_status( $id, $status ){
-        $makes = $this->CI->db->get_where( 'data_makes', [ 'id' => $id ] );
-        if( !( $makes->result() ) ){
-            return return_response( 0, '没有预约信息');
-        }
-        $result = $this->CI->db->update( 'data_makes', [ 'make_status' => $status ] );
+    public function update_status( $ids ){
 
+        $this->CI->db->where('id in('.$ids.')');
+        $result = $this->CI->db->update( 'data_makes', [ 'make_status' => 2 ] );
         return $result;
     }
 
@@ -36,7 +33,8 @@ class Makes extends CI_Model {
             'make_name' => $name,
             'make_phone' => $phone,
             'make_sex' => $sex,
-            'make_status' => 1
+            'make_status' => 1,
+            'make_time' => date('Y-m-d H:i',time())
         ] );
 
         return $result;
