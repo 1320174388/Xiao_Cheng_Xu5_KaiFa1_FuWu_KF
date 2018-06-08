@@ -15,6 +15,8 @@ var config = {
         host_image_Url,
         // 测试登录接口,获取令牌
         cheshiUrl: `${host}/api/home/login`,
+        // 请求管理员可管理模块信息
+        getAdminModular: `${host}/api/admin/Modular/getAdminModular`,
     },
     // 信息管理接口地址
     infomation: {

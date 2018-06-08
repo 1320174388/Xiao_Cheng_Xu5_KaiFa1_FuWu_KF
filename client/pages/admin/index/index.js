@@ -1,96 +1,31 @@
 // pages/admin/index/index.js
+var config = require('../../../config.js');
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      btn_arr:[
-        {
-          "name":"权限管理",
-          "url":"../jurisdiction/jurisdiction"
-        },
-        {
-          "name": "管理列表",
-          "url": "../administrators/administrators"
-        },
-        {
-          "name": "门店管理",
-          "url": "../Store_management/Store_management/Store_management"
-        },
-        {
-          "name": "查看预约",
-          "url": "../reserve/reserve"
-        },
-        {
-          "name": "信息管理",
-          "url": "../informationManager/infoManager"
-        },
-        {
-          "name": "产品管理",
-          "url": "../product_management/product_management/product_management"
-        }
-      ]
+      btn_arr:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    wx.setStorageSync("reserve_arr_false",[{
-      name:"张三",
-      phone:12345678978,
-      sex:"男",
-      time:"2018年12月12日12时",
-      reserve:false,
-      reserve_text:"未处理"
-
-    },
-      {
-        name: "张四",
-        phone: 12345678978,
-        sex: "女",
-        time: "2018年10月02日10时",
-        reserve: false,
-        reserve_text: "未处理"
-
-      }, {
-        name: "张五",
-        phone: 12345678978,
-        sex: "男",
-        time: "2018年8月19日18时",
-        reserve: false,
-        reserve_text: "未处理"
-
-      }] );
-    wx.setStorageSync("reserve_arr_true", [{
-      name: "王三",
-      phone: 12345678978,
-      sex: "男",
-      time: "2018年12月12日12时",
-      reserve: true,
-      reserve_text: "已处理"
-
-    },
-    {
-      name: "王四",
-      phone: 12345678978,
-      sex: "女",
-      time: "2018年10月02日10时",
-      reserve: true,
-      reserve_text: "已处理"
-
-    }, {
-      name: "王五",
-      phone: 12345678978,
-      sex: "男",
-      time: "2018年8月19日18时",
-      reserve: true,
-      reserve_text: "已处理"
-
-    }])
-
+    var This = this;
+    // 请求管理员可管理模块信息
+    app.post(
+      config.service.getAdminModular, {
+        'token': wx.getStorageSync('token'),
+      }, function (res) {
+        This.setData({
+          // 请求管理员可管理模块信息
+          btn_arr: res.data.retData
+        });
+      },
+    )
   },
 
   /**
@@ -143,7 +78,7 @@ Page({
   },
   web_jump:function(res){
       var idn = res.currentTarget.id;
-      var url = this.data.btn_arr[idn].url;
+      var url = this.data.btn_arr[idn].right_route;
       wx.navigateTo({
         url: url,
       })
