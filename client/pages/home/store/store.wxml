@@ -1,11 +1,14 @@
 <!--pages/store/store.wxml-->
 <view class="wrap">
-      <view class='mendian_content'wx:for="{{img_url}}" wx:key="index">
-          <image class="img" src="{{item}}"></image>
+      <view class='mendian_content'wx:for="{{store_arr}}" wx:key="index">
+          <image class="img" src="{{item.store_img_url}}"></image>
           <view class="content_text">
-            <text>店面名称\n</text>
-            <text>店面电话:12345678911\n</text>
-            <text>店面地址:北京市朝阳区双井桥首城国际</text>
+            <text>
+              <text style='color:#999;'>店面名称:</text>{{item.store_name}}
+            </text>
+            <text>
+              <text style='color:#999;'>店面地址:</text>{{item.store_addr}}
+            </text>
           </view>
       </view>
       <!--地老天荒的logo和电话  -->

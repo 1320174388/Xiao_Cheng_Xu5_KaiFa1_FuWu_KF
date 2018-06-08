@@ -10,9 +10,10 @@
   height: 400rpx;
 }
 .content_text{
-  font-size: 28rpx;
+  font-size: 38rpx;
   color: #323232;
   padding: 15rpx 140rpx 23rpx 40rpx;
+  line-height: 60rpx;
 }
 .admin_enter{
   box-sizing: border-box;

@@ -1,5 +1,7 @@
 // pages/store/store.js
-var config = require('../../../config.js');
+var config = require('../../../config.js');//引入config.js模块
+var app = getApp();//引入app.js
+var token;//定义token令牌
 var height = 0;
 Page({
 
@@ -7,13 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-      img_url:[
-        config.service.host_image_Url + "/images_store_timg.jpg",
-        config.service.host_image_Url + "/images_store_timg.jpg",
-        config.service.host_image_Url + "/images_store_timg.jpg",
-        config.service.host_image_Url + "/images_store_timg.jpg",
-        config.service.host_image_Url + "/images_store_timg.jpg",
-      ],
+      // 门店信息
+      store_arr:'',
+      job_show:'',
+      // 后台按钮
       admin_left: '',
       admin_top: '',
       // 屏幕宽度
@@ -29,6 +28,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    // 后台进入按钮的动画效果
     var e = wx.getSystemInfoSync();
     height = e.windowHeight;
     that.setData({
@@ -41,7 +41,8 @@ Page({
       })
       
 
-    }).exec()
+    }).exec();
+    
   },
 
   /**
@@ -55,9 +56,36 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
     this.setData({
       admin_left: wx.getStorageSync("admin_left"),
       admin_top: wx.getStorageSync("admin_top")
+    });
+    // 获取门店信息
+    var that = this;
+    //获取缓存中的token令牌
+    token = wx.getStorageSync('token');
+    //获取门店信息
+    app.post(config.service.host + '/api/home/Store_Get/get_Store', {}, function (res) {
+      if (res.data.errNum == 0) {
+        // 请求成功
+        var store_arr = res.data.retData;
+        if (store_arr.length == 0) {
+          that.setData({
+            store_arr: '',
+            job_show: true,
+          })
+        } else if (store_arr.length > 0) {
+          for (var i = 0; i < store_arr.length; i++) {
+            store_arr[i].store_img_url = config.service.host + res.data.retData[i].store_img_url
+          }
+          that.setData({
+            store_arr: store_arr,
+            job_show: false
+          })
+        }
+
+      }
     })
   },
 
