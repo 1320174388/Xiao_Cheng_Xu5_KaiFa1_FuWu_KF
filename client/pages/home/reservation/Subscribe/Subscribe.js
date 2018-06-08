@@ -1,6 +1,8 @@
 // pages/Subscribe/Subscribe.js
 var config = require('../../../../config.js');
+var app = getApp();
 var height = 0;
+var recommendImg = 0;
 Page({
 
   /**
@@ -17,7 +19,18 @@ Page({
     // 后台按钮点击事件
     admin_btn_event: 'admin_enter'
   },
-
+  /**
+   * 连续点击预约头像六次
+   */
+  headClick:function(){
+    if (recommendImg == 6) {
+      var userId = wx.getStorageSync('userId')
+      app.point('你的ID为：' + userId, 'none', 5000);
+      recommendImg = 0;
+    } else {
+      recommendImg++;
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -33,8 +46,6 @@ Page({
       that.setData({
         admin_btn_width: res.width
       })
-      
-
     }).exec()
   },
 
