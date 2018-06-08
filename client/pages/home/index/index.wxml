@@ -8,7 +8,7 @@
             <!--轮播图单个容器  -->
             <swiper-item wx:for="{{swiper_imgUrl}}" wx:key="index">
                 <!--图片  -->
-                <image src='{{item}}' class='slide-image'></image>
+                <image src='{{host}}{{item.config_content}}' class='slide-image'></image>
             </swiper-item>
         </swiper>
     </view>
@@ -22,94 +22,21 @@
         <text class='icon_text'>{{item.text}}</text>
       </view>
     </view>
-    
-    <!--艾美丽容器  -->
-    <view class='Aimeili_container'>
-        <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
-            <!-- 文字 -->
-            <view class='Chinese'>艾美丽\t艾健康</view>
-            <view class='English'>SERVICE\tLTEMS</view>
-        </view>
-        <!--图文内容介绍  -->
-        <view class='tuwen_container'>
-            <!--左图右字  -->
-            <view class='tuwen_content'>
-                <image src='{{host_image_Url}}/AiMeiLi_one.png' class='Aimeili_img'></image>
-                <view class='text_container'>
-                    <text style='font-size:32rpx;color:#303030;'>细致肌肤，改善肤色\n</text>
-                    <text style='font-size:26rpx;color:#9b9b9b;'>艾兰慕德/桌颜嫩肤系列</text>
-                </view>
-            </view>
-            <!--左字右图  -->
-            <view class='tuwen_content'>
-                <view class='text_container'>
-                    <text style='font-size:32rpx;color:#303030;'>紧致保养，重塑美颈\n</text>
-                    <text style='font-size:26rpx;color:#9b9b9b;'>清洁\t保养\t美白\t护肤</text>
-                </view>
-                <image src='{{host_image_Url}}/AiMeiLi_two.png' class='Aimeili_img'></image>
-                
-            </view>
-        </view>
-        <!--了解更多产品  -->
-        <view class='btn_container'>
-            <button class='liaojie' plain="true" style='border: dashed #9b9b9b 1rpx;' bindtap='tiaozhuan_productdetails'>了解更多产品</button>
-        </view>
-    </view>
-
     <!--空谷幽兰  -->
-    <view class='Aimeili_container'>
-        <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
-            <!-- 文字 -->
-            <view class='Chinese'>空谷幽兰</view>
-            <view class='English'>ELEGANT</view>
-        </view>
-        <!--图片介绍  -->
-        <view class='tupian_container'>
-          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
-        </view>
+    <view wx:for="{{recommendArray}}" wx:key="index" wx:if="item">
+      <view class='Aimeili_container'>
+          <!-- 文字背景 -->
+          <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
+              <!-- 文字 -->
+              <view class='Chinese'>{{item.config_content.product_name}}</view>
+              <view class='English'>RECOMMEND</view>
+          </view>
+          <!--图片介绍  -->
+          <view class='tupian_container'>
+            <image src='{{host}}{{item.config_content.product_img_url}}' class='konggu'></image>
+          </view>
+      </view>
     </view>
-    <!--明德惟馨  -->
-    <view class='Aimeili_container'>
-        <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
-            <!-- 文字 -->
-            <view class='Chinese'>明德惟馨</view>
-            <view class='English'>COMPANY\tPROFILE</view>
-        </view>
-        <!--图片介绍  -->
-        <view class='tupian_container'>
-          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
-        </view>
-    </view>
-    <!--明德惟馨  -->
-    <view class='Aimeili_container'>
-        <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
-            <!-- 文字 -->
-            <view class='Chinese'>明德惟馨</view>
-            <view class='English'>COMPANY\tPROFILE</view>
-        </view>
-        <!--图片介绍  -->
-        <view class='tupian_container'>
-          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
-        </view>
-    </view>
-    <!--明德惟馨  -->
-    <view class='Aimeili_container'>
-        <!-- 文字背景 -->
-        <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">
-            <!-- 文字 -->
-            <view class='Chinese'>明德惟馨</view>
-            <view class='English'>COMPANY\tPROFILE</view>
-        </view>
-        <!--图片介绍  -->
-        <view class='tupian_container'>
-          <image src='{{host_image_Url}}/kong_gu_you_lan.png' class='konggu'></image>
-        </view>
-    </view>
-    
     <!--热线和地址容器  -->
     <view class='rexian_dizhi_container'>
         <!--热线容器  -->
@@ -117,26 +44,26 @@
             <!--热线小图标  -->
             <image src='{{host_image_Url}}/phone_icon.png' class='rexian_phone_img'></image>
             <!--热线电话  -->
-            <text>服务热线：010-86220269</text>
+            <text>服务热线：{{config_phone}}</text>
         </view>
         <!--地址容器  -->
         <view class='rexian_container dizhi_container'>
             <!--地址小图标  -->
             <image src='{{host_image_Url}}/address_icon.png' class='dizhi_address_img'></image>
             <!--热线电话  -->
-            <text>公司地址：北京市海淀区高里掌路1号院6号楼201-123</text>
+            <text class='dizhi_address_txt'>公司地址：{{config_address}}</text>
         </view>
     </view>
     <!--地老天荒的logo和电话  -->
     <view class='dlth' bindtap='phone_dlth'>
-        <image src='https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/gslogo_1x.png' class='dlth_logo'  mode="widthFix"></image>
+        <image src='{{host_image_Url}}/gslogo_1x.png' class='dlth_logo'  mode="widthFix"></image>
         <view>
           售后电话\t:\t<text>010-86220269</text>
         </view>
     </view>
     <!--后台进入按钮  -->
       <view class='admin_enter' catchtap='{{admin_btn_event}}' animation="{{animationData}}" style='left:{{admin_left}}px;top:{{admin_top}}px' catchtouchmove='admin_move' catchtouchend='admin_move_end'>
-      <image src='https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/icon_admin.png' class='admin_icon' mode='widthFix'></image>
+      <image src='{{host_image_Url}}/icon_admin.png' class='admin_icon' mode='widthFix'></image>
       </view>
     
 </view>

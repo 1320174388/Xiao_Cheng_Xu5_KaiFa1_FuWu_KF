@@ -180,6 +180,9 @@
   margin-top: 16rpx;
   margin-right: 17rpx;
 }
+.dizhi_address_txt{
+  line-height:65rpx
+}
 .dizhi_container{
   border: none;
   line-height: 40rpx;

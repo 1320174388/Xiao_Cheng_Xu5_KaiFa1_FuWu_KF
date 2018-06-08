@@ -1,5 +1,6 @@
 // pages/home/index/index.js
 var config = require('../../../config.js');
+var app = getApp();
 var height = 0;
 Page({
 
@@ -9,12 +10,9 @@ Page({
   data: {
       host_image_Url:config.service.host_image_Url,
       // 轮播图img的地址
-      swiper_imgUrl:[
-        config.service.host_image_Url + "/swiper_banner.png",
-        config.service.host_image_Url + "/swiper_banner.png",
-        config.service.host_image_Url + "/swiper_banner.png",
-        config.service.host_image_Url + "/swiper_banner.png"
-      ],
+      swiper_imgUrl:null,
+      recommendArray:null,
+      host: config.infomation.host,
       // icon图标的img和文字的地址
       icon:[
         {
@@ -78,8 +76,26 @@ Page({
         admin_left: wx.getStorageSync("admin_left")
 
       })
-    }).exec()
+    }).exec();
     
+    var This = this;
+    // 获取项目配置信息接口
+    app.post(
+      config.infomation.get_service_config_type, {
+        'token': wx.getStorageSync('token'),
+        service_type: 'config_data'
+      }, function (res) {
+        This.setData({
+          // 获取轮播图
+          swiper_imgUrl: res.data.retData.sowing_map,
+          // 获取推荐位信息
+          recommendArray: res.data.retData.product_key,
+          // 获取信息配置
+          config_address: res.data.retData.config_details.config_address.config_content,
+          config_phone: res.data.retData.config_details.config_phone.config_content,
+        });
+      }
+    )
   },
 
   /**

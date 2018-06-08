@@ -1,11 +1,6 @@
 <!--pages/product/product.wxml-->
-
-
-
 <view class="shelf-nav">
-
-  <view  wx:for="{{imgg}}" wx:key="index">
-    <image wx:if="{{item}}" src='{{item.showSrc}}'></image>
+  <view  wx:for="{{imgg}}" wx:key="index" wx:if="{{item}}">
+    <image src='{{host}}{{item.config_content}}' mode="widthFix"></image>
   </view>
-
 </view>
