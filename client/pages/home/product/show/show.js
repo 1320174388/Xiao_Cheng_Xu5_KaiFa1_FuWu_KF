@@ -1,5 +1,6 @@
 // pages/product/product.js
 var config = require('../../../../config.js');
+var app = getApp();
 Page({
 
   /**
@@ -7,26 +8,27 @@ Page({
    */
   data: {
     // 图片和名称
-    imgg: [{
-      id: 1,
-      showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun1.jpg'
-    },
-    {
-      id: 2,
-      showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun2.jpg'
-    },
-    {
-      id: 3,
-      showSrc: 'https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/lun3.jpg'
-    }
-    ]
+    imgg: null,
+    host: config.infomation.host,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var This = this;
+    // 获取项目配置信息接口
+    app.post(
+      config.infomation.get_service_config_type, {
+        'token': wx.getStorageSync('token'),
+        service_type: 'config_data'
+      }, function (res) {
+        This.setData({
+          // 获取展示图片
+          imgg: res.data.retData.notice_image,
+        });
+      }
+    )
   },
 
   /**
@@ -40,13 +42,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (wx.getStorageSync("show_img") == ""){
+    // if (wx.getStorageSync("show_img") == ""){
 
-    }else{
-      this.setData({
-        imgg: wx.getStorageSync("show_img")
-      })
-    }
+    // }else{
+    //   this.setData({
+    //     imgg: wx.getStorageSync("show_img")
+    //   })
+    // }
     
     
   },
