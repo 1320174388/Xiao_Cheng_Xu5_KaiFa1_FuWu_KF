@@ -9,23 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    quanxuan_arr: [
-      {
-        "name": "门店管理",
-        "icon_color": "gray",
-        "checked": false
-      },
-      {
-        "name": "查看预约",
-        "icon_color": "gray",
-        "checked": false
-      },
-      {
-        "name": "产品管理",
-        "icon_color": "gray",
-        "checked": false
-      }
-    ],
+    quanxuan_arr: "",
     //默认的权限名称
     job_default:"",
     qx_checked:false
@@ -35,11 +19,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-      this.setData({
+      var that = this;
+      token = wx.getStorageSync("token");
+      that.setData({
         job_default: options.job_defalut
       })
       id = options.id;
+      // 获取权限列表
+      app.post(config.service.host + "/api/admin/position/right", {
+        'token': token
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          // 请求成功
+          var quanxuan_arr = res.data.retData.list;
+          for (var i = 0; i < quanxuan_arr.length; i++) {
+            quanxuan_arr[i].icon_color = "gray";
+            quanxuan_arr[i].checked = false;
+          }
+
+          that.setData({
+            quanxuan_arr: quanxuan_arr
+          })
+        }
+      })
   },
 
   /**

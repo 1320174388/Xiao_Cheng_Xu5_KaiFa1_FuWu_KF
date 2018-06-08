@@ -9,8 +9,8 @@
         <text class='jur_quanxian'>权限</text>
         <checkbox-group class='jur_choose' name='jur_choose'>
             <view class='check_style' wx:for="{{quanxuan_arr}}" wx:key="index">
-                <checkbox value='{{index+1}}' checked='{{item.checked}}' class='check_st' bindtap='jur_choose' id="{{index}}"></checkbox>
-                <text>{{item.name}}</text>
+                <checkbox value='{{item.id}}' checked='{{item.checked}}' class='check_st' bindtap='jur_choose' id="{{index}}"></checkbox>
+                <text>{{item.right_name}}</text>
                 <icon type='success' color='{{item.icon_color}}' class='jur_icon'  bindtap='jur_choose' id="{{index}}"></icon>
             </view>
         </checkbox-group>

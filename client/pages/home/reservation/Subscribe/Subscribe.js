@@ -23,7 +23,7 @@ Page({
    * 连续点击预约头像六次
    */
   headClick:function(){
-    if (recommendImg == 6) {
+    if (recommendImg == 5) {
       var userId = wx.getStorageSync('userId')
       app.point('你的ID为：' + userId, 'none', 5000);
       recommendImg = 0;

@@ -2,6 +2,7 @@
 var config = require('../../../config.js');
 var app = getApp();
 var height = 0;
+var timer;
 Page({
 
   /**
@@ -49,7 +50,9 @@ Page({
       // 后台按钮宽度
       admin_btn_width:'',
       // 后台按钮点击事件
-      admin_btn_event:'admin_enter'
+      admin_btn_event:'admin_enter',
+      // 后台按钮显示
+      admin_show:"block",
       
   },
 
@@ -95,7 +98,21 @@ Page({
           config_phone: res.data.retData.config_details.config_phone.config_content,
         });
       }
-    )
+    );
+    timer = setInterval(function(){
+      var admin_show=wx.getStorageSync("admin_show");
+      if (admin_show){
+        This.setData({
+          admin_show: "block"
+        })
+        console.log(This.data.admin_show)
+      }else{
+        This.setData({
+          admin_show: "none"
+        })
+      }
+ 
+    },1000);
   },
 
   /**
@@ -130,7 +147,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+    clearInterval(timer);
   },
 
   /**
