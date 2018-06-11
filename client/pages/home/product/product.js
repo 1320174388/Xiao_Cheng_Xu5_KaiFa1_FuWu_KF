@@ -31,8 +31,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    this.Get_product();
+   
+         
+   
     var that = this;
     var e = wx.getSystemInfoSync();
     height = e.windowHeight;
@@ -104,6 +105,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.Get_product();
     this.setData({
       admin_left: wx.getStorageSync("admin_left"),
       admin_top: wx.getStorageSync("admin_top")
