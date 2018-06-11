@@ -94,27 +94,38 @@ Page({
   jur_remove:function(res){
     var that = this;
     var idn = res.currentTarget.id;
-    // 删除api
-    app.post(config.service.host +'/api/admin/position/delete',{
-      "token":token,
-      "id":idn
-    },function(res){
-      if(res.data.errNum == 0){
-        // 删除成功
-        app.point(res.data.retMsg,"success",1000)
-        // 刷新onload
-        that.onLoad();
-      } else if (res.data.errNum == 1){
-        // 你没有权限进行此操作
-        app.point(res.data.retMsg, "none", 1000)
-      } else if (res.data.errNum == 2) {
-        // 当前职位已被管理员使用,不可删除
-        app.point(res.data.retMsg, "none", 1000)
-      } else if (res.data.errNum == 3) {
-        // 删除失败
-        app.point(res.data.retMsg, "none", 1000)
+
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: function (res) {
+        if (res.confirm) {
+          // 删除api
+          app.post(config.service.host + '/api/admin/position/delete', {
+            "token": token,
+            "id": idn
+          }, function (res) {
+            if (res.data.errNum == 0) {
+              // 删除成功
+              app.point(res.data.retMsg, "success", 1000)
+              // 刷新onload
+              that.onLoad();
+            } else if (res.data.errNum == 1) {
+              // 你没有权限进行此操作
+              app.point(res.data.retMsg, "none", 1000)
+            } else if (res.data.errNum == 2) {
+              // 当前职位已被管理员使用,不可删除
+              app.point(res.data.retMsg, "none", 1000)
+            } else if (res.data.errNum == 3) {
+              // 删除失败
+              app.point(res.data.retMsg, "none", 1000)
+            }
+          });
+
+        }
       }
-    });
+    })
+
     
   },
   // 添加事件
