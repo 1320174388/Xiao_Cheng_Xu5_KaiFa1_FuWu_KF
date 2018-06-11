@@ -20,7 +20,6 @@ Page({
         'status':1
       },function(res){
         if(res.data.errNum == 0){
-          console.log(res.data.retData);
           This.setData({
             reserve_arr_f : res.data.retData
           });
@@ -33,7 +32,6 @@ Page({
         'status': 2
       }, function (res) {
         if (res.data.errNum == 0) {
-          console.log(res.data.retData);
           This.setData({
             reserve_arr_t: res.data.retData
           });
