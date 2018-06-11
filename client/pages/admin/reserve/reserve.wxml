@@ -22,6 +22,7 @@
       </view>
     </view>
   </view>
+  <view style='height:100rpx;'></view>
   <button class="dete" bindtap='reserve_chuli'>确定处理</button>
 </view>
 <!--历史预约表单-->

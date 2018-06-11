@@ -124,14 +124,24 @@ Page({
         'token': wx.getStorageSync('token'),
         'product_index': e.currentTarget.dataset.editid
       }, function (res) {
-        if (res.data.errNum == 0) {
-          app.point(res.data.retMsg, "success");
-          setTimeout(function () {
-            THIS.onLoad();
-          }, 1000);
-        } else {
-          app.point(res.data.retMsg, "none");
-        };
+        wx.showModal({
+          title: '提示',
+          content: '确定要删除吗？',
+          success: function (sm) {
+            if (sm.confirm) {
+              if (res.data.errNum == 0) {
+                app.point(res.data.retMsg, "success");
+                setTimeout(function () {
+                  THIS.onLoad();
+                }, 1000);
+              } else {
+                app.point(res.data.retMsg, "none");
+              };
+            } else if (sm.cancel) {
+              // console.log('用户点击取消')
+            }
+          }
+        })
       }
     );
   },
@@ -143,14 +153,24 @@ Page({
         'token': wx.getStorageSync('token'),
         'notice_index': e.currentTarget.dataset.showid
       }, function (res) {
-        if (res.data.errNum == 0) {
-          app.point(res.data.retMsg, "success");
-          setTimeout(function () {
-            THIS.onLoad();
-          }, 1000);
-        } else {
-          app.point(res.data.retMsg, "none");
-        };
+        wx.showModal({
+          title: '提示',
+          content: '确定要删除吗？',
+          success: function (sm) {
+            if (sm.confirm) {
+              if (res.data.errNum == 0) {
+                app.point(res.data.retMsg, "success");
+                setTimeout(function () {
+                  THIS.onLoad();
+                }, 1000);
+              } else {
+                app.point(res.data.retMsg, "none");
+              };
+            } else if (sm.cancel) {
+              // console.log('用户点击取消')
+            }
+          }
+        })
       }
     );
   },
