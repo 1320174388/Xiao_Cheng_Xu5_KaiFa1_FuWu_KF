@@ -52,9 +52,11 @@
             {{item.config_content.product_name}}
             </view> 
             <!-- 推荐详细信息 -->
-            <view style="flex:1" class='recommend-info-datiled'>
-              {{item.config_content.product_info}}
-            </view> 
+            <scroll-view class='scrollDetailed' scroll-y>
+              <view style="flex:1" class='recommend-info-datiled'>
+                {{item.config_content.product_info}}
+              </view> 
+            </scroll-view>
             <!-- 删除 -->
             <view style="flex:1" class='recommend-info-delete' bindtap='recommendDelete' 
                   data-editid="{{item.config_index}}">
@@ -85,10 +87,6 @@
               <!--  推荐产品添加名称 -->
               <view style="flex:1"  class='product-recommend-add-name'> 
                 {{item.product_name}}
-              </view> 
-              <!--  推荐产品添加按钮 -->
-              <view style="flex:0.25" class="product-recommend-add-radio">
-                <!-- <checkbox value='{{item.id}}' checked="{{item.checked}}"></checkbox> -->
               </view> 
             </view> 
           </view>
