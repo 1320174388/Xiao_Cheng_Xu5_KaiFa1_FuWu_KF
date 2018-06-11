@@ -104,26 +104,41 @@ Page({
     var that = this;
     var removeId = res.currentTarget.id;
     // 删除api
-    app.post(config.service.host +'/api/admin/Store_Management/del_Store',{
-      'token':token,
-      'store_id':removeId
-    },function(res){
-      if(res.data.errNum == 0){
-        // 删除成功
-        app.point(res.data.retMsg,'success',1000);
-        // 刷新onload
-        that.onLoad();
-      } else if(res.data.errNum == 1){
-        // 你没有权限进行此操作
-        app.point(res.data.retMsg, 'none', 1000)
-      } else if (res.data.errNum == 2) {
-        // 请发送要删除的门店ID
-        app.point("请选择要删除的门店", 'none', 1000)
-      } else if (res.data.errNum == 3) {
-        // 删除失败
-        app.point(res.data.retMsg, 'none', 1000)
+    wx.showModal({
+      title: '提示',
+      content: '是否确定删除',
+      success: function (res) {
+        if (res.confirm) {
+
+
+          app.post(config.service.host + '/api/admin/Store_Management/del_Store', {
+            'token': token,
+            'store_id': removeId
+          }, function (res) {
+            if (res.data.errNum == 0) {
+              // 删除成功
+              app.point(res.data.retMsg, 'success', 1000);
+              // 刷新onload
+              that.onLoad();
+            } else if (res.data.errNum == 1) {
+              // 你没有权限进行此操作
+              app.point(res.data.retMsg, 'none', 1000)
+            } else if (res.data.errNum == 2) {
+              // 请发送要删除的门店ID
+              app.point("请选择要删除的门店", 'none', 1000)
+            } else if (res.data.errNum == 3) {
+              // 删除失败
+              app.point(res.data.retMsg, 'none', 1000)
+            }
+          })
+        } else {
+
+        }
+
       }
     })
+
+
 
   },
   // 编辑
