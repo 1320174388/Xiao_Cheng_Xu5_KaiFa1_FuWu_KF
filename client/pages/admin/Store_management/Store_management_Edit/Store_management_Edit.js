@@ -183,7 +183,7 @@ Page({
    
 
     
-      app.point("编辑成功！", "success", 3000);
+      app.point("编辑成功", "success", 3000);
 
     setTimeout(function () {
       

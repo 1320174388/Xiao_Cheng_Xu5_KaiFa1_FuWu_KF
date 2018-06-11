@@ -48,7 +48,7 @@ Page({
           // 更新成功
           // 返回上一页
           wx.showToast({
-            title: '成功保存！',
+            title: '编辑成功',
             icon: 'succes',
             duration: 3000,
             mask: true
@@ -104,7 +104,7 @@ Page({
             // 更新成功
             // 返回上一页
             wx.showToast({
-              title: '成功保存！',
+              title: '编辑成功',
               icon: 'succes',
               duration: 3000,
               mask: true
