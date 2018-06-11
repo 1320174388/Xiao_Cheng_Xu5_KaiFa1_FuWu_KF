@@ -94,11 +94,11 @@ Page({
       var admin_show = wx.getStorageSync("admin_show");
       if (admin_show) {
         This.setData({
-          admin_show: true
+          admin_show: false
         });
       } else {
         This.setData({
-          admin_show: true
+          admin_show: false
         });
       }
     }, 1000);
