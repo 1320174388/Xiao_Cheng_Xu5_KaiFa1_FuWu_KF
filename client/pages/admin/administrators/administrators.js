@@ -92,28 +92,39 @@ Page({
   jur_remove: function (res) {
     var that = this;
     var admin_id = res.currentTarget.id;
-    // 删除api
-    app.post(config.service.host + '/api/admin/isadmin/delete', {
-      "token": token,
-      "admin_id": admin_id
-    }, function (res) {
-      if (res.data.errNum == 0) {
-        // 刷新onload
-        that.onLoad();
-        // 删除成功
-        app.point(res.data.retMsg, "success", 1000)
-        
-      } else if (res.data.errNum == 1) {
-        // 你没有权限进行此操作
-        app.point(res.data.retMsg, "none", 1000)
-      } else if (res.data.errNum == 2) {
-        // 管理员ID丢失
-        app.point(res.data.retMsg, "none", 1000)
-      } else if (res.data.errNum == 3) {
-        // 删除失败
-        app.point(res.data.retMsg, "none", 1000)
+
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: function (res) {
+        if (res.confirm) {
+          // 删除api
+          app.post(config.service.host + '/api/admin/isadmin/delete', {
+            "token": token,
+            "admin_id": admin_id
+          }, function (res) {
+            if (res.data.errNum == 0) {
+              // 刷新onload
+              that.onLoad();
+              // 删除成功
+              app.point(res.data.retMsg, "success", 1000)
+
+            } else if (res.data.errNum == 1) {
+              // 你没有权限进行此操作
+              app.point(res.data.retMsg, "none", 1000)
+            } else if (res.data.errNum == 2) {
+              // 管理员ID丢失
+              app.point(res.data.retMsg, "none", 1000)
+            } else if (res.data.errNum == 3) {
+              // 删除失败
+              app.point(res.data.retMsg, "none", 1000)
+            }
+          })
+        }
       }
-    });
+    })
+
+    
   },
   // 添加
   jump_add_job: function () {
