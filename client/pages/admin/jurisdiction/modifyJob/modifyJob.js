@@ -129,10 +129,9 @@ Page({
     },function(res){
       if(res.data.errNum == 0){
         // 修改成功
-        // 页面返回
-        wx.navigateBack({
-          delta: 1
-        })
+        getApp().point('修改成功', 'success', 3000)
+        // 返回上一页面
+        getApp().timeBack(2000)
       } else if (res.data.errNum == 1){
         // 你没有权限进行此操作
         app.point(res.data.retMsg,"none",1000);
