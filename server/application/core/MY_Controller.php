@@ -19,9 +19,9 @@ class LoginController extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-//        $this->load->helper('url');
-//        if( !(is_admin_user() || is_system_admin()) ){
-//            redirect('https://'.$_SERVER['HTTP_HOST'].'/api/admin/Token/no_token');
-//        }
+        $this->load->helper('url');
+        if( !(is_admin_user() || is_system_admin()) ){
+            redirect('https://'.$_SERVER['HTTP_HOST'].'/api/admin/Token/no_token');
+        }
     }
 }

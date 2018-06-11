@@ -23,7 +23,7 @@
       </view>
     </view>
     <!--空谷幽兰  -->
-    <view wx:for="{{recommendArray}}" wx:key="index" wx:if="item">
+    <view wx:for="{{recommendArray}}" wx:key="index" data-item='{{item.config_content}}' wx:if="item" bindtap='product_details' >
       <view class='Aimeili_container'>
           <!-- 文字背景 -->
           <view class='Aimeili_title' style="background-image:url('{{host_image_Url}}/zhuangshi_line.png')">

@@ -152,7 +152,6 @@ Page({
    * product_details
    */
   product_details: function (res) {
-    console.log(res)
     var Item =res.currentTarget.dataset.item
     wx.setStorageSync("product_details", Item)
     //返回
