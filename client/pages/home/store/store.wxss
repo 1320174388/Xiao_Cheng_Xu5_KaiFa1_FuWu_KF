@@ -1,9 +1,11 @@
-.wrap{
+page{
   background: #f3f3f3;
+}
+.wrap{
+  background: #fff;
 }
 .mendian_content{
   background: #ffffff;
-  margin-bottom: 30rpx;
 }
 .img{
   width: 100%;
@@ -35,7 +37,7 @@
   text-align: center;
   color: #ccc;
   font-size: 30rpx;
-  padding: 10rpx 0 20rpx 0;
+  padding: 40rpx 0 20rpx 0;
 }
 .dlth_logo{
   width: 400rpx;

@@ -13,7 +13,7 @@
 <!--地老天荒的logo和电话  -->
     <view class='dlth' bindtap='phone_dlth'>
         <image src='https://lg-14y7j4wa-1256666116.cos.ap-shanghai.myqcloud.com/gslogo_1x.png' class='dlth_logo'  mode="widthFix"></image>
-        <view>
+        <view style='background: #F3F3F3;'>
           售后电话\t:\t<text>010-86220269</text>
         </view>
     </view>
