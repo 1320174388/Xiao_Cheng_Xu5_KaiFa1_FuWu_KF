@@ -11,6 +11,7 @@ class Set_Product extends LoginController
     {
         parent::__construct();
         $this->load->model('admin/Product');
+        $this->load->model('Config/My_Service_Config');
         $this->load->helper('token');
         $this->load->helper('uploads');
     }
@@ -65,6 +66,15 @@ class Set_Product extends LoginController
 
         if(!$post['product_id']) return return_response( 2, '请发送要删除的产品ID');
 
+        $product_key = $this->My_Service_Config->select_service_config(
+            'config_index',
+            "config_type = 'product_key' and config_content = {$post['product_id']}"
+        );
+
+        if($product_key){
+            return return_response( 3, '产品已被推荐');
+        }
+
         $productInfo = $this->Product->ProductFind($post['product_id']);
 
         @upload_delete($productInfo->product_img_url);
@@ -74,7 +84,7 @@ class Set_Product extends LoginController
         if($res){
             return return_response( 0, '删除成功');
         }else{
-            return return_response( 3, '删除失败');
+            return return_response( 4, '删除失败');
         }
     }
 
