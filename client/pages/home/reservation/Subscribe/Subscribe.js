@@ -3,6 +3,9 @@ var config = require('../../../../config.js');
 var app = getApp();
 var height = 0;
 var recommendImg = 0;
+var timer;
+var numType = true,
+  numTypes = true;
 Page({
 
   /**
@@ -17,7 +20,9 @@ Page({
     // 后台按钮宽度
     admin_btn_width: '',
     // 后台按钮点击事件
-    admin_btn_event: 'admin_enter'
+    admin_btn_event: 'admin_enter',
+    // 后台按钮显示
+    admin_show: 'none',
   },
   /**
    * 连续点击预约头像六次
@@ -44,9 +49,31 @@ Page({
     var query = wx.createSelectorQuery().in(this);
     query.select('.admin_enter').boundingClientRect(function (res) {
       that.setData({
-        admin_btn_width: res.width
+        admin_btn_width: that.data.window_width * 0.16 / 2
       })
-    }).exec()
+    }).exec();
+    // 定时器
+    timer = setInterval(function () {
+      if (numTypes) {
+        setTimeout(function () {
+          clearInterval(timer)
+        }, 10000)
+      }
+      numTypes = false;
+      if (!wx.getStorageSync("admin_show")) {
+        return false;
+
+      }
+      if (!numType) {
+        return false;
+      }
+      numType = false;
+      that.setData({
+        admin_show: 'block',
+        admin_left: that.data.window_width - that.data.window_width * 0.16 / 4,
+      });
+      clearInterval(timer);
+    }, 1000);
   },
 
   /**
