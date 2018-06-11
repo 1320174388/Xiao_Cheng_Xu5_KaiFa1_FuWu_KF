@@ -111,4 +111,5 @@ page{
   color:#ffffff;
   position:fixed;
   bottom:0;
+  z-index:5;
 }
