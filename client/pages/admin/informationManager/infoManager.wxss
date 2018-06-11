@@ -81,7 +81,6 @@ page{
  }
  .recommend{
    margin-top: 30rpx;
-   height: 227rpx;
    background-color: #fff;
  }
  /* 推荐图片 */
