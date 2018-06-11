@@ -115,7 +115,7 @@ page{
    width: 100rpx;
    position:relative;
    left:400rpx;
-   bottom:30rpx;
+   bottom:10rpx;
  }
  /* 删除 */
  .delete{
