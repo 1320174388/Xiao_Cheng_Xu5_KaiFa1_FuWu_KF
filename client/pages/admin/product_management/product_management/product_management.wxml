@@ -14,9 +14,9 @@
       <view class='q1' >
         <!--产品名称  -->
         <view class='qmc'>{{item.product_name}}</view>
-        <!--门店详情  -->
+        <!--产品详情  -->
         <scroll-view class='qxq'  >
-            <textarea class='n' value='{{item.product_info}}'  size="20" style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
+            <textarea class='n' disabled="true" value='{{item.product_info}}'  size="20" style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
         </scroll-view>
         <!--  -->
         <view class='q2' >

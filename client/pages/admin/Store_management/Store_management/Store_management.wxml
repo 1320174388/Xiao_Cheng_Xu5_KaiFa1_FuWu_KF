@@ -16,7 +16,7 @@
         <view class='qmc'>{{item.store_name}}</view>
         <!--门店详情  -->
         <scroll-view class='qxq'  >
-            <textarea class='n' value='{{item.store_addr}}'  size="20" style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
+            <textarea class='n' disabled="true" value='{{item.store_addr}}'  size="20" style='height:50px ;background:#ffffff ; width: 100%;   box-sizing: border-box;'    > </textarea>
         </scroll-view>
         <!--  -->
         <view class='q2' >

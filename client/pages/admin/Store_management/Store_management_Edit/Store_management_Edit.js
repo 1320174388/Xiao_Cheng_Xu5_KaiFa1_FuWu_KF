@@ -112,9 +112,9 @@ Page({
         if(res.data.errNum == 0){
           // 更新成功
           // 返回上一页
-          wx.navigateBack({
-            delta:1
-          })
+          
+          that.timeBack();
+         
         } else if(res.data.errNum == 1){
           // 你没有权限进行此操作
           app.point(res.data.retMsg,"none",1000);
@@ -155,9 +155,7 @@ Page({
           if (data.errNum == 0) {
             // 更新成功
             // 返回上一页
-            wx.navigateBack({
-              delta: 1
-            })
+            that.timeBack();
           } else if (data.errNum == 1) {
             // 你没有权限进行此操作
             app.point(data.retMsg, "none", 1000);
@@ -181,5 +179,21 @@ Page({
     
 
   },
+  timeBack: function (time = 1000) {
+   
+
+    
+      app.point("编辑成功！", "success", 3000);
+
+    setTimeout(function () {
+      
+      wx.navigateBack({
+        success: function () {
+          delta: 1 
+        }
+      });
+    }, time);
+     
+  }
 
 })
