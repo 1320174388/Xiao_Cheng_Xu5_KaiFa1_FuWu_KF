@@ -47,6 +47,15 @@ Page({
         if (res.data.errNum == 0) {
           // 更新成功
           // 返回上一页
+          wx.showToast({
+            title: '成功保存！',
+            icon: 'succes',
+            duration: 3000,
+            mask: true
+          })
+
+
+
           setTimeout(function () {
             console.log("定时器")
             var pages = getCurrentPages(); // 当前页面  
@@ -94,6 +103,12 @@ Page({
           if (data.errNum == 0) {
             // 更新成功
             // 返回上一页
+            wx.showToast({
+              title: '成功保存！',
+              icon: 'succes',
+              duration: 3000,
+              mask: true
+            })
             setTimeout(function () {
               console.log("定时器")
               var pages = getCurrentPages(); // 当前页面  

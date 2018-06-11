@@ -106,7 +106,7 @@ Page({
     // 删除api
     wx.showModal({
       title: '提示',
-      content: '是否确定删除',
+      content: '确定删除？',
       success: function (res) {
         if (res.confirm) {
 
