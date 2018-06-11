@@ -102,6 +102,15 @@ page{
 	font-Size: 32rpx;
 	color: #4b4b4b;
  }
+ .scrollDetailed{
+   height: 120rpx;
+   width: 500rpx;
+ }
+ ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
  /* 推荐详细信息 */
  .recommend-info-datiled{
    width: 486rpx;
@@ -131,6 +140,7 @@ page{
    color: #fff;
    position: fixed;
    bottom: 0;
+   z-index: 20;
  }
  .recommend-add::after{
    border: none;
@@ -188,7 +198,12 @@ checkbox .wx-checkbox-input{
 }
 /* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
 checkbox .wx-checkbox-input.wx-checkbox-input-checked{
-   border: none;
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+   float: left;
+   left: 270rpx;
+   top:165rpx;
    background: #f66767;
 }
 /* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
